@@ -7,14 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     name: "Deploy frontend qa"
     steps:
-      - id: "pr_deploy"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: "14"
           registry-url: https://registry.npmjs.org/
-
       - name: "Deploy to Vercel QA"
+        id: "pr_deploy"
         run: npx vercel --token ${VERCEL_TOKEN}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -28,6 +27,6 @@ jobs:
     needs: vercel
     name: "Comment qa url in PR"
     steps:
-      - id: "pr_comment"
       - name: "Comment qa url"
+        id: "pr_comment"
         run: echo ${{ needs.vercel.outputs.QA_URL }}
