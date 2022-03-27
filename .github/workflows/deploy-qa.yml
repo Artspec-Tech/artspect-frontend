@@ -27,8 +27,7 @@ jobs:
   pr_comment:
     runs-on: ubuntu-latest
     needs: vercel
-    name: "Comment qa url in PR"
     steps:
       - name: "Comment qa url"
         id: "pr_comment"
-        run: echo "${{ needs.vercel.outputs.QA_URL }}"
+        run: echo "${{ needs.vercel.outputs.* }}"
