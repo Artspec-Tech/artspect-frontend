@@ -31,4 +31,4 @@ jobs:
     steps:
       - name: "Comment qa url"
         id: "pr_comment"
-        run: echo ${{ needs.vercel.outputs.QA_URL }}
+        run: echo "${{ needs.vercel.outputs.QA_URL }}"
