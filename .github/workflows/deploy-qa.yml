@@ -1,14 +1,11 @@
-name: "Deploy frontend production"
+name: "Deploy frontend qa"
 
-on:
-  push:
-    branches:
-      - "main"
+on: [pull_request]
 
 jobs:
   vercel:
     runs-on: ubuntu-latest
-    name: "Deploy frontend production"
+    name: "Deploy frontend qa"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -16,8 +13,8 @@ jobs:
           node-version: "14"
           registry-url: https://registry.npmjs.org/
 
-      - name: "Deploy to Vercel Prod"
-        run: npx vercel --token ${VERCEL_TOKEN} --prod
+      - name: "Deploy to Vercel QA"
+        run: npx vercel --token ${VERCEL_TOKEN}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
