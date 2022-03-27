@@ -27,11 +27,11 @@ jobs:
     needs: vercel
     name: "Comment qa url in PR"
     steps:
+      - id: "pr_comment"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: "14"
-          registry-url: https://registry.npmjs.org/
-      - id: "pr_comment"
+          registry-url: https://registry.npmjs.org
       - name: "Comment qa url"
       - run: echo ${{ needs.vercel.outputs.QA_URL }}
