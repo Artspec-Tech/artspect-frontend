@@ -10,7 +10,7 @@ const Header = (props: Props) => {
   return (
     <VStack>
       <SubHeader />
-      <Typography fontSize={50} fontWeight={500} marginY={"10px"}>
+      <Typography fontSize={30} fontWeight={600} marginBottom={"15px"}>
         Artspect
       </Typography>
       <Navigation />
