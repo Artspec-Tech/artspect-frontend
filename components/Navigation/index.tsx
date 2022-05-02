@@ -1,5 +1,6 @@
 import React from "react";
 import { HStack, NavButton } from "../common";
+import { navigations } from "./navigationList";
 
 type Props = {};
 
@@ -11,9 +12,13 @@ const Navigation = (props: Props) => {
       paddingY={"10px"}
       justifyContent={"space-around"}
     >
-      <NavButton text={"Home"} circleColor={"rgba(218, 103, 69, 0.7)"} />
-      <NavButton text={"Artwork"} circleColor={"rgba(218, 103, 69, 0.7)"} />
-      <NavButton text={"Workshop"} circleColor={"rgba(218, 103, 69, 0.7)"} />
+      {navigations.map((nav) => (
+        <NavButton
+          key={nav.path}
+          text={nav.text}
+          circleColor={nav.circleColor}
+        />
+      ))}
     </HStack>
   );
 };
