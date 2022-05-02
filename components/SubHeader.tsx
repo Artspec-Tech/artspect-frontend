@@ -25,7 +25,7 @@ const SubHeader = (props: Props) => {
           <Typography>My account</Typography>
           <Image src={ArrowDownIcon} alt="Arrow down" width={10} height={10} />
         </HStack>
-        <Image src={BasketIcon} alt="Basket" width={21} height={30} />
+        <Image src={BasketIcon} alt="Basket" width={30} height={21} />
       </HStack>
     </Box>
   );
