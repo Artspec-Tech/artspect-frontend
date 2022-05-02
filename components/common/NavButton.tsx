@@ -20,10 +20,10 @@ const NavButton = ({ text, circleColor, ...props }: Props) => {
           backgroundColor: circleColor,
           width: "20px",
           height: "20px",
-          filter: "blur(10px)",
+          filter: "blur(9px)",
           position: "relative",
           marginLeft: "-20px",
-          left: "100%",
+          left: "105%",
         }}
       ></div>
       <Typography>{text}</Typography>
