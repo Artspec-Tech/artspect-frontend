@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { Box } from "@mui/material";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import { HStack } from "../components/common";
 
 const Home: NextPage = () => {
