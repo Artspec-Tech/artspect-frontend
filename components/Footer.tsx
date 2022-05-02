@@ -37,7 +37,6 @@ const Footer = (props: Props) => {
         <IconButton size="large" color="primary">
           <ChevronLeftIcon fontSize="inherit" />
         </IconButton>
-
         <IconButton size="large" color="primary">
           <ChevronRightIcon fontSize="inherit" />
         </IconButton>
