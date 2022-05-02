@@ -1,4 +1,5 @@
 import HStack from "./HStack";
 import VStack from "./VStack";
+import NavButton from "./NavButton";
 
-export { HStack, VStack };
+export { HStack, VStack, NavButton };
