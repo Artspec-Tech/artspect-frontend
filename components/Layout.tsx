@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import type { AppProps } from "next/app";
 import React, { ReactNode } from "react";
 import Footer from "./Footer";
 import Header from "./Header";

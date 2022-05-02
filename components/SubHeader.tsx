@@ -1,8 +1,8 @@
-import { Box, Stack, Typography } from "@mui/material";
-import * as BasketIcon from "../../assets/icons/basket.svg";
-import * as ArrowDownIcon from "../../assets/icons/arrow-down.svg";
+import { Box, Typography } from "@mui/material";
+import { BasketIcon, ArrowDownIcon } from "../utils/icons";
 import Image from "next/image";
 import React from "react";
+import HStack from "./common/HStack";
 
 type Props = {};
 
@@ -16,25 +16,18 @@ const SubHeader = (props: Props) => {
         padding: "10px 72px",
       }}
     >
-      <Typography>i18n</Typography>
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        gap={2}
-      >
-        <Stack
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          gap={1}
-        >
+      <HStack gap={1}>
+        <Typography>English</Typography>
+        <Image src={ArrowDownIcon} alt="Arrow down" width={10} height={10} />
+      </HStack>
+      <HStack gap={2}>
+        <HStack gap={1}>
           <Typography>My account</Typography>
           <Image src={ArrowDownIcon} alt="Arrow down" width={10} height={10} />
-        </Stack>
+        </HStack>
 
         <Image src={BasketIcon} alt="Basket" width={21} height={30} />
-      </Stack>
+      </HStack>
     </Box>
   );
 };
