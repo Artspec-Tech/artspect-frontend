@@ -83,7 +83,7 @@ const Footer = (props: Props) => {
                       textAlign="center"
                     >
                       “Paintings have a life of their own that derives from the
-                      painter's soul.”
+                      painter&apos;s soul.”
                     </Typography>
                     <Typography
                       fontSize={15}
