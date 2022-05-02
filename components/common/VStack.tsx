@@ -9,6 +9,7 @@ const VStack = ({ children, ...props }: Props) => {
       direction="column"
       justifyContent="center"
       alignItems="center"
+      height="100%"
       {...props}
     >
       {children}

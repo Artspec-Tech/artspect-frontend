@@ -7,6 +7,7 @@ const HStack = ({ children, ...props }: Props) => {
   return (
     <Stack
       direction="row"
+      width="100%"
       justifyContent="center"
       alignItems="center"
       {...props}
