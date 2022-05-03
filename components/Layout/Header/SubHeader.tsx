@@ -1,8 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import { BasketIcon, ArrowDownIcon } from "../utils/icons";
+import { BasketIcon, ArrowDownIcon } from "../../../utils/icons";
 import Image from "next/image";
 import React from "react";
-import { HStack } from "./common";
+import { HStack } from "../../common";
 
 type Props = {};
 

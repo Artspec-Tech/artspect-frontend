@@ -1,5 +1,5 @@
 import React from "react";
-import { HStack, NavButton } from "../common";
+import { HStack, NavButton } from "../../common";
 import { navigations } from "./navigationList";
 
 type Props = {};

@@ -1,8 +1,8 @@
+import { Typography } from "@mui/material";
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import { VStack } from "./common";
-import SubHeader from "./SubHeader";
+import { VStack } from "../../common";
 import Navigation from "./Navigation";
+import SubHeader from "./SubHeader";
 
 type Props = {};
 
