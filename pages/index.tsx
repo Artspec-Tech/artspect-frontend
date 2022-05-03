@@ -1,14 +1,8 @@
 import type { NextPage } from "next";
-import { Box } from "@mui/material";
-import Layout from "../components/Layout";
 import { HStack } from "../components/common";
 
 const Home: NextPage = () => {
-  return (
-    <Layout>
-      <HStack flexGrow={1}>Hello, world!</HStack>
-    </Layout>
-  );
+  return <HStack flexGrow={1}>Home</HStack>;
 };
 
 export default Home;
