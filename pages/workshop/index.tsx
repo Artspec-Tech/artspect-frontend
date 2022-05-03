@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import React from "react";
-import { HStack } from "../../components/common";
+import { HStack } from "@components/common";
 
 type Props = {};
 
