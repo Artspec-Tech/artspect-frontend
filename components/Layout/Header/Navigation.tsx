@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { HStack, NavButton } from "../../common";
 import { navigations } from "./navigationList";
@@ -13,11 +14,9 @@ const Navigation = (props: Props) => {
       justifyContent={"space-around"}
     >
       {navigations.map((nav) => (
-        <NavButton
-          key={nav.path}
-          text={nav.text}
-          circleColor={nav.circleColor}
-        />
+        <Link key={nav.path} href={nav.path} passHref>
+          <NavButton text={nav.text} circleColor={nav.circleColor} />
+        </Link>
       ))}
     </HStack>
   );
