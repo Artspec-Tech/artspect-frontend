@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { HStack } from "@components/common";
+import Description from "@components/Description";
 
 const Home: NextPage = () => {
-  return <HStack flexGrow={1}>Home</HStack>;
+  return <Description />;
 };
 
 export default Home;
