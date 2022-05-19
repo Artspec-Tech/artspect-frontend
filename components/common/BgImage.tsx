@@ -1,4 +1,4 @@
-import { Box, BoxProps, Typography } from "@mui/material";
+import { Box, BoxProps } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import { FooterBackground } from "../../utils/images";
