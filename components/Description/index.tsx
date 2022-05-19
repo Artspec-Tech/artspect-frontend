@@ -9,8 +9,8 @@ type Props = {
 
 const Description = ({ subTopic, text }: Props) => {
   return (
-    <HStack justifyContent={"space-around"}>
-      <VStack alignItems={"flex-end"} width={"15%"}>
+    <HStack justifyContent={"space-between"}>
+      <VStack alignItems={"flex-end"} width={"22.5%"}>
         <Typography
           textAlign={"right"}
           fontSize={55}
