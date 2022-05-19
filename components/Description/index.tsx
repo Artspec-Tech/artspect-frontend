@@ -1,48 +1,19 @@
 import React from "react";
-import { HStack, VStack } from "@components/common";
-import { Box, Typography, Divider } from "@mui/material";
+import { VStack } from "@components/common";
+import DescriptionContent from "./DescriptionContent";
 
-type Props = {
-  subTopic: string;
-  text: string;
-};
-
-const Description = ({ subTopic, text }: Props) => {
+const Description = () => {
   return (
-    <HStack justifyContent={"space-between"}>
-      <VStack alignItems={"flex-end"} width={"22.5%"}>
-        <Typography
-          textAlign={"right"}
-          fontSize={55}
-          fontWeight={"bold"}
-          lineHeight={0.9}
-          color={"#382B4F"}
-        >
-          OUR
-        </Typography>
-        <Typography
-          textAlign={"right"}
-          fontSize={55}
-          fontWeight={"bold"}
-          lineHeight={0.9}
-          color={"#382B4F"}
-        >
-          {subTopic}
-        </Typography>
-      </VStack>
-      <Divider
-        orientation="vertical"
-        flexItem
-        sx={{ borderRightWidth: 1.5 }}
-        style={{
-          backgroundColor: "#382B4F",
-          opacity: "50%",
-        }}
+    <VStack gap={"65px"}>
+      <DescriptionContent
+        subTopic="VALUE"
+        text="Artspect aimes to guide you through the journey of self-exploration using art as a tool. We want to remind people to take a brief pause in their busy schedules, listen to their bodies and emotions, reflect on them, and identify how they are feeling right now. We welcome and invite everyone to join us on this journey."
       />
-      <Typography width={"65%"} fontSize={17} textAlign={"justify"}>
-        {text}
-      </Typography>
-    </HStack>
+      <DescriptionContent
+        subTopic="PURPOSE"
+        text="We encourage everyone to create their art through which the emotions are expressed. Then we will host an exhibition to showcase everyone’s work. Through this process, we hope to empower poeple to be more expressive of their emotions and inspire people to continue practicing self-expression as their habits."
+      />
+    </VStack>
   );
 };
 
