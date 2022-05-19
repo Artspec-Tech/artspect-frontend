@@ -1,16 +1,17 @@
-import { HStack } from "@components/common";
-import { Button, Typography } from "@mui/material";
-import fontWeights from "@utils/fontWeights";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
-import { navigations } from "./navigationList";
+import { HStack } from "@components/common";
+import { IconButton, Typography } from "@mui/material";
+import fontWeights from "@utils/fontWeights";
+import Navigation from "./Navigation";
+import Divider from "@components/common/Divider";
+import AuthenticatedHeader from "./AuthenticatedHeader";
+import UnauthenticatedHeader from "./UnauthenticatedHeader";
 
 type Props = {};
 
 const Header = (props: Props) => {
-  const router = useRouter();
-  console.log(router.pathname);
+  const gap = 3;
+  const isAuthenticated = true;
   return (
     <HStack
       padding={"2rem 6rem"}
@@ -20,32 +21,14 @@ const Header = (props: Props) => {
       <Typography variant="h4" fontWeight={fontWeights.semiBold}>
         Artspect
       </Typography>
-      <HStack width="auto" gap={5}>
-        {navigations.map((nav) => {
-          console.log(nav.path === router.pathname);
-          return (
-            <Link key={nav.path} href={nav.path} passHref>
-              <Button
-                variant="text"
-                style={{
-                  textTransform: "none",
-                }}
-              >
-                <Typography
-                  fontSize={20}
-                  style={{
-                    fontWeight:
-                      nav.path === router.pathname
-                        ? fontWeights.semiBold
-                        : fontWeights.light,
-                  }}
-                >
-                  {nav.text}
-                </Typography>
-              </Button>
-            </Link>
-          );
-        })}
+      <HStack width="auto" gap={gap}>
+        <Navigation />
+        <Divider orientation="vertical" style={{ borderColor: "black" }} />
+        {isAuthenticated ? (
+          <AuthenticatedHeader gap={gap} />
+        ) : (
+          <UnauthenticatedHeader />
+        )}
       </HStack>
     </HStack>
   );
