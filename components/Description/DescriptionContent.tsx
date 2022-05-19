@@ -1,5 +1,7 @@
 import { HStack, VStack } from "@components/common";
-import { Typography, Divider } from "@mui/material";
+import Divider from "@components/common/Divider";
+import { Typography } from "@mui/material";
+import fontWeights from "@utils/fontWeights";
 import React from "react";
 
 type Props = {
@@ -32,14 +34,18 @@ const DescriptionContent = ({ subTopic, text }: Props) => {
       </VStack>
       <Divider
         orientation="vertical"
-        flexItem
-        sx={{ borderRightWidth: 1.5 }}
+        thickness={1.5}
         style={{
           backgroundColor: "#382B4F",
           opacity: "50%",
         }}
       />
-      <Typography width={"65%"} fontSize={17} textAlign={"justify"}>
+      <Typography
+        width={"65%"}
+        fontSize={17}
+        textAlign={"justify"}
+        fontWeight={fontWeights.light}
+      >
         {text}
       </Typography>
     </HStack>
