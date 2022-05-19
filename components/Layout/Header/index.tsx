@@ -1,20 +1,36 @@
-import { Typography } from "@mui/material";
 import React from "react";
-import { VStack } from "../../common";
+import { HStack } from "@components/common";
+import { IconButton, Typography } from "@mui/material";
+import fontWeights from "@utils/fontWeights";
 import Navigation from "./Navigation";
-import SubHeader from "./SubHeader";
+import Divider from "@components/common/Divider";
+import AuthenticatedHeader from "./AuthenticatedHeader";
+import UnauthenticatedHeader from "./UnauthenticatedHeader";
 
 type Props = {};
 
 const Header = (props: Props) => {
+  const gap = 3;
+  const isAuthenticated = true;
   return (
-    <VStack>
-      <SubHeader />
-      <Typography fontSize={30} fontWeight={600} marginBottom={"15px"}>
+    <HStack
+      padding={"2rem 6rem"}
+      justifyContent={"space-between"}
+      alignItems={"center"}
+    >
+      <Typography variant="h4" fontWeight={fontWeights.semiBold}>
         Artspect
       </Typography>
-      <Navigation />
-    </VStack>
+      <HStack width="auto" gap={gap}>
+        <Navigation />
+        <Divider orientation="vertical" style={{ borderColor: "black" }} />
+        {isAuthenticated ? (
+          <AuthenticatedHeader gap={gap} />
+        ) : (
+          <UnauthenticatedHeader />
+        )}
+      </HStack>
+    </HStack>
   );
 };
 

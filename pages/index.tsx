@@ -4,7 +4,7 @@ import Description from "@components/Description";
 
 const Home: NextPage = () => {
   return (
-    <VStack margin={"5rem 6rem"}>
+    <VStack margin={"3rem 6rem"}>
       <Description />
     </VStack>
   );
