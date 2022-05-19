@@ -1,58 +1,48 @@
 import React from "react";
-import { Typography } from "@mui/material";
-import Grid from "@mui/material/Grid";
-import { HStack } from "../common";
+import { HStack, VStack } from "@components/common";
+import { Box, Typography, Divider } from "@mui/material";
 
-type Props = {};
+type Props = {
+  subTopic: string;
+  text: string;
+};
 
-const Description = (props: Props) => {
+const Description = ({ subTopic, text }: Props) => {
   return (
-    <div>
-      <Grid container spacing={2} margin={"1rem 0"}>
-        <HStack gap={3} width="auto">
-          <Grid item xs={2} marginTop={"4rem"}>
-            <Typography fontSize={30} fontWeight={600}>
-              Our
-            </Typography>
-            <Typography fontSize={30} fontWeight={600}>
-              Value
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={1}
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Typography fontSize={70} fontWeight={10}>
-              |
-            </Typography>
-          </Grid>
-          <Grid item xs={7}>
-            <Typography fontSize={10}>
-              Artspect aims to guide you through the journey of self-exploration
-              using art as a tool. We want to remind people to take a brief
-              pause in their busy schedules, listen to their bodies and
-              emotions, reflect on them, and identify how they are feeling right
-              now. We welcome and invite everyone to join us on this journey.
-            </Typography>
-          </Grid>
-        </HStack>
-      </Grid>
-      <HStack>
-        <Typography>Our Purpose</Typography>
-        <Typography>|</Typography>
-        <Typography fontSize={10}>
-          We encourage everyone to create their art through which the emotions
-          are expressed. Then we will host an exhibition to showcase everyones
-          work. Through this process, we hope to empower poeple to be more
-          expressive of their emotions and inspire people to continue practicing
-          self-expression as their habits.
+    <HStack justifyContent={"space-around"}>
+      <VStack alignItems={"flex-end"} width={"15%"}>
+        <Typography
+          textAlign={"right"}
+          fontSize={55}
+          fontWeight={"bold"}
+          lineHeight={0.9}
+          color={"#382B4F"}
+        >
+          OUR
         </Typography>
-      </HStack>
-    </div>
+        <Typography
+          textAlign={"right"}
+          fontSize={55}
+          fontWeight={"bold"}
+          lineHeight={0.9}
+          color={"#382B4F"}
+        >
+          {subTopic}
+        </Typography>
+      </VStack>
+      <Divider
+        orientation="vertical"
+        flexItem
+        sx={{ borderRightWidth: 1.5 }}
+        style={{
+          backgroundColor: "#382B4F",
+          opacity: "50%",
+        }}
+      />
+      <Typography width={"65%"} fontSize={17} textAlign={"justify"}>
+        {text}
+      </Typography>
+    </HStack>
   );
 };
 
