@@ -1,83 +1,86 @@
-import { IconButton, Typography } from "@mui/material";
+import { HStack, VStack, Divider } from "@components/common";
+import {
+  ArrowBackIosRounded,
+  ArrowForwardIosRounded,
+} from "@mui/icons-material";
+import { IconButton, Box, Typography } from "@mui/material";
+import fontWeights from "@utils/fontWeights";
+import { VanGoghImage } from "@utils/images";
+import { PietileCarousel, PietileCarouselHandle } from "pietile-carousel";
+import artists from "./artists";
 import React, { useRef } from "react";
-import Slider, { Settings } from "react-slick";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { VanGoghImage } from "../../../utils/images";
 import Image from "next/image";
-import { HStack, VStack } from "../../common";
 
-type Props = {};
-
-const ArtistCarousel = (props: Props) => {
-  const slider = useRef<Slider>(null);
-
-  const settings: Settings = {
-    fade: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    centerMode: true,
-  };
+const ArtistCarousel = () => {
+  const carousel = useRef<PietileCarouselHandle>(null);
   return (
     <HStack
-      paddingX={20}
       height={"400px"}
-      justifyContent={"space-between"}
-      style={{
-        backgroundColor: `rgba(185, 223, 255, 0.47)`,
+      paddingX={"5%"}
+      sx={{
+        backgroundColor: "#E2F2FF",
       }}
     >
-      <IconButton
-        size="large"
-        color="primary"
-        onClick={() => slider.current?.slickPrev()}
-      >
-        <ChevronLeftIcon fontSize="inherit" />
+      <IconButton onClick={() => carousel.current?.slidePrev()}>
+        <ArrowBackIosRounded />
       </IconButton>
-      <div
+      <PietileCarousel
+        ref={carousel}
         style={{
-          display: "flex",
-          flexDirection: "column",
           width: "100%",
+          height: "100%",
         }}
       >
-        <Slider {...settings} ref={slider}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-            <div key={i}>
-              <HStack justifyContent="space-between" gap={"50px"}>
-                <VStack
-                  borderRadius="50%"
-                  overflow="hidden"
-                  style={{
-                    aspectRatio: "1",
-                  }}
-                >
-                  <Image src={VanGoghImage} alt="van goh" objectFit="cover" />
-                </VStack>
-                <VStack width={"100%"}>
-                  <Typography fontSize={20} fontWeight={600} textAlign="center">
-                    “Paintings have a life of their own that derives from the
-                    painter&apos;s soul.”
-                  </Typography>
-                  <Typography fontSize={15} fontWeight={200} textAlign="center">
-                    - Vincent Van Gogh
-                  </Typography>
-                </VStack>
-              </HStack>
-            </div>
-          ))}
-        </Slider>
-      </div>
-
-      <IconButton
-        size="large"
-        color="primary"
-        onClick={() => slider.current?.slickNext()}
-      >
-        <ChevronRightIcon fontSize="inherit" />
+        {artists.map((artist) => (
+          <HStack
+            key={artist.name}
+            height="100%"
+            justifyContent={"space-between"}
+            paddingX={"5rem"}
+          >
+            <Box
+              borderRadius={"50%"}
+              height={"50%"}
+              overflow="hidden"
+              position="relative"
+              style={{
+                aspectRatio: "1",
+              }}
+            >
+              <Image
+                src={VanGoghImage}
+                alt="Van gogh"
+                layout="fill"
+                objectFit="cover"
+              />
+            </Box>
+            <VStack width={"70%"} gap={2}>
+              <Typography
+                fontWeight={fontWeights.medium}
+                fontSize={25}
+                fontStyle={"italic"}
+                lineHeight={1}
+                textAlign="center"
+                letterSpacing={"0.4px"}
+              >
+                {artist.quote}
+              </Typography>
+              <Divider
+                color="black"
+                style={{
+                  marginLeft: "20%",
+                  marginRight: "20%",
+                }}
+              />
+              <Typography fontStyle={"italic"} fontWeight={fontWeights.light}>
+                {artist.name}
+              </Typography>
+            </VStack>
+          </HStack>
+        ))}
+      </PietileCarousel>
+      <IconButton onClick={() => carousel.current?.slideNext()}>
+        <ArrowForwardIosRounded />
       </IconButton>
     </HStack>
   );
