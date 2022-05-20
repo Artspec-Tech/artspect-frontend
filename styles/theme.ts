@@ -2,7 +2,16 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   typography: {
     fontFamily: "Archivo",
-    allVariants: {
+    h1: {
+      fontFamily: "Montserrat",
+    },
+    h2: {
+      fontFamily: "Montserrat",
+    },
+    h3: {
+      fontFamily: "Montserrat",
+    },
+    h4: {
       fontFamily: "Montserrat",
     },
   },
