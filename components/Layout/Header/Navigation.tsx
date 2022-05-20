@@ -4,13 +4,10 @@ import Link from "next/link";
 import { Typography } from "@mui/material";
 import { navigations } from "./navigationList";
 import { AnimateSharedLayout, motion } from "framer-motion";
-import { HStack, VStack } from "@components/common";
+import { HStack, VStack, Divider } from "@components/common";
 import { useRouter } from "next/router";
-import Divider from "@components/common/Divider";
 
-type Props = {};
-
-const Navigation = (props: Props) => {
+const Navigation = () => {
   const { pathname } = useRouter();
   const isCurrentPath = (path: string) => pathname === path;
   return (
@@ -22,7 +19,7 @@ const Navigation = (props: Props) => {
               <Typography
                 fontSize={17}
                 component={motion.p}
-                fontWeight={fontWeights.light}
+                fontWeight={fontWeights.extraLight}
                 style={{
                   cursor: "pointer",
                 }}
