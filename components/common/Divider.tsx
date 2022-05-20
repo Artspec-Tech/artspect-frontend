@@ -11,7 +11,6 @@ const Divider = ({
   thickness,
   ...props
 }: Props) => {
-  console.log(orientation === "horizontal");
   return (
     <MuiDivider
       orientation={orientation}
