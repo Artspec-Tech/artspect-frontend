@@ -10,7 +10,7 @@ const AuthenticatedHeader = ({ ...props }: BoxProps) => {
     <HStack {...props}>
       <Typography
         fontSize={17}
-        fontWeight={fontWeights.light}
+        fontWeight={fontWeights.extraLight}
         whiteSpace="nowrap"
       >
         My Account

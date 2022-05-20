@@ -8,7 +8,7 @@ const UnauthenticatedHeader = (props: Props) => {
   return (
     <Typography
       fontSize={17}
-      fontWeight={fontWeights.light}
+      fontWeight={fontWeights.extraLight}
       whiteSpace="nowrap"
     >
       Sign in
