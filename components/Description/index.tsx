@@ -7,7 +7,7 @@ const Description = () => {
     <VStack gap={"65px"}>
       <DescriptionContent
         subTopic="VALUE"
-        text="Artspect aimes to guide you through the journey of self-exploration using art as a tool. We want to remind people to take a brief pause in their busy schedules, listen to their bodies and emotions, reflect on them, and identify how they are feeling right now. We welcome and invite everyone to join us on this journey."
+        text="Artspect aims to guide you through the journey of self-exploration using art as a tool. We want to remind people to take a brief pause in their busy schedules, listen to their bodies and emotions, reflect on them, and identify how they are feeling right now. We welcome and invite everyone to join us on this journey."
       />
       <DescriptionContent
         subTopic="PURPOSE"
