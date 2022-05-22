@@ -7,8 +7,8 @@ import ExtendedFooter from "./ExtendedFooter";
 const Footer = () => {
   return (
     <VStack>
-      <TwoImage />
       <ArtistCarousel />
+      <TwoImage />
       <ExtendedFooter />
     </VStack>
   );

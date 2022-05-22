@@ -6,7 +6,7 @@ type Props = {};
 
 const OurProduct = (props: Props) => {
   return (
-    <VStack width={"100%"} margin={"5rem"}>
+    <VStack width={"100%"} margin={"5rem 5rem 0 5rem"}>
       <Typography
         textAlign={"left"}
         width={"100%"}
@@ -26,7 +26,7 @@ const OurProduct = (props: Props) => {
       </Typography>
       <Typography
         textAlign={"center"}
-        marginBottom={"3rem"}
+        // marginBottom={"3rem"}
         fontSize={45}
         fontWeight={"bold"}
         style={{

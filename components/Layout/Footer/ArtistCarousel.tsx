@@ -17,9 +17,9 @@ const ArtistCarousel = () => {
     <HStack
       height={"400px"}
       paddingX={"5%"}
-      sx={{
-        backgroundColor: "#E2F2FF",
-      }}
+      // sx={{
+      //   backgroundColor: "#E2F2FF",
+      // }}
     >
       <IconButton onClick={() => carousel.current?.slidePrev()}>
         <ArrowBackIosRounded />
