@@ -11,17 +11,13 @@ type Props = {};
 const ExtendedFooter = (props: Props) => {
   return (
     <BgImage source={ExtendedFooterBackground}>
-      <HStack marginTop={"2rem"} justifyContent={"space-between"}>
+      <HStack margin={"2rem"} justifyContent={"space-between"} height={"100%"}>
         {/* <VStack width={"5%"} alignItems={"end "}>
           <IconButton color="secondary">
             <InstagramIcon fontSize="large" />
           </IconButton>
         </VStack> */}
-        <VStack
-          width={"35%"}
-          marginBottom={"2rem"}
-          justifyContent={"space-between"}
-        >
+        <VStack width={"35%"} heigt={"100%"} justifyContent={"space-between"}>
           <Typography
             fontSize={30}
             fontWeight={fontWeights.semiBold}
@@ -44,16 +40,11 @@ const ExtendedFooter = (props: Props) => {
             corrupti iste dolor officia.
           </Typography>
         </VStack>
-        <VStack width={"12%"} marginBottom={"2rem"}>
-          Contact Us
-        </VStack>
-        <VStack width={"10%"} marginBottom={"2rem"}>
-          Quick Links
-        </VStack>
+        <VStack width={"12%"}>Contact Us</VStack>
+        <VStack width={"10%"}>Quick Links</VStack>
         <Box
           style={{
             width: "40%",
-            marginBottom: "2rem",
           }}
         >
           <div
