@@ -17,7 +17,7 @@ const ExtendedFooter = (props: Props) => {
             <InstagramIcon fontSize="large" />
           </IconButton>
         </VStack> */}
-        <VStack width={"35%"} heigt={"100%"} justifyContent={"space-between"}>
+        <VStack width={"35%"} height={"100%"} justifyContent={"space-between"}>
           <Typography
             fontSize={30}
             fontWeight={fontWeights.semiBold}
