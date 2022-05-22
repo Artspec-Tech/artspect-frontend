@@ -5,7 +5,7 @@ import Product from "@components/Product";
 
 const Home: NextPage = () => {
   return (
-    <VStack margin={"3rem 6rem"}>
+    <VStack margin={"3rem 6rem 0 6rem"}>
       <Description />
       <Product />
     </VStack>
