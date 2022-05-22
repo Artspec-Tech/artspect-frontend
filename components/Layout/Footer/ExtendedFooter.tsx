@@ -1,4 +1,5 @@
 import { BgImage, HStack, VStack } from "@components/common";
+import { FooterBackground } from "../../../utils/images";
 import { Box } from "@mui/system";
 import React from "react";
 
@@ -6,7 +7,7 @@ type Props = {};
 
 const ExtendedFooter = (props: Props) => {
   return (
-    <BgImage>
+    <BgImage source={FooterBackground}>
       <HStack marginTop={"2rem"} justifyContent={"space-between"}>
         <Box
           style={{
