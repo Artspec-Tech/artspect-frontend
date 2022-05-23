@@ -4,12 +4,12 @@ import React from "react";
 import HStack from "./HStack";
 
 type Props = BoxProps & {
-  source?: any;
+  src?: any;
   height?: string | number;
   width?: string | number;
 };
 
-const BgImage = ({ height, width, source, children, ...props }: Props) => {
+const BgImage = ({ height, width, src, children, ...props }: Props) => {
   return (
     <Box
       style={{
@@ -24,7 +24,7 @@ const BgImage = ({ height, width, source, children, ...props }: Props) => {
     >
       <Image
         alt={"imgalt"}
-        src={source}
+        src={src}
         layout="fill"
         objectFit="cover"
         quality={80}

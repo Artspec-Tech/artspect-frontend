@@ -6,7 +6,7 @@ type Props = {};
 
 const TwoImage = (props: Props) => {
   return (
-    <BgImage source={FooterBackground} height={"450px"}>
+    <BgImage src={FooterBackground} height={"450px"}>
       <div
         style={{
           width: "45vw",

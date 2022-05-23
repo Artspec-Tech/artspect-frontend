@@ -1,14 +1,12 @@
-import { BgImage, Divider, HStack, VStack } from "@components/common";
-import { ExtendedFooterBackground } from "../../../utils/images";
+import { HStack, VStack } from "@components/common";
 import fontWeights from "@utils/fontWeights";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import { Box } from "@mui/system";
 import React from "react";
-import { IconButton, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Link from "next/link";
 import { navigations } from "../Header/navigationList";
 import { useRouter } from "next/router";
-import { AnimateSharedLayout, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 type Props = {};
 
@@ -24,11 +22,6 @@ const ExtendedFooter = (props: Props) => {
         backgroundColor: "#191323",
       }}
     >
-      {/* <VStack width={"5%"} alignItems={"end "}>
-          <IconButton color="secondary">
-            <InstagramIcon fontSize="large" />
-          </IconButton>
-        </VStack> */}
       <VStack
         width={"35%"}
         justifyContent={"space-around"}
@@ -52,7 +45,7 @@ const ExtendedFooter = (props: Props) => {
         </Typography>
         <Typography
           fontSize={12}
-          color="white"
+          color="#FFFFFF"
           style={{
             opacity: "0.6",
           }}
@@ -65,16 +58,17 @@ const ExtendedFooter = (props: Props) => {
       </VStack>
       <VStack
         width={"12%"}
-        justifyContent={"space-around"}
-        height={"40%"}
-        marginTop={"1rem"}
+        justifyContent={"flex-start"}
+        height={"50%"}
+        marginTop={"4.3rem"}
+        gap={3}
       >
         <Typography fontWeight={fontWeights.bold} fontSize={15} color="#F3C766">
           Contact Us
         </Typography>
         <Typography
           fontSize={12}
-          color="white"
+          color="#FFFFFF"
           style={{
             opacity: "0.6",
           }}
@@ -83,7 +77,7 @@ const ExtendedFooter = (props: Props) => {
         </Typography>
         <Typography
           fontSize={12}
-          color="white"
+          color="#FFFFFF"
           style={{
             opacity: "0.6",
           }}
@@ -93,9 +87,10 @@ const ExtendedFooter = (props: Props) => {
       </VStack>
       <VStack
         width={"10%"}
-        justifyContent={"space-around"}
+        justifyContent={"flex-start"}
         height={"50%"}
-        marginTop={"4rem"}
+        marginTop={"4.3rem"}
+        gap={3}
       >
         <Typography fontWeight={fontWeights.bold} fontSize={15} color="#F3C766">
           Quick Links
@@ -105,7 +100,7 @@ const ExtendedFooter = (props: Props) => {
             <Box>
               <Typography
                 color="#FFFFFF"
-                fontSize={15}
+                fontSize={12}
                 component={motion.p}
                 style={{
                   cursor: "pointer",
@@ -138,8 +133,8 @@ const ExtendedFooter = (props: Props) => {
           </Link>
         ))}
         <Typography
-          fontSize={15}
-          color="white"
+          fontSize={12}
+          color="#FFFFFF"
           style={{
             opacity: "0.6",
           }}
