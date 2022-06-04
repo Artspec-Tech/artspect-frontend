@@ -20,14 +20,22 @@ const TwoImage = (props: Props) => {
     >
       <Box
         sx={{
-          width: ["80vw", "35vw"],
+          width: {
+            xs: "80vw",
+            sm: "35vw",
+            xl: "650px",
+          },
           aspectRatio: "16/9",
           backgroundColor: "#C4C4C4",
         }}
       />
       <Box
         sx={{
-          width: ["80vw", "35vw"],
+          width: {
+            xs: "80vw",
+            sm: "35vw",
+            xl: "650px",
+          },
           aspectRatio: "16/9",
           backgroundColor: "#C4C4C4",
         }}
