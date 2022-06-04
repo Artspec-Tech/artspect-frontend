@@ -14,13 +14,7 @@ import Image from "next/image";
 const ArtistCarousel = () => {
   const carousel = useRef<PietileCarouselHandle>(null);
   return (
-    <HStack
-      height={"400px"}
-      paddingX={"5%"}
-      sx={{
-        backgroundColor: "#E2F2FF",
-      }}
-    >
+    <HStack height={"400px"} paddingX={"5%"}>
       <IconButton onClick={() => carousel.current?.slidePrev()}>
         <ArrowBackIosRounded />
       </IconButton>

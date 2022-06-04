@@ -1,15 +1,15 @@
 import { Box, BoxProps } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import { FooterBackground } from "../../utils/images";
 import HStack from "./HStack";
 
 type Props = BoxProps & {
+  src?: any;
   height?: string | number;
   width?: string | number;
 };
 
-const BgImage = ({ height, width, children, ...props }: Props) => {
+const BgImage = ({ height, width, src, children, ...props }: Props) => {
   return (
     <Box
       style={{
@@ -24,7 +24,7 @@ const BgImage = ({ height, width, children, ...props }: Props) => {
     >
       <Image
         alt={"imgalt"}
-        src={FooterBackground}
+        src={src}
         layout="fill"
         objectFit="cover"
         quality={80}
