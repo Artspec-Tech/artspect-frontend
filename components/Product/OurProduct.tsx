@@ -1,10 +1,8 @@
-import { HStack, VStack } from "@components/common";
+import { VStack } from "@components/common";
 import { Typography } from "@mui/material";
 import React from "react";
 
-type Props = {};
-
-const OurProduct = (props: Props) => {
+const OurProduct = () => {
   return (
     <VStack width={"100%"} margin={"5rem 5rem 0 5rem"}>
       <Typography

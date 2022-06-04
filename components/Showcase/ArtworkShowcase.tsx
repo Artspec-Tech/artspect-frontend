@@ -2,13 +2,10 @@ import { VStack } from "@components/common";
 import { Button, Typography } from "@mui/material";
 import React from "react";
 
-type Props = {};
-
-const ArtworkShowcase = (props: Props) => {
+const ArtworkShowcase = () => {
   return (
     <VStack
       width={"calc(100% + 12rem)"}
-      margin={"5rem 5rem 0 5rem"}
       padding={"5rem 0"}
       sx={{
         backgroundColor: "#D9D9D9",
