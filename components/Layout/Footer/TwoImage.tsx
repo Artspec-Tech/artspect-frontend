@@ -3,9 +3,7 @@ import { BgImage } from "../../common";
 import { FooterBackground } from "../../../utils/images";
 import { Box } from "@mui/material";
 
-type Props = {};
-
-const TwoImage = (props: Props) => {
+const TwoImage = () => {
   return (
     <BgImage
       src={FooterBackground}
