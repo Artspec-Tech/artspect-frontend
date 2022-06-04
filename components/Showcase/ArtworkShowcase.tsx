@@ -7,7 +7,7 @@ type Props = {};
 const ArtworkShowcase = (props: Props) => {
   return (
     <VStack
-      width={"150%"}
+      width={"calc(100% + 12rem)"}
       margin={"5rem 5rem 0 5rem"}
       padding={"5rem 0"}
       sx={{
