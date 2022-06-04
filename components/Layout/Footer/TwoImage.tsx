@@ -1,22 +1,33 @@
 import React from "react";
 import { BgImage } from "../../common";
 import { FooterBackground } from "../../../utils/images";
+import { Box } from "@mui/material";
 
 type Props = {};
 
 const TwoImage = (props: Props) => {
   return (
-    <BgImage src={FooterBackground} height={"450px"}>
-      <div
-        style={{
-          width: "45vw",
+    <BgImage
+      src={FooterBackground}
+      sx={{
+        height: {
+          xs: "100vw",
+          sm: "300px",
+          lg: "400px",
+          xl: "450px",
+        },
+      }}
+    >
+      <Box
+        sx={{
+          width: ["80vw", "35vw"],
           aspectRatio: "16/9",
           backgroundColor: "#C4C4C4",
         }}
       />
-      <div
-        style={{
-          width: "45vw",
+      <Box
+        sx={{
+          width: ["80vw", "35vw"],
           aspectRatio: "16/9",
           backgroundColor: "#C4C4C4",
         }}

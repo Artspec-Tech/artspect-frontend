@@ -1,6 +1,5 @@
-import { HStack, VStack } from "@components/common";
+import { Center, HStack, VStack } from "@components/common";
 import fontWeights from "@utils/fontWeights";
-import { Box } from "@mui/system";
 import React from "react";
 import { Typography } from "@mui/material";
 import Link from "next/link";
@@ -10,9 +9,7 @@ import { motion } from "framer-motion";
 
 type Props = {};
 
-const ExtendedFooter = (props: Props) => {
-  const { pathname } = useRouter();
-  const isCurrentPath = (path: string) => pathname === path;
+const ExtendedFooter = () => {
   return (
     <HStack
       justifyContent={"space-between"}
@@ -97,39 +94,15 @@ const ExtendedFooter = (props: Props) => {
         </Typography>
         {navigations.map((nav) => (
           <Link key={nav.path} href={nav.path} passHref>
-            <Box>
-              <Typography
-                color="#FFFFFF"
-                fontSize={12}
-                component={motion.p}
-                style={{
-                  cursor: "pointer",
-                  opacity: "0.6",
-                }}
-                whileHover={{
-                  textShadow: "2px 2px 16px yellow",
-                }}
-              >
-                {nav.text}
-              </Typography>
-              {isCurrentPath(nav.path) && (
-                <motion.div
-                  layout
-                  layoutId="divider"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{
-                    duration: 0.4,
-                    ease: "easeOut",
-                  }}
-                  style={{
-                    position: "absolute",
-                    top: "100%",
-                    width: "110%",
-                  }}
-                ></motion.div>
-              )}
-            </Box>
+            <Typography
+              color="#FFFFFF"
+              fontSize={12}
+              sx={{
+                cursor: "pointer",
+              }}
+            >
+              {nav.text}
+            </Typography>
           </Link>
         ))}
         <Typography
@@ -142,19 +115,19 @@ const ExtendedFooter = (props: Props) => {
           My Account
         </Typography>
       </VStack>
-      <Box
+      <Center
         style={{
           width: "40%",
         }}
       >
         <div
           style={{
-            width: "90%",
+            width: "80%",
             aspectRatio: "16/9",
             backgroundColor: "#C4C4C4",
           }}
         />
-      </Box>
+      </Center>
     </HStack>
   );
 };
