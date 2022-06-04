@@ -1,13 +1,9 @@
 import { Center, HStack, VStack } from "@components/common";
 import fontWeights from "@utils/fontWeights";
 import React from "react";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 import { navigations } from "../Header/navigationList";
-import { useRouter } from "next/router";
-import { motion } from "framer-motion";
-
-type Props = {};
 
 const ExtendedFooter = () => {
   return (
@@ -120,9 +116,12 @@ const ExtendedFooter = () => {
           width: "40%",
         }}
       >
-        <div
-          style={{
-            width: "80%",
+        <Box
+          sx={{
+            width: {
+              xs: "80%",
+              xl: "600px",
+            },
             aspectRatio: "16/9",
             backgroundColor: "#C4C4C4",
           }}
