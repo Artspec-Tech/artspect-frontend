@@ -12,10 +12,14 @@ type Props = {
 const DescriptionContent = ({ subTopic, text }: Props) => {
   return (
     <HStack justifyContent={"space-between"}>
-      <VStack alignItems={"flex-end"} width={"22.5%"}>
+      <VStack alignItems={"flex-end"} width={"25%"}>
         <Typography
           textAlign={"right"}
-          fontSize={55}
+          fontSize={{
+            xs: "18px",
+            sm: "36px",
+            md: "55px",
+          }}
           fontWeight={"bold"}
           lineHeight={0.9}
           color={"#382B4F"}
@@ -24,7 +28,11 @@ const DescriptionContent = ({ subTopic, text }: Props) => {
         </Typography>
         <Typography
           textAlign={"right"}
-          fontSize={55}
+          fontSize={{
+            xs: "18px",
+            sm: "36px",
+            md: "55px",
+          }}
           fontWeight={"bold"}
           lineHeight={0.9}
           color={"#382B4F"}
@@ -42,7 +50,7 @@ const DescriptionContent = ({ subTopic, text }: Props) => {
       />
       <Typography
         width={"65%"}
-        fontSize={17}
+        fontSize={[8, 12, 17]}
         textAlign={"justify"}
         fontWeight={fontWeights.light}
       >
