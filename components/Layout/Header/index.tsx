@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { HStack } from "@components/common";
 import { IconButton, Typography, useMediaQuery, useTheme } from "@mui/material";
 import fontWeights from "@utils/fontWeights";
 import Navigation from "./Navigation";
 import Divider from "@components/common/Divider";
 import MenuIcon from "@mui/icons-material/Menu";
-import AuthenticatedHeader from "./AuthenticatedHeader";
-import UnauthenticatedHeader from "./UnauthenticatedHeader";
+import AuthenticatedHeader from "./AuthHeader/AuthenticatedHeader";
+import UnauthenticatedHeader from "./AuthHeader/UnauthenticatedHeader";
+import MobileDrawer from "./MobileDrawer";
 
 const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isAuthenticated = true;
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const toggleDrawer =
+    (toggle: boolean) => (e: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        e &&
+        e.type === "keydown" &&
+        ((e as React.KeyboardEvent).key === "Tab" ||
+          (e as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+      setDrawerOpen(toggle);
+    };
   const AuthHeader: JSX.Element = isAuthenticated ? (
     <AuthenticatedHeader />
   ) : (
@@ -19,19 +33,20 @@ const Header = () => {
   );
   return isMobile ? (
     <HStack
-      padding={"2rem"}
+      padding={"2rem 1rem"}
       justifyContent={"space-between"}
       alignItems={"center"}
     >
       <Typography fontWeight={fontWeights.semiBold} fontSize={20}>
         Artspect
       </Typography>
-      <HStack width="auto" gap={1}>
+      <HStack width="auto" gap={0.5}>
         {AuthHeader}
         <Divider orientation="vertical" style={{ borderColor: "black" }} />
-        <IconButton color="primary" size="medium">
+        <IconButton color="primary" size="small" onClick={toggleDrawer(true)}>
           <MenuIcon />
         </IconButton>
+        <MobileDrawer isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
       </HStack>
     </HStack>
   ) : (
@@ -40,7 +55,7 @@ const Header = () => {
       justifyContent={"space-between"}
       alignItems={"center"}
     >
-      <Typography variant="h4" fontWeight={fontWeights.semiBold} fontSize={12}>
+      <Typography variant="h4" fontWeight={fontWeights.semiBold}>
         Artspect
       </Typography>
       <HStack width="auto" gap={3}>
