@@ -5,34 +5,17 @@ import React from "react";
 const ArtworkShowcase = () => {
   return (
     <VStack
-      padding={"5rem 0"}
+      width={["calc(100% + 3rem)", "calc(100% + 4rem)", "calc(100% + 12rem)"]}
+      gap={["0.5rem", "1rem", "2rem"]}
+      paddingY={["1.5rem", "3rem", "5rem"]}
       sx={{
-        paddingY: {
-          xs: "1.5rem",
-          sm: "3rem",
-          md: "5rem",
-        },
-        width: {
-          xs: "calc(100% + 3rem)",
-          sm: "calc(100% + 4rem)",
-          md: "calc(100% + 12rem)",
-        },
         backgroundColor: "#D9D9D9",
-        gap: {
-          xs: "0.5rem",
-          sm: "1rem",
-          md: "2rem",
-        },
       }}
     >
       <Typography
         fontWeight={"bold"}
         sx={{
-          fontSize: {
-            xs: 15,
-            sm: 20,
-            md: 35,
-          },
+          fontSize: [15, 20, 35],
         }}
       >
         Showcase Your Artwork !
@@ -42,16 +25,8 @@ const ArtworkShowcase = () => {
         sx={{
           backgroundColor: "#FF0000",
           borderRadius: "10rem",
-          paddingX: {
-            xs: "1.5rem",
-            sm: "2rem",
-            md: "3rem",
-          },
-          fontSize: {
-            xs: 10,
-            sm: 15,
-            md: 30,
-          },
+          paddingX: ["1.5rem", "2rem", "3rem"],
+          fontSize: [10, 15, 30],
           fontWeight: "bold",
         }}
       >
