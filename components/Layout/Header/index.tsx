@@ -51,9 +51,16 @@ const Header = () => {
     </HStack>
   ) : (
     <HStack
-      padding={"2rem 6rem"}
       justifyContent={"space-between"}
       alignItems={"center"}
+      sx={{
+        paddingY: "2rem",
+        paddingX: {
+          sm: "2rem",
+          md: "4rem",
+          lg: "6rem",
+        },
+      }}
     >
       <Typography variant="h4" fontWeight={fontWeights.semiBold}>
         Artspect

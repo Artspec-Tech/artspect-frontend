@@ -5,27 +5,53 @@ import React from "react";
 const ArtworkShowcase = () => {
   return (
     <VStack
-      width={"calc(100% + 12rem)"}
       padding={"5rem 0"}
       sx={{
+        paddingY: {
+          xs: "1.5rem",
+          sm: "3rem",
+          md: "5rem",
+        },
+        width: {
+          xs: "calc(100% + 3rem)",
+          sm: "calc(100% + 4rem)",
+          md: "calc(100% + 12rem)",
+        },
         backgroundColor: "#D9D9D9",
+        gap: {
+          xs: "0.5rem",
+          sm: "1rem",
+          md: "2rem",
+        },
       }}
     >
       <Typography
-        variant="h4"
         fontWeight={"bold"}
-        fontSize={35}
-        marginBottom={"3rem"}
+        sx={{
+          fontSize: {
+            xs: 15,
+            sm: 20,
+            md: 35,
+          },
+        }}
       >
-        Showcase your Artwork !
+        Showcase Your Artwork !
       </Typography>
       <Button
         variant="contained"
-        size="large"
         sx={{
           backgroundColor: "#FF0000",
-          borderRadius: "16px",
-          fontSize: "35",
+          borderRadius: "10rem",
+          paddingX: {
+            xs: "1.5rem",
+            sm: "2rem",
+            md: "3rem",
+          },
+          fontSize: {
+            xs: 10,
+            sm: 15,
+            md: 30,
+          },
           fontWeight: "bold",
         }}
       >
