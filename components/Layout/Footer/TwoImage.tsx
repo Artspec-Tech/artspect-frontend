@@ -9,7 +9,7 @@ const TwoImage = () => {
       src={FooterBackground}
       sx={{
         height: {
-          xs: "100vw",
+          xs: "110vw",
           sm: "300px",
           lg: "400px",
           xl: "450px",
