@@ -24,7 +24,6 @@ const OurProduct = () => {
       </Typography>
       <Typography
         textAlign={"center"}
-        // marginBottom={"3rem"}
         fontSize={45}
         fontWeight={"bold"}
         style={{
