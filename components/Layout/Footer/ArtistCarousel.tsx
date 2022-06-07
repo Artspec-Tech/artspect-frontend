@@ -1,4 +1,4 @@
-import { HStack, VStack, Divider } from "@components/common";
+import { HStack, VStack, Divider, Center } from "@components/common";
 import {
   ArrowBackIosRounded,
   ArrowForwardIosRounded,
@@ -14,9 +14,13 @@ import Image from "next/image";
 const ArtistCarousel = () => {
   const carousel = useRef<PietileCarouselHandle>(null);
   return (
-    <HStack height={"400px"} paddingX={"5%"}>
+    <HStack height={["150px", "300px", "400px"]} paddingX={"5%"}>
       <IconButton onClick={() => carousel.current?.slidePrev()}>
-        <ArrowBackIosRounded />
+        <ArrowBackIosRounded
+          sx={{
+            fontSize: ["1rem", "2rem", null],
+          }}
+        />
       </IconButton>
       <PietileCarousel
         ref={carousel}
@@ -30,28 +34,30 @@ const ArtistCarousel = () => {
             key={artist.name}
             height="100%"
             justifyContent={"space-between"}
-            paddingX={"5rem"}
+            paddingX={["1rem", "2rem", "4rem"]}
           >
-            <Box
-              borderRadius={"50%"}
-              height={"50%"}
-              overflow="hidden"
-              position="relative"
-              style={{
-                aspectRatio: "1",
-              }}
-            >
-              <Image
-                src={VanGoghImage}
-                alt="Van gogh"
-                layout="fill"
-                objectFit="cover"
-              />
-            </Box>
-            <VStack width={"70%"} gap={2}>
+            <Center width={"30%"}>
+              <Box
+                borderRadius={"50%"}
+                height={["4.5rem", "10rem", "13rem"]}
+                overflow="hidden"
+                position="relative"
+                style={{
+                  aspectRatio: "1",
+                }}
+              >
+                <Image
+                  src={VanGoghImage}
+                  alt="Van gogh"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </Box>
+            </Center>
+            <VStack width={"70%"} gap={[1, 1.5, 2]}>
               <Typography
                 fontWeight={fontWeights.medium}
-                fontSize={25}
+                fontSize={[10, 15, 25]}
                 fontStyle={"italic"}
                 lineHeight={1}
                 textAlign="center"
@@ -66,7 +72,11 @@ const ArtistCarousel = () => {
                   marginRight: "20%",
                 }}
               />
-              <Typography fontStyle={"italic"} fontWeight={fontWeights.light}>
+              <Typography
+                fontStyle={"italic"}
+                fontWeight={fontWeights.light}
+                fontSize={[10, 15, 25]}
+              >
                 {artist.name}
               </Typography>
             </VStack>
@@ -74,7 +84,11 @@ const ArtistCarousel = () => {
         ))}
       </PietileCarousel>
       <IconButton onClick={() => carousel.current?.slideNext()}>
-        <ArrowForwardIosRounded />
+        <ArrowForwardIosRounded
+          sx={{
+            fontSize: ["1rem", "2rem", null],
+          }}
+        />
       </IconButton>
     </HStack>
   );

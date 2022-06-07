@@ -1,43 +1,46 @@
-import { HStack, VStack } from "@components/common";
+import { VStack } from "@components/common";
 import { Typography } from "@mui/material";
+import fontWeights from "@utils/fontWeights";
 import React from "react";
 
-type Props = {};
-
-const OurProduct = (props: Props) => {
+const OurProduct = () => {
   return (
-    <VStack width={"100%"} margin={"5rem 5rem 0 5rem"}>
+    <VStack width={"100%"} gap={["1rem", "2rem", "3rem"]}>
       <Typography
         textAlign={"left"}
         width={"100%"}
-        fontSize={35}
+        fontSize={[15, 20, 35]}
         fontWeight={"bold"}
         color={"#382B4F"}
       >
         OUR PRODUCTS
       </Typography>
-      <Typography
-        marginTop={"3rem"}
-        fontSize={55}
-        fontWeight={"bold"}
-        color={"#382B4F"}
-      >
-        COMING SOON
-      </Typography>
-      <Typography
-        textAlign={"center"}
-        // marginBottom={"3rem"}
-        fontSize={45}
-        fontWeight={"bold"}
-        style={{
-          background:
-            "-webkit-linear-gradient(180deg, #6E5684 0%, #EF7F5E 20%, #F3B266 33.09%, #E8BC65 37.11%, #E8BC65 44.21%, #E8BC65 48.36%, #EF7F5E 57.07%, #6E5684 75.42%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
-      >
-        STAY TUNED!
-      </Typography>
+      <VStack height="auto">
+        <Typography
+          fontSize={[35, 50, 65]}
+          fontWeight={"bold"}
+          color={"#382B4F"}
+          sx={{
+            textShadow: "0px 2.5px 4px rgba(0, 0, 0, 0.25);",
+          }}
+        >
+          COMING SOON
+        </Typography>
+        <Typography
+          textAlign={"center"}
+          fontSize={[30, 45, 55]}
+          fontWeight={"bold"}
+          sx={{
+            background:
+              "-webkit-linear-gradient(180deg, #6E5684 0%, #EF7F5E 20%, #F3B266 33.09%, #E8BC65 37.11%, #E8BC65 44.21%, #E8BC65 48.36%, #EF7F5E 57.07%, #6E5684 75.42%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            textShadow: "0px 2.5px 4px rgba(0, 0, 0, 0.15);",
+          }}
+        >
+          STAY TUNED!
+        </Typography>
+      </VStack>
     </VStack>
   );
 };

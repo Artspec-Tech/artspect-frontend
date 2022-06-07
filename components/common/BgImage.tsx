@@ -1,6 +1,7 @@
-import { Box, BoxProps } from "@mui/material";
+import { Box, BoxProps, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import React from "react";
+import { VStack } from ".";
 import HStack from "./HStack";
 
 type Props = BoxProps & {
@@ -9,7 +10,9 @@ type Props = BoxProps & {
   width?: string | number;
 };
 
-const BgImage = ({ height, width, src, children, ...props }: Props) => {
+const BgImage = ({ height, src, children, ...props }: Props) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Box
       style={{
@@ -29,16 +32,26 @@ const BgImage = ({ height, width, src, children, ...props }: Props) => {
         objectFit="cover"
         quality={80}
       />
-      {children && (
-        <HStack
-          justifyContent={"space-around"}
-          style={{
-            zIndex: 10,
-          }}
-        >
-          {children}
-        </HStack>
-      )}
+      {children &&
+        (isMobile ? (
+          <VStack
+            justifyContent={"space-around"}
+            style={{
+              zIndex: 10,
+            }}
+          >
+            {children}
+          </VStack>
+        ) : (
+          <HStack
+            justifyContent={"space-around"}
+            style={{
+              zIndex: 10,
+            }}
+          >
+            {children}
+          </HStack>
+        ))}
     </Box>
   );
 };

@@ -2,33 +2,31 @@ import { VStack } from "@components/common";
 import { Button, Typography } from "@mui/material";
 import React from "react";
 
-type Props = {};
-
-const ArtworkShowcase = (props: Props) => {
+const ArtworkShowcase = () => {
   return (
     <VStack
-      width={"150%"}
-      margin={"5rem 5rem 0 5rem"}
-      padding={"5rem 0"}
+      width={["calc(100% + 3rem)", "calc(100% + 4rem)", "calc(100% + 12rem)"]}
+      gap={["0.5rem", "1rem", "2rem"]}
+      paddingY={["1.5rem", "3rem", "5rem"]}
       sx={{
         backgroundColor: "#D9D9D9",
       }}
     >
       <Typography
-        variant="h4"
         fontWeight={"bold"}
-        fontSize={35}
-        marginBottom={"3rem"}
+        sx={{
+          fontSize: [15, 20, 35],
+        }}
       >
-        Showcase your Artwork !
+        Showcase Your Artwork !
       </Typography>
       <Button
         variant="contained"
-        size="large"
         sx={{
           backgroundColor: "#FF0000",
-          borderRadius: "16px",
-          fontSize: "35",
+          borderRadius: "10rem",
+          paddingX: ["1.5rem", "2rem", "3rem"],
+          fontSize: [10, 15, 30],
           fontWeight: "bold",
         }}
       >
