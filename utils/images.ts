@@ -1,2 +1,2 @@
-export * as FooterBackground from "@assets/images/footer-background.png";
-export * as VanGoghImage from "@assets/images/van-gogh.jpeg";
+export * as FooterBackground from "../public/images/footer-background.png";
+export * as VanGoghImage from "../public/images/van-gogh.jpeg";
