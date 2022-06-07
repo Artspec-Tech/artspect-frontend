@@ -9,20 +9,16 @@ const ExtendedFooter = () => {
   return (
     <HStack
       justifyContent={"space-between"}
-      height={"25rem"}
+      height={["10rem", "15rem", "25rem"]}
       gap={2}
       sx={{
+        paddingX: ["1rem", "4rem", "6rem"],
         backgroundColor: "#191323",
       }}
     >
-      <VStack
-        width={"35%"}
-        justifyContent={"space-around"}
-        height={"80%"}
-        marginLeft={"2rem"}
-      >
+      <VStack width={"35%"} justifyContent={"space-around"} height={"80%"}>
         <Typography
-          fontSize={30}
+          fontSize={[15, 20, 30]}
           fontWeight={fontWeights.semiBold}
           color="white"
           textAlign={"left"}
@@ -30,14 +26,16 @@ const ExtendedFooter = () => {
         >
           Artspect
         </Typography>
-        <Typography fontWeight={fontWeights.bold} fontSize={15} color="#F3C766">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae
-          adipisci perferendis facere quia. Consequatur rem recusandae
-          consectetur sapiente earum aut repellat quibusdam, voluptatem nobis
-          quod nam eius suscipit, inventore amet?
+        <Typography
+          fontWeight={fontWeights.bold}
+          fontSize={[8, 10, 15]}
+          color="#F3C766"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id
+          egestas diam. Curabitur hendrerit est eu rhoncus
         </Typography>
         <Typography
-          fontSize={12}
+          fontSize={[6, 8, 12]}
           color="#FFFFFF"
           style={{
             opacity: "0.6",
@@ -56,7 +54,11 @@ const ExtendedFooter = () => {
         marginTop={"4.3rem"}
         gap={3}
       >
-        <Typography fontWeight={fontWeights.bold} fontSize={15} color="#F3C766">
+        <Typography
+          fontWeight={fontWeights.bold}
+          fontSize={[8, 10, 15]}
+          color="#F3C766"
+        >
           Contact Us
         </Typography>
         <Typography
@@ -114,12 +116,13 @@ const ExtendedFooter = () => {
       <Center
         style={{
           width: "40%",
+          justifyContent: "flex-end",
         }}
       >
         <Box
           sx={{
             width: {
-              xs: "80%",
+              xs: "100%",
               xl: "600px",
             },
             aspectRatio: "16/9",
