@@ -1,16 +1,12 @@
-import { NextPage } from "next";
-import React from "react";
+import React, { ReactElement } from "react";
 import { HStack } from "@components/common";
-import Layout from "@components/Layout";
+import WebLayout from "@components/Layout/Web";
+import { NextPageWithLayout } from "types";
 
-type Props = {};
-
-const Workshop: NextPage = (props: Props) => {
-  return (
-    <Layout>
-      <HStack>Workshop</HStack>
-    </Layout>
-  );
+const Workshop: NextPageWithLayout = () => {
+  return <HStack>Workshop</HStack>;
 };
+
+Workshop.getLayout = (page: ReactElement) => <WebLayout>{page}</WebLayout>;
 
 export default Workshop;
