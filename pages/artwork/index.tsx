@@ -1,11 +1,14 @@
 import { NextPage } from "next";
 import React from "react";
 import { HStack } from "@components/common";
+import Layout from "@components/Layout";
 
-type Props = {};
-
-const Artwork: NextPage = (props: Props) => {
-  return <HStack>Artwork</HStack>;
+const Artwork: NextPage = () => {
+  return (
+    <Layout>
+      <HStack>Artwork</HStack>
+    </Layout>
+  );
 };
 
 export default Artwork;
