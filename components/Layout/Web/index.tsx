@@ -7,7 +7,7 @@ type Props = {
   children?: ReactNode;
 };
 
-const Layout: NextPage = ({ children }: Props) => {
+const WebLayout: NextPage = ({ children }: Props) => {
   return (
     <>
       <Header />
@@ -17,4 +17,4 @@ const Layout: NextPage = ({ children }: Props) => {
   );
 };
 
-export default Layout;
+export default WebLayout;
