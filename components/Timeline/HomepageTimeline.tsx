@@ -10,8 +10,8 @@ const HomepageTimeline = () => {
       sx={{
         display: 'flex',
         alignItems: 'flex-end',
-        height: ['2.375rem', '3.375rem', '4.375rem'],
-        marginTop: ['8.5rem', '10.5rem', '12.5rem'],
+        height: ['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
+        marginTop: ['8.5rem', '10.5rem', '12.5rem', '14.5rem'],
         marginBottom: '3.125rem'
       }}>
       <Box
@@ -24,7 +24,7 @@ const HomepageTimeline = () => {
             fontWeight='bold'
             sx={{
               textAlign: 'center',
-              fontSize: [10, 15, 20]
+              fontSize: [10, 15, 20, 25]
             }}
           >
             Orientation
@@ -32,15 +32,15 @@ const HomepageTimeline = () => {
           <Typography
             sx={{
               textAlign: 'center',
-              fontSize: [8, 10, 15]
+              fontSize: [8, 10, 15, 20]
             }}
           >
             9 Jul
           </Typography>
           <CircleIcon
             sx={{
-              width:['2.375rem', '3.375rem', '4.375rem'],
-              height:['2.375rem', '3.375rem', '4.375rem'],
+              width:['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
+              height:['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
               color: '#888AC1'
             }}
           ></CircleIcon>
@@ -66,8 +66,8 @@ const HomepageTimeline = () => {
         <VStack>
           <CircleIcon
             sx={{
-              width: ['2.375rem', '3.375rem', '4.375rem'],
-              height: ['2.375rem', '3.375rem', '4.375rem'],
+              width:['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
+              height:['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
               color: '#BBDBF0'
             }}
           ></CircleIcon>        
@@ -75,7 +75,7 @@ const HomepageTimeline = () => {
             fontWeight='bold'
             sx={{
               textAlign: 'center',
-              fontSize: [10, 15, 20]
+              fontSize: [10, 15, 20, 25]
             }}
           >
             Art Fair
@@ -84,7 +84,7 @@ const HomepageTimeline = () => {
             fontWeight='bold'
             sx={{
               textAlign: 'center',
-              fontSize: [8, 10, 15]
+              fontSize: [8, 10, 15, 20]
             }}
           >
             9 Jul - 30 Jul
@@ -112,7 +112,7 @@ const HomepageTimeline = () => {
             fontWeight='bold'
             sx={{
               textAlign: 'center',
-              fontSize: [10, 15, 20]
+              fontSize: [10, 15, 20, 25]
             }}
           >
             Workshop Period
@@ -120,15 +120,15 @@ const HomepageTimeline = () => {
           <Typography
             sx={{
               textAlign: 'center',
-              fontSize: [8, 10, 15]
+              fontSize: [8, 10, 15, 20]
             }}
           >
             16 Jul - 24 Jul
           </Typography>
           <CircleIcon
             sx={{
-              width: ['2.375rem', '3.375rem', '4.375rem'],
-              height: ['2.375rem', '3.375rem', '4.375rem'],
+              width:['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
+              height:['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
               color: '#A3D390'
             }}
           ></CircleIcon>
@@ -154,8 +154,8 @@ const HomepageTimeline = () => {
         <VStack>
           <CircleIcon
             sx={{
-              width: ['2.375rem', '3.375rem', '4.375rem'],
-              height: ['2.375rem', '3.375rem', '4.375rem'],
+              width:['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
+              height:['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
               color: '#F5D26C'
             }}
           ></CircleIcon>
@@ -163,7 +163,7 @@ const HomepageTimeline = () => {
             fontWeight='bold'
             sx={{
               textAlign: 'center',
-              fontSize: [10, 15, 20]
+              fontSize: [10, 15, 20, 25]
             }}
           >
             Artwork Selection<br />Announcement
@@ -171,7 +171,7 @@ const HomepageTimeline = () => {
           <Typography
             sx={{
               textAlign: 'center',
-              fontSize: [8, 10, 15]
+              fontSize: [8, 10, 15, 20]
             }}
           >
             7 Aug
@@ -199,22 +199,22 @@ const HomepageTimeline = () => {
             fontWeight='bold'
             sx={{
               textAlign: 'center',
-              fontSize: [10, 15, 20]
+              fontSize: [10, 15, 20, 25]
             }}
           >
             Exhibition Period
           </Typography>
           <Typography
             sx={{
-              fontSize: [8, 10, 15]
+              fontSize: [8, 10, 15, 20]
             }}
           >
             19 Aug - 26 Aug
           </Typography>
           <CircleIcon
             sx={{
-              width: ['2.375rem', '3.375rem', '4.375rem'],
-              height: ['2.375rem', '3.375rem', '4.375rem'],
+              width: ['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
+              height: ['2.375rem', '3.375rem', '4.375rem', '5.375rem'],
               color: '#F17858'
             }}
           ></CircleIcon>
