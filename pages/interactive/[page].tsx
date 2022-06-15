@@ -6,7 +6,7 @@ import { NextPageWithLayout } from "types";
 import fs from "fs";
 import dynamic from "next/dynamic";
 
-const Interactive: NextPageWithLayout<{ page: number }> = ({ page }) => {
+const Interactive: NextPageWithLayout<{ page: number }> = ({ page = 0 }) => {
   const InteractivePage = dynamic(
     () => import(`components/Interactive/pages/${page}`),
     {
@@ -41,6 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       page: index.toString(),
     },
   }));
+  console.log(paths);
   return {
     paths,
     fallback: true,

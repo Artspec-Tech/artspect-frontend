@@ -7,7 +7,6 @@ import { NextPageWithLayout } from "types";
 
 const Interactive: NextPageWithLayout = () => {
   const router = useRouter();
-  console.log(router.pathname);
   return (
     <Center>
       <Button onClick={() => router.push("/interactive/0")}>Next page</Button>
