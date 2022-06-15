@@ -17,6 +17,16 @@ const Interactive: NextPageWithLayout<{ page: number }> = ({ page }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const files = fs.readdirSync("components/Interactive/pages");
+  const page = Number(params?.page);
+  if (page < 0 || page >= files.length) {
+    return {
+      redirect: {
+        destination: "/interactive/0",
+        permanent: true,
+      },
+    };
+  }
   return {
     props: {
       page: parseInt(params?.page as string),
@@ -28,12 +38,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync("components/Interactive/pages");
   const paths = Array.from({ length: files.length }, (_, index) => ({
     params: {
-      page: (index + 1).toString(),
+      page: index.toString(),
     },
   }));
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
