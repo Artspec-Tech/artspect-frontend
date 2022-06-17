@@ -1,11 +1,15 @@
 import type { NextPage } from "next";
 import { VStack } from "@components/common";
 import Description from "@components/Description";
-import Timeline from "@components/Timeline";
+import VerticalTimeline from "@components/VerticalTimeline";
+import HorizontalTimeline from "@components/HorizontalTimeline";
 import Product from "@components/Product";
 import Showcase from "@components/Showcase";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const Home: NextPage = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <VStack
       sx={{
@@ -25,7 +29,7 @@ const Home: NextPage = () => {
       }}
     >
       <Description />
-      <Timeline />
+      {isMobile ? <VerticalTimeline /> : <HorizontalTimeline />}
       <Showcase />
       <Product />
     </VStack>
