@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import { VStack } from "@components/common";
 import Description from "@components/Description";
 import VerticalTimeline from "@components/VerticalTimeline";
@@ -6,8 +5,11 @@ import HorizontalTimeline from "@components/HorizontalTimeline";
 import Product from "@components/Product";
 import Showcase from "@components/Showcase";
 import { useMediaQuery, useTheme } from "@mui/material";
+import WebLayout from "@components/Layout/Web";
+import { NextPageWithLayout } from "types";
+import { ReactElement } from "react";
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
@@ -35,5 +37,7 @@ const Home: NextPage = () => {
     </VStack>
   );
 };
+
+Home.getLayout = (page: ReactElement) => <WebLayout>{page}</WebLayout>;
 
 export default Home;

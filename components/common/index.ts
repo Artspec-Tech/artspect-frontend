@@ -1,8 +1,8 @@
 import HStack from "./HStack";
 import VStack from "./VStack";
-import NavButton from "./NavButton";
 import BgImage from "./BgImage";
 import Center from "./Center";
 import Divider from "./Divider";
+import ZStack from "./ZStack";
 
-export { HStack, VStack, NavButton, BgImage, Center, Divider };
+export { HStack, VStack, ZStack, BgImage, Center, Divider };
