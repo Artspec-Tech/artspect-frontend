@@ -4,6 +4,5 @@ import BgImage from './BgImage';
 import Center from './Center';
 import Divider from './Divider';
 import ZStack from './ZStack';
-import ChoiceButton from './ChoiceButton';
 
-export { HStack, VStack, ZStack, BgImage, Center, Divider, ChoiceButton };
+export { HStack, VStack, ZStack, BgImage, Center, Divider };
