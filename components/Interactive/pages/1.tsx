@@ -20,7 +20,7 @@ const InteractivePage = () => {
 					zIndex: -1,
 				}}
 			>
-				<source src="./videos/slide1.mp4" type="video/mp4" />
+				<source src="/videos/slide1.mp4" type="video/mp4" />
 			</video>
 
 			<Center>
