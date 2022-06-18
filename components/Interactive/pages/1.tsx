@@ -1,7 +1,8 @@
 import { Center } from '@components/common';
 import { Typography } from '@mui/material';
 import React from 'react';
-
+import Image from 'next/image';
+import { CallServiceImage } from '@utils/images';
 const InteractivePage = () => {
 	return (
 		<Center>
@@ -16,6 +17,12 @@ const InteractivePage = () => {
 			>
 				เช้าวันนึงที่แสนจะธรรมดา ฉันตื่นลืมตาขึ้นมาบนเตียง...
 			</Typography>
+			<Image
+				src={CallServiceImage}
+				alt="Call Service"
+				layout="fill"
+				objectFit="cover"
+			/>
 		</Center>
 	);
 };
