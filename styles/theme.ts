@@ -14,18 +14,18 @@ const theme = createTheme({
 		// h4: {
 		// 	fontFamily: 'Montserrat',
 		// },
-		fontFamily: 'Inter',
+		fontFamily: 'Prompt',
 		h1: {
-			fontFamily: 'Inter',
+			fontFamily: 'Prompt',
 		},
 		h2: {
-			fontFamily: 'Inter',
+			fontFamily: 'Prompt',
 		},
 		h3: {
-			fontFamily: 'Inter',
+			fontFamily: 'Prompt',
 		},
 		h4: {
-			fontFamily: 'Inter',
+			fontFamily: 'Prompt',
 		},
 	},
 	palette: {
