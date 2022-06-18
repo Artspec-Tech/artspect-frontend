@@ -3,9 +3,8 @@ import { Typography, Box } from '@mui/material';
 import React from 'react';
 import Image from 'next/image';
 import { CallServiceImage } from '@utils/images';
-import InteractiveLayout from '@components/Layout/Interactive';
+
 const InteractivePage = () => {
-	console.log(CallServiceImage);
 	return (
 		<Center>
 			<Typography
