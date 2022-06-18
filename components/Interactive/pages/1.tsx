@@ -1,9 +1,11 @@
 import { Center } from '@components/common';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import React from 'react';
 import Image from 'next/image';
 import { CallServiceImage } from '@utils/images';
+import InteractiveLayout from '@components/Layout/Interactive';
 const InteractivePage = () => {
+	console.log(CallServiceImage);
 	return (
 		<Center>
 			<Typography
@@ -17,12 +19,17 @@ const InteractivePage = () => {
 			>
 				เช้าวันนึงที่แสนจะธรรมดา ฉันตื่นลืมตาขึ้นมาบนเตียง...
 			</Typography>
-			<Image
-				src={CallServiceImage}
-				alt="Call Service"
-				layout="fill"
-				objectFit="cover"
-			/>
+			<Box
+				height={'10rem'}
+				position="absolute"
+				bottom={0}
+				left={0}
+				style={{
+					aspectRatio: '1',
+				}}
+			>
+				<Image src={CallServiceImage} alt="woman sit on a gear" />
+			</Box>
 		</Center>
 	);
 };

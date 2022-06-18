@@ -1,6 +1,7 @@
-import { VStack, ChoiceButton } from '@components/common';
+import { VStack } from '@components/common';
 import { Typography } from '@mui/material';
 import React from 'react';
+import { ChoiceButton } from '../common';
 
 const InteractivePage = () => {
 	return (
