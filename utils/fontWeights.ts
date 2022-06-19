@@ -1,4 +1,4 @@
-const fontWeights: Readonly<{ [key: string]: string }> = {
+const fontWeights = {
   thin: "100",
   extraLight: "200",
   light: "300",
