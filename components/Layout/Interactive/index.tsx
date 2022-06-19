@@ -5,18 +5,6 @@ import { createTheme } from '@mui/material/styles';
 const interactiveTheme = createTheme({
 	typography: {
 		fontFamily: 'Prompt',
-		h1: {
-			fontFamily: 'Prompt',
-		},
-		h2: {
-			fontFamily: 'Prompt',
-		},
-		h3: {
-			fontFamily: 'Prompt',
-		},
-		h4: {
-			fontFamily: 'Prompt',
-		},
 	},
 	palette: {
 		primary: {
