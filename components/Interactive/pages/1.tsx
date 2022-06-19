@@ -3,12 +3,12 @@ import { Typography, Box } from "@mui/material";
 import React from "react";
 import Image from "next/image";
 import { CallServiceImage } from "@utils/images";
-import BackgroundVideo from "../common/BackgroundVideo";
+import { BackgroundVideo } from "../common";
 
 const InteractivePage = () => {
   return (
     <BackgroundVideo
-      path="/videos/slide1.mp4"
+      path="/videos/interactive/1/loop.mp4"
       videoType="video/mp4"
       handleEnded={() => 0}
       loop
