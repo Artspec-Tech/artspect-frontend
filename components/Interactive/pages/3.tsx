@@ -1,32 +1,33 @@
 import { Center, VStack } from "@components/common";
-import { Typography } from "@mui/material";
+import { Typography, TypographyProps } from "@mui/material";
 import fontWeights from "@utils/fontWeights";
 import React from "react";
 import { BackgroundVideo } from "../common";
 
+const PageTypography = ({ children, ...props }: TypographyProps) => {
+  return (
+    <Typography
+      fontWeight={fontWeights.semiBold}
+      fontSize={25}
+      sx={{
+        textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25);",
+      }}
+      {...props}
+    >
+      {children}
+    </Typography>
+  );
+};
+
 const InteractivePage = () => {
   return (
-    <BackgroundVideo
-      path="/videos/interactive/3/loop.mp4"
-      videoType="video/mp4"
-      loop
-      muted
-      autoPlay
-    >
+    <BackgroundVideo path="/videos/interactive/3/loop.mp4">
       <Center>
         <VStack>
-          <Typography fontWeight={fontWeights.semiBold} fontSize={30}>
-            หมอกแห่งอารมณ์เหล่านั้น
-          </Typography>
-          <Typography fontWeight={fontWeights.semiBold} fontSize={30}>
-            ดูมีสีสันปะปน
-          </Typography>
-          <Typography fontWeight={fontWeights.semiBold} fontSize={30}>
-            แล้วสีไหนที่ปกคลุมฉัน
-          </Typography>
-          <Typography fontWeight={fontWeights.semiBold} fontSize={30}>
-            อย่กันบ้างนะ?
-          </Typography>
+          <PageTypography>หมอกแห่งอารมณ์เหล่านั้น</PageTypography>
+          <PageTypography>ดูมีสีสันปะปน</PageTypography>
+          <PageTypography>แล้วสีไหนที่ปกคลุมฉัน</PageTypography>
+          <PageTypography>อย่กันบ้างนะ?</PageTypography>
         </VStack>
       </Center>
     </BackgroundVideo>
