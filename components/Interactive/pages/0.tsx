@@ -24,7 +24,7 @@ const InteractivePage = () => {
 			autoPlay
 			loop={status === 'loop'}
 			videoRef={videoRef}
-		></BackgroundVideo>
+		/>
 	);
 };
 
