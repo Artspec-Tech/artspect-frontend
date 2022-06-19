@@ -3,26 +3,18 @@ import { Typography, Box } from '@mui/material';
 import React from 'react';
 import Image from 'next/image';
 import { CallServiceImage } from '@utils/images';
+import BackgroundVideo from '../common/BackgroundVideo';
 
 const InteractivePage = () => {
 	return (
-		<>
-			<video
-				loop
-				muted
-				autoPlay
-				style={{
-					width: 'min(100%, 480px)',
-					float: 'left',
-					top: 0,
-					padding: 'none',
-					position: 'fixed',
-					zIndex: -1,
-				}}
-			>
-				<source src="/videos/slide1.mp4" type="video/mp4" />
-			</video>
-
+		<BackgroundVideo
+			path="/videos/slide1.mp4"
+			videoType="video/mp4"
+			handleEnded={() => 0}
+			loop
+			muted
+			autoPlay
+		>
 			<Center>
 				<Typography
 					paddingX={10}
@@ -47,7 +39,7 @@ const InteractivePage = () => {
 					<Image src={CallServiceImage} alt="woman sit on a gear" />
 				</Box>
 			</Center>
-		</>
+		</BackgroundVideo>
 	);
 };
 
