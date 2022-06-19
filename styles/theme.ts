@@ -1,31 +1,18 @@
 import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
 	typography: {
-		// fontFamily: 'Archivo',
-		// h1: {
-		// 	fontFamily: 'Montserrat',
-		// },
-		// h2: {
-		// 	fontFamily: 'Montserrat',
-		// },
-		// h3: {
-		// 	fontFamily: 'Montserrat',
-		// },
-		// h4: {
-		// 	fontFamily: 'Montserrat',
-		// },
-		fontFamily: 'Prompt',
+		fontFamily: 'Archivo',
 		h1: {
-			fontFamily: 'Prompt',
+			fontFamily: 'Montserrat',
 		},
 		h2: {
-			fontFamily: 'Prompt',
+			fontFamily: 'Montserrat',
 		},
 		h3: {
-			fontFamily: 'Prompt',
+			fontFamily: 'Montserrat',
 		},
 		h4: {
-			fontFamily: 'Prompt',
+			fontFamily: 'Montserrat',
 		},
 	},
 	palette: {

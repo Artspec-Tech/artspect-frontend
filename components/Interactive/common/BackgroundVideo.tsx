@@ -1,29 +1,36 @@
-import { Box } from "@mui/material";
-import React from "react";
+import React, { MediaHTMLAttributes, ReactEventHandler } from "react";
 
 type Props = {
-  url: string;
-  children?: React.ReactNode;
-};
+  path?: string;
+  videoType?: string;
+  handleEnded?: () => void;
+} & MediaHTMLAttributes<any>;
 
-const BackgroundVideo = ({ url, children }: Props) => {
+const BackgroundVideo = ({
+  path,
+  videoType = "video/mp4",
+  handleEnded,
+  children,
+  ...props
+}: Props) => {
   return (
-    <Box width={"100%"} height={"100%"}>
+    <>
       <video
-        autoPlay
-        loop
-        muted
+        onEnded={handleEnded}
         style={{
-          width: "100%",
-          height: "100%",
+          width: "min(100%, 480px)",
           position: "absolute",
+          top: "50%",
+          transform: "translateY(-50%)",
           zIndex: -1,
+          objectFit: "fill",
         }}
+        {...props}
       >
-        <source src={url} type="video/mp4" />
+        <source src={path} type={videoType} />
       </video>
       {children}
-    </Box>
+    </>
   );
 };
 
