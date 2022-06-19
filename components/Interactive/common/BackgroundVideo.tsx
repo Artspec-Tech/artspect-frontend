@@ -20,17 +20,17 @@ const BackgroundVideo = ({
 			<video
 				onEnded={() => handleEnded()}
 				style={{
-                    width: "100%",
-                    height: "100%",
-                    position: "absolute",
-                    zIndex: -1,
-                    objectFit: "cover",
-                  }}
+					width: '100%',
+					height: '100%',
+					position: 'absolute',
+					zIndex: -1,
+					objectFit: 'cover',
+				}}
 				ref={videoRef}
 				{...props}
 			>
 				<source
-					src={`/videos/interactive/page${page}/${videoType}.mp4`}
+					src={`/videos/interactive/${page}/${videoType}.mp4`}
 					type="video/mp4"
 				/>
 			</video>
