@@ -27,7 +27,7 @@ const ChoiceButton = ({ idx = 0, children, ...props }: Props) => {
 			<Typography sx={{ fontSize: 30, marginRight: 1.5 }}>
 				{String.fromCharCode(97 + idx)}
 			</Typography>
-			{children}
+			<Typography>{children}</Typography>
 		</Button>
 	);
 };
