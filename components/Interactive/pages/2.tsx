@@ -5,7 +5,7 @@ import { ChoiceButton, BackgroundVideo } from '../common';
 const InteractivePage = () => {
 	return (
 		<BackgroundVideo page="2" videoType="loop" loop muted autoPlay>
-			<VStack>
+			<VStack gap={3.5}>
 				<Typography
 					variant="h3"
 					align="center"
