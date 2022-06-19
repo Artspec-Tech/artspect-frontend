@@ -1,7 +1,6 @@
 import { Center } from '@components/common';
-import { Typography, Box } from '@mui/material';
+import { Typography } from '@mui/material';
 import React from 'react';
-import Image from 'next/image';
 import BackgroundVideo from '../common/BackgroundVideo';
 
 const InteractivePage = () => {
