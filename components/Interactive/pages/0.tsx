@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const InteractivePage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -12,27 +12,7 @@ const InteractivePage = () => {
   }, [url]);
   return (
     <Box width={"100%"} height={"100%"}>
-      <video
-        ref={videoRef}
-        autoPlay
-        loop={loop}
-        muted
-        onEnded={() => {
-          if (!loop) setLoop(true);
-        }}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          zIndex: -1,
-          objectFit: "cover",
-        }}
-      >
-        <source src={url} type="video/mp4" />
-      </video>
+      <Typography>Zero</Typography>
     </Box>
   );
 };
