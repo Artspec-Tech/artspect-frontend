@@ -18,12 +18,11 @@ const BackgroundVideo = ({
       <video
         onEnded={handleEnded}
         style={{
-          width: "min(100%, 480px)",
+          width: "100%",
+          height: "100%",
           position: "absolute",
-          top: "50%",
-          transform: "translateY(-50%)",
           zIndex: -1,
-          objectFit: "fill",
+          objectFit: "cover",
         }}
         {...props}
       >
