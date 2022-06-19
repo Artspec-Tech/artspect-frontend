@@ -1,22 +1,24 @@
-import React, { MediaHTMLAttributes, ReactEventHandler } from 'react';
+import React, { MediaHTMLAttributes, RefObject } from 'react';
 
 type Props = {
-	path?: string;
+	page?: string;
 	videoType?: string;
 	handleEnded?: () => void;
+	videoRef?: RefObject<any>;
 } & MediaHTMLAttributes<any>;
 
 const BackgroundVideo = ({
-	path,
-	videoType = 'video/mp4',
-	handleEnded,
+	page,
+	videoType = 'loop',
+	videoRef,
+	handleEnded = () => 0,
 	children,
 	...props
 }: Props) => {
 	return (
 		<>
 			<video
-				onEnded={handleEnded}
+				onEnded={() => handleEnded()}
 				style={{
 					width: 'min(100%, 480px)',
 					position: 'absolute',
@@ -25,9 +27,13 @@ const BackgroundVideo = ({
 					zIndex: -1,
 					objectFit: 'fill',
 				}}
+				ref={videoRef}
 				{...props}
 			>
-				<source src={path} type={videoType} />
+				<source
+					src={`/videos/interactive/page${page}/${videoType}.mp4`}
+					type="video/mp4"
+				/>
 			</video>
 			{children}
 		</>

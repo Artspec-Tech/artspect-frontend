@@ -2,19 +2,11 @@ import { Center } from '@components/common';
 import { Typography, Box } from '@mui/material';
 import React from 'react';
 import Image from 'next/image';
-import { CallServiceImage } from '@utils/images';
 import BackgroundVideo from '../common/BackgroundVideo';
 
 const InteractivePage = () => {
 	return (
-		<BackgroundVideo
-			path="/videos/slide1.mp4"
-			videoType="video/mp4"
-			handleEnded={() => 0}
-			loop
-			muted
-			autoPlay
-		>
+		<BackgroundVideo page="1" videoType="loop" loop muted autoPlay>
 			<Center>
 				<Typography
 					paddingX={10}
@@ -27,17 +19,6 @@ const InteractivePage = () => {
 				>
 					เช้าวันนึงที่แสนจะธรรมดา ฉันตื่นลืมตาขึ้นมาบนเตียง...
 				</Typography>
-				<Box
-					height={'10rem'}
-					position="absolute"
-					bottom={0}
-					left={0}
-					style={{
-						aspectRatio: '1',
-					}}
-				>
-					<Image src={CallServiceImage} alt="woman sit on a gear" />
-				</Box>
 			</Center>
 		</BackgroundVideo>
 	);
