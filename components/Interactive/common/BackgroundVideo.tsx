@@ -9,6 +9,9 @@ type Props = {
 const BackgroundVideo = ({
   path,
   videoType = "video/mp4",
+  loop = true,
+  autoPlay = true,
+  muted = true,
   handleEnded,
   children,
   ...props
@@ -17,6 +20,9 @@ const BackgroundVideo = ({
     <>
       <video
         onEnded={handleEnded}
+        loop={loop}
+        autoPlay={autoPlay}
+        muted={muted}
         style={{
           width: "100%",
           height: "100%",
