@@ -15,15 +15,11 @@ const ChoiceButton = ({ idx = 0, children, ...props }: Props) => {
 				minHeight: 55,
 				display: 'flex',
 				justifyContent: 'flex-start',
-				marginBottom: 3.5,
 				border: '1px #f4f4f4 solid',
 				borderRadius: 3,
 				boxShadow: '3px 3px 5px #DED4EC',
 				'&:hover': {
 					border: '1px #DED4EC solid',
-				},
-				'&:last-child': {
-					marginBottom: 0,
 				},
 			}}
 			{...props}
