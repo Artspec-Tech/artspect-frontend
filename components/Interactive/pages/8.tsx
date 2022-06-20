@@ -30,8 +30,21 @@ const InteractivePage = () => {
 		setValue(event.target.value);
 	};
 
+	const userChoicePage6 = React.useMemo(
+		() => window.localStorage.getItem('userChoicePage6') ?? '',
+		[]
+	);
+
+	//TODO: If user has not yet made a choice, redirect to page 6
+
 	return (
-		<BackgroundVideo page="8" videoType="loop" loop muted autoPlay>
+		<BackgroundVideo
+			page="8"
+			videoType={userChoicePage6}
+			loop
+			muted
+			autoPlay
+		>
 			<VStack gap={3.5}>
 				<Typography
 					component="div"

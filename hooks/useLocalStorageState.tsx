@@ -14,3 +14,5 @@ function useLocalStorageState<T>(
 
 	return [state, setState];
 }
+
+export default useLocalStorageState;
