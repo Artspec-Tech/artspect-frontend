@@ -2,31 +2,11 @@ import { VStack } from '@components/common';
 import { Typography } from '@mui/material';
 import React from 'react';
 import { BackgroundVideo, ChoiceButton } from '../common';
+import { choicesPage6, choicesPage6ToColor } from '../choices/choices';
 
 const InteractivePage = () => {
-	const choices = [
-		'สีเหลืองแห่งความสุข (joy)',
-		'สีม่วงน่าประหลาดใจ (surprise)',
-		'สีฟ้าดูเศร้าซึม (sadness)',
-		'สีแดงแห่งความโกรธ (anger)',
-		'สีส้มปนความกลัว (fear)',
-		'สีเขียวน่าขยะแขยง (disgust)',
-	];
-
-	const choice2color = [
-		'yellow_loop',
-		'purple_loop',
-		'blue_loop',
-		'red_loop',
-		'orange_loop',
-		'green_loop',
-	];
-
 	function handleClick(event: React.SyntheticEvent, key: number) {
-		window.localStorage.setItem(
-			'userChoicePage6',
-			JSON.stringify([choice2color[key], choices[key].split(' ')[0]])
-		);
+		window.localStorage.setItem('userChoicePage6', String(key));
 	}
 
 	return (
@@ -37,7 +17,7 @@ const InteractivePage = () => {
 					หมอกที่ปกคลุมฉันส่วนใหญ่มีสี…..
 				</Typography>
 				<VStack width={'100%'} height={'auto'} gap="1rem">
-					{choices.map((choice, index) => (
+					{choicesPage6.map((choice, index) => (
 						<ChoiceButton
 							key={index}
 							idx={index}

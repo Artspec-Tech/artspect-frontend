@@ -5,6 +5,17 @@ import { BackgroundVideo } from '../common';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import {
+	choicesPage2,
+	choicesPage6,
+	choicesPage6ToColor,
+	choicesPage7,
+} from '../choices/choices';
+
+function getUserChoice(page: number) {
+	const userChoice = window.localStorage.getItem(`userChoice${page}`);
+	return Number(userChoice);
+}
 
 const CssTextField = styled(TextField)({
 	'& label.Mui-focused': {
@@ -33,11 +44,14 @@ const InteractivePage = () => {
 	const [userChoicePage2, userChoicePage6, userChoicePage7] =
 		React.useMemo(() => {
 			return [
-				window.localStorage.getItem('userChoicePage2') || '',
-				JSON.parse(
-					window.localStorage.getItem('userChoicePage6') || ''
-				) || Array(2).fill(null),
-				window.localStorage.getItem('userChoicePage7') || '',
+				// window.localStorage.getItem('userChoicePage2') || '',
+				// JSON.parse(
+				// 	window.localStorage.getItem('userChoicePage6') || ''
+				// ) || Array(2).fill(null),
+				// window.localStorage.getItem('userChoicePage7') || '',
+				getUserChoice(2),
+				getUserChoice(6),
+				getUserChoice(7),
 			];
 		}, []);
 
@@ -48,7 +62,7 @@ const InteractivePage = () => {
 	return (
 		<BackgroundVideo
 			page="8"
-			videoType={userChoicePage6[0]}
+			videoType={choicesPage6ToColor[userChoicePage6]}
 			loop
 			muted
 			autoPlay
@@ -65,17 +79,17 @@ const InteractivePage = () => {
 					<Box
 						display="inline"
 						fontWeight="500"
-					>{` (${userChoicePage6[1]}) `}</Box>
+					>{` (${choicesPage6[userChoicePage6]}) `}</Box>
 					ที่
 					<Box
 						display="inline"
 						fontWeight="500"
-					>{` (${userChoicePage2}) `}</Box>
+					>{` (${choicesPage2[userChoicePage2]}) `}</Box>
 					และควบแน่นที่
 					<Box
 						display="inline"
 						fontWeight="500"
-					>{` (${userChoicePage7}) `}</Box>
+					>{` (${choicesPage7[userChoicePage7]}) `}</Box>
 					คงเป็นเพราะว่า ………
 				</Typography>
 				<Box
