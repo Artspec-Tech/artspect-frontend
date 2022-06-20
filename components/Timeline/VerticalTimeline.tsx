@@ -8,9 +8,9 @@ export default function VerticalTimeline() {
   return (
     <Box>
       {timelineEvents.slice(0).reverse().map((event, i) => (
-      <Grid container direction="row">
+      <Grid container direction="row" key={i}>
         <Grid item xs={2}>
-          <Box key={i}
+          <Box
             sx={{
               display: 'flex',
               flexDirection: 'column',
