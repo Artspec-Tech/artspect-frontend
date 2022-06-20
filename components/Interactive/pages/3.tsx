@@ -1,16 +1,16 @@
 import { Center, VStack } from '@components/common';
 import { Typography, TypographyProps } from '@mui/material';
-import fontWeights from '@utils/fontWeights';
 import React from 'react';
 import { BackgroundVideo } from '../common';
 
 const PageTypography = ({ children, ...props }: TypographyProps) => {
 	return (
 		<Typography
-			fontWeight={fontWeights.semiBold}
-			fontSize={25}
+			fontWeight="bold"
+			fontSize={20}
 			sx={{
 				textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25);',
+				letterSpacing: '1px',
 			}}
 			{...props}
 		>

@@ -20,7 +20,11 @@ const InteractivePage = () => {
 					align="center"
 					width={'60%'}
 					marginBottom={8}
-					sx={{ fontSize: 20, fontWeight: 'bold' }}
+					sx={{
+						fontSize: 20,
+						fontWeight: 'bold',
+						letterSpacing: '1px',
+					}}
 				>
 					แล้วพบว่ามีหมอกแห่งอารมณ์ เคลื่อนตัวเข้าปกคลุม
 					หมอกเหล่านั้นมีหน้าตา……
