@@ -1,5 +1,6 @@
 import { VStack } from "@components/common";
 import Description from "@components/Description";
+import Timeline from "@components/Timeline";
 import Product from "@components/Product";
 import Showcase from "@components/Showcase";
 import WebLayout from "@components/Layout/Web";
@@ -26,6 +27,7 @@ const Home: NextPageWithLayout = () => {
       }}
     >
       <Description />
+      <Timeline />
       <Showcase />
       <Product />
     </VStack>
