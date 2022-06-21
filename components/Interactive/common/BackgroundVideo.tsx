@@ -1,4 +1,6 @@
+import { VStack } from "@components/common";
 import { getOrElse } from "@utils/nullOperations";
+import { useNextPage } from "hooks/useNextPage";
 import { useRouter } from "next/router";
 import React, { MediaHTMLAttributes, RefObject } from "react";
 
@@ -6,6 +8,7 @@ type Props = {
   page?: string;
   src?: string;
   videoType?: string;
+  nextVideoOnClick?: boolean;
   handleEnded?: () => void;
   videoRef?: RefObject<any>;
 } & MediaHTMLAttributes<any>;
@@ -20,11 +23,13 @@ const BackgroundVideo = ({
   loop = true,
   autoPlay = true,
   muted = true,
+  nextVideoOnClick = true,
   ...props
 }: Props) => {
   const { query } = useRouter();
+  const nextPage = useNextPage();
   return (
-    <>
+    <VStack onClick={nextVideoOnClick ? nextPage : undefined}>
       <video
         onEnded={() => handleEnded()}
         style={{
@@ -52,7 +57,7 @@ const BackgroundVideo = ({
         />
       </video>
       {children}
-    </>
+    </VStack>
   );
 };
 
