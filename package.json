@@ -1,37 +1,38 @@
 {
-  "name": "artspec-frontend",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.6.2",
-    "@mui/lab": "^5.0.0-alpha.84",
-    "@mui/material": "^5.6.3",
-    "@types/crypto-js": "^4.1.1",
-    "@types/glob": "^7.2.0",
-    "@types/react-slick": "^0.23.8",
-    "crypto-js": "^4.1.1",
-    "framer-motion": "^6.3.3",
-    "next": "^12.1.6",
-    "pietile-carousel": "^3.2.0",
-    "react": "^18.0.0-rc.3",
-    "react-dom": "^18.0.0-rc.3",
-    "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
-  },
-  "devDependencies": {
-    "@types/node": "17.0.23",
-    "@types/react": "17.0.43",
-    "@types/react-dom": "17.0.14",
-    "eslint": "8.12.0",
-    "eslint-config-next": "12.1.1",
-    "typescript": "4.6.3"
-  }
+	"name": "artspec-frontend",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.9.0",
+		"@emotion/styled": "^11.8.1",
+		"@mui/icons-material": "^5.6.2",
+		"@mui/lab": "^5.0.0-alpha.84",
+		"@mui/material": "^5.6.3",
+		"@types/crypto-js": "^4.1.1",
+		"@types/glob": "^7.2.0",
+		"@types/react-slick": "^0.23.8",
+    "date-fns": "^2.28.0",
+		"crypto-js": "^4.1.1",
+		"framer-motion": "^6.3.3",
+		"next": "^12.1.6",
+		"pietile-carousel": "^3.2.0",
+		"react": "^18.0.0-rc.3",
+		"react-dom": "^18.0.0-rc.3",
+		"react-slick": "^0.29.0",
+		"slick-carousel": "^1.8.1"
+	},
+	"devDependencies": {
+		"@types/node": "17.0.23",
+		"@types/react": "17.0.43",
+		"@types/react-dom": "17.0.14",
+		"eslint": "8.12.0",
+		"eslint-config-next": "12.1.1",
+		"typescript": "4.6.3"
+	}
 }

@@ -36,12 +36,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync("components/Interactive/pages");
-  const paths = Array.from({ length: files.length }, (_, index) => ({
+  const paths = files.map((file) => ({
     params: {
-      page: index.toString(),
+      page: file.replace(".tsx", ""),
     },
   }));
-  console.log(paths);
   return {
     paths,
     fallback: true,
