@@ -5,10 +5,12 @@ import { BackgroundVideo } from '../common';
 
 const InteractivePage = () => {
 	return (
-		<BackgroundVideo videoType="loop" loop muted autoPlay> //TODO: change background video to page 13
+		<BackgroundVideo page="10" videoType="loop" loop muted autoPlay>
 			<Center>
 				<VStack>
-					<Typography>“ฉันอยากจะพาเธอไปยังที่แห่งหนึ่ง”</Typography>
+					<Typography fontSize={20}>
+						“ฉันอยากจะพาเธอไปยังที่แห่งหนึ่ง”
+					</Typography>
 				</VStack>
 			</Center>
 		</BackgroundVideo>

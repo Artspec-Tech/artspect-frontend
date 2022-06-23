@@ -8,7 +8,9 @@ const InteractivePage = () => {
 		<BackgroundVideo videoType="loop" loop muted autoPlay> //TODO: change background video to page 15
 			<Center>
 				<VStack>
-					<Typography>“เอาล่ะ ถึงแล้ว!”</Typography>
+					<Typography fontSize={20}>
+						“เอาล่ะ ถึงแล้ว!”
+					</Typography>
 				</VStack>
 			</Center>
 		</BackgroundVideo>
