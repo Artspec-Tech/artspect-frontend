@@ -11,6 +11,7 @@ import {
 	choicesPage6ToColor,
 	choicesPage7,
 } from '../choices/choices';
+import { motion } from 'framer-motion';
 
 function getUserChoice(page: number) {
 	const userChoice = window.localStorage.getItem(`userChoicePage${page}`);
@@ -60,35 +61,47 @@ const InteractivePage = () => {
 		>
 			<VStack gap={3.5}>
 				<Typography
-					component="div"
+					component={motion.div}
 					variant="h3"
 					align="center"
 					width={'60%'}
 					sx={{ fontSize: 16, fontWeight: 300 }}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{
+						delay: 1,
+						duration: 3,
+					}}
 				>
 					ฉันคิดว่าที่หมอกแห่งอารมณ์
-					<Box display="inline" fontWeight="500">{` (${
+					<Box display="inline" fontWeight="bold">{` (${
 						choicesPage6[userChoicePage6].split(' ')[0]
 					}) `}</Box>
 					ที่
 					<Box
 						display="inline"
-						fontWeight="500"
+						fontWeight="bold"
 					>{` (${choicesPage2[userChoicePage2]}) `}</Box>
 					และควบแน่นที่
 					<Box
 						display="inline"
-						fontWeight="500"
+						fontWeight="bold"
 					>{` (${choicesPage7[userChoicePage7]}) `}</Box>
 					คงเป็นเพราะว่า ………
 				</Typography>
 				<Box
-					component="form"
+					component={motion.form}
 					sx={{
 						'& .MuiTextField-root': { m: 1, width: 300 },
 					}}
 					noValidate
 					autoComplete="off"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{
+						delay: 4,
+						duration: 1,
+					}}
 				>
 					<TextField
 						hiddenLabel
