@@ -15,7 +15,7 @@ const BgImage = ({ height, src, children, ...props }: Props) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Box
-      style={{
+      sx={{
         alignItems: "center",
         display: "flex",
         justifyContent: "center",
