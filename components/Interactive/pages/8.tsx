@@ -13,26 +13,26 @@ import {
 } from '../choices/choices';
 
 function getUserChoice(page: number) {
-	const userChoice = window.localStorage.getItem(`userChoice${page}`);
+	const userChoice = window.localStorage.getItem(`userChoicePage${page}`);
 	return Number(userChoice);
 }
 
-const CssTextField = styled(TextField)({
-	'& label.Mui-focused': {
-		color: '#DED4EC',
-	},
-	'& .MuiInput-underline:after': {
-		borderBottomColor: '#DED4EC',
-	},
-	'& .MuiOutlinedInput-root': {
-		'&:hover fieldset': {
-			borderColor: '#DED4EC',
-		},
-		'&.Mui-focused fieldset': {
-			borderColor: '#DED4EC',
-		},
-	},
-});
+// const CssTextField = styled(TextField)({
+// 	'& label.Mui-focused': {
+// 		color: '#DED4EC',
+// 	},
+// 	'& .MuiInput-underline:after': {
+// 		borderBottomColor: '#DED4EC',
+// 	},
+// 	'& .MuiOutlinedInput-root': {
+// 		'&:hover fieldset': {
+// 			borderColor: '#DED4EC',
+// 		},
+// 		'&.Mui-focused fieldset': {
+// 			borderColor: '#DED4EC',
+// 		},
+// 	},
+// });
 
 const InteractivePage = () => {
 	const [value, setValue] = React.useState('Controlled');
@@ -43,29 +43,20 @@ const InteractivePage = () => {
 
 	const [userChoicePage2, userChoicePage6, userChoicePage7] =
 		React.useMemo(() => {
-			return [
-				// window.localStorage.getItem('userChoicePage2') || '',
-				// JSON.parse(
-				// 	window.localStorage.getItem('userChoicePage6') || ''
-				// ) || Array(2).fill(null),
-				// window.localStorage.getItem('userChoicePage7') || '',
-				getUserChoice(2),
-				getUserChoice(6),
-				getUserChoice(7),
-			];
+			return [getUserChoice(2), getUserChoice(6), getUserChoice(7)];
 		}, []);
 
+	console.log(userChoicePage2);
 	console.log(userChoicePage6);
+	console.log(userChoicePage7);
+
+	const [isEnter, setIsEnter] = React.useState(false);
 
 	//TODO: If user has not yet made a choice, redirect to page 6
-
 	return (
 		<BackgroundVideo
-			page="8"
 			videoType={choicesPage6ToColor[userChoicePage6]}
-			loop
-			muted
-			autoPlay
+			nextVideoOnClick={isEnter}
 		>
 			<VStack gap={3.5}>
 				<Typography
@@ -76,10 +67,9 @@ const InteractivePage = () => {
 					sx={{ fontSize: 16, fontWeight: 300 }}
 				>
 					ฉันคิดว่าที่หมอกแห่งอารมณ์
-					<Box
-						display="inline"
-						fontWeight="500"
-					>{` (${choicesPage6[userChoicePage6]}) `}</Box>
+					<Box display="inline" fontWeight="500">{` (${
+						choicesPage6[userChoicePage6].split(' ')[0]
+					}) `}</Box>
 					ที่
 					<Box
 						display="inline"
@@ -100,12 +90,17 @@ const InteractivePage = () => {
 					noValidate
 					autoComplete="off"
 				>
-					<CssTextField
-						id="filled-multiline-static"
+					<TextField
 						hiddenLabel
 						multiline
 						rows={6}
 						placeholder="Enter text..."
+						onKeyDown={(e) => {
+							if (e.keyCode == 13) {
+								setIsEnter(true);
+							}
+						}}
+						disabled={isEnter}
 					/>
 				</Box>
 			</VStack>

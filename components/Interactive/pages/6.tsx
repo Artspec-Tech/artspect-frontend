@@ -3,14 +3,18 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import { BackgroundVideo, ChoiceButton } from '../common';
 import { choicesPage6, choicesPage6ToColor } from '../choices/choices';
+import { useNextPage } from 'hooks/useNextPage';
 
 const InteractivePage = () => {
+	const nextPage = useNextPage();
+
 	function handleClick(event: React.SyntheticEvent, key: number) {
 		window.localStorage.setItem('userChoicePage6', String(key));
+		nextPage();
 	}
 
 	return (
-		<BackgroundVideo>
+		<BackgroundVideo nextVideoOnClick={false}>
 			<VStack width={'100%'} gap="2rem">
 				<Typography fontSize={20} width="80%" textAlign={'center'}>
 					ฉันจึงเฝ้ามองหมอกแห่งอารมณ์ อยู่ครู่นึง แล้วพบว่า

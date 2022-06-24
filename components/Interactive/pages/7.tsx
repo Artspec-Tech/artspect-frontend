@@ -3,14 +3,18 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import { ChoiceButton, BackgroundVideo } from '../common';
 import { choicesPage7 } from '../choices/choices';
+import { useNextPage } from 'hooks/useNextPage';
 
 const InteractivePage = () => {
+	const nextPage = useNextPage();
+
 	function handleClick(event: React.SyntheticEvent, key: number) {
 		window.localStorage.setItem('userChoicePage7', String(key));
+		nextPage();
 	}
 
 	return (
-		<BackgroundVideo>
+		<BackgroundVideo nextVideoOnClick={false}>
 			<VStack gap={3.5}>
 				<Typography
 					variant="h3"
