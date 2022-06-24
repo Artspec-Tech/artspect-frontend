@@ -3,14 +3,15 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import { BackgroundVideo } from '../common';
 
-//TODO: change background video to page 15
 const InteractivePage = () => {
 	return (
-		<BackgroundVideo page="14" videoType="loop" loop muted autoPlay>
+		<BackgroundVideo page="3" videoType="loop" loop muted autoPlay>
 			<Center>
 				<VStack>
-					<Typography fontSize={20}>
-						“เอาล่ะ ถึงแล้ว!”
+					<Typography
+						align='center'
+						fontSize={20}>
+							ทันทีที่เพลงเข้าท่อนฮุค<br/>หมอกของนักแสดงเหล่านั้นก็เข้ามาปะปนกับสี<br/>หมอกของฉันจนกลมกลืนเป็นสีเดียวกัน<br/>กระจายตัวไปทั่วห้องซ้อม
 					</Typography>
 				</VStack>
 			</Center>

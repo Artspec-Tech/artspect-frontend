@@ -5,11 +5,20 @@ import { BackgroundVideo } from '../common';
 
 const InteractivePage = () => {
 	return (
-		<BackgroundVideo page="10" videoType="loop" loop muted autoPlay>
+		<BackgroundVideo page="13" videoType="loop" loop muted autoPlay>
 			<Center>
 				<VStack>
-					<Typography fontSize={20}>
-						“ฉันอยากจะพาเธอไปยังที่แห่งหนึ่ง”
+					<Typography
+						fontSize={20}
+						paddingBottom="1rem"
+					>
+						ทันใดนั้นเอง
+					</Typography>
+					<Typography 
+						textAlign='center' 
+						fontSize={20}
+					>
+						ฉันก็ได้ยินเสียงบทสนทนาปนเสียงดนตรีแว่ว<br/>มาจากทางข้างหน้า
 					</Typography>
 				</VStack>
 			</Center>
