@@ -29,10 +29,6 @@ const InteractivePage = () => {
 			return [getUserChoice(2), getUserChoice(6), getUserChoice(7)];
 		}, []);
 
-	console.log(userChoicePage2);
-	console.log(userChoicePage6);
-	console.log(userChoicePage7);
-
 	const [isEnter, setIsEnter] = React.useState(false);
 
 	return (
