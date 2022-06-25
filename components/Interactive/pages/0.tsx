@@ -1,19 +1,19 @@
-import React from 'react';
-import { BackgroundVideo } from '../common';
+import React from "react";
+import { BackgroundVideo } from "../common";
 
 const InteractivePage = () => {
 	const [status, setStatus] = React.useState<'initial' | 'loop'>('initial');
 	const videoRef = React.useRef<HTMLVideoElement>(null);
 
-	React.useEffect(() => {
-		if (videoRef.current) {
-			videoRef.current.load();
-		}
-	}, [status]);
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, [status]);
 
-	function handleEnded() {
-		setStatus('loop');
-	}
+  function handleEnded() {
+    setStatus("loop");
+  }
 
 	return (
 		<BackgroundVideo
