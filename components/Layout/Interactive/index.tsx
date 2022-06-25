@@ -6,6 +6,7 @@ const interactiveTheme = createTheme({
 	typography: {
 		fontFamily: 'Prompt',
 		fontWeightRegular: 300,
+		fontWeightBold: 500,
 	},
 	palette: {
 		primary: {
