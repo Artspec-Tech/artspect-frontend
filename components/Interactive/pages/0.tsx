@@ -1,6 +1,5 @@
 import React from 'react';
 import { BackgroundVideo } from '../common';
-import { useNextPage } from 'hooks/useNextPage';
 
 const InteractivePage = () => {
 	const [status, setStatus] = React.useState<'initial' | 'loop'>('initial');

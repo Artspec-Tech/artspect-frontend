@@ -2,7 +2,6 @@ import { VStack } from '@components/common';
 import { Typography } from '@mui/material';
 import React from 'react';
 import { BackgroundVideo } from '../common';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import {
@@ -17,23 +16,6 @@ function getUserChoice(page: number) {
 	const userChoice = window.localStorage.getItem(`userChoicePage${page}`);
 	return Number(userChoice);
 }
-
-// const CssTextField = styled(TextField)({
-// 	'& label.Mui-focused': {
-// 		color: '#DED4EC',
-// 	},
-// 	'& .MuiInput-underline:after': {
-// 		borderBottomColor: '#DED4EC',
-// 	},
-// 	'& .MuiOutlinedInput-root': {
-// 		'&:hover fieldset': {
-// 			borderColor: '#DED4EC',
-// 		},
-// 		'&.Mui-focused fieldset': {
-// 			borderColor: '#DED4EC',
-// 		},
-// 	},
-// });
 
 const InteractivePage = () => {
 	const [value, setValue] = React.useState('Controlled');
@@ -53,7 +35,6 @@ const InteractivePage = () => {
 
 	const [isEnter, setIsEnter] = React.useState(false);
 
-	//TODO: If user has not yet made a choice, redirect to page 6
 	return (
 		<BackgroundVideo
 			videoType={choicesPage6ToColor[userChoicePage6]}
