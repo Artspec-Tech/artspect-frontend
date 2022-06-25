@@ -1,15 +1,12 @@
 import { Center } from "@components/common";
 import InteractiveLayout from "@components/Layout/Interactive";
-import React, { ReactElement, useEffect, useRef } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { NextPageWithLayout } from "types";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "store";
-import { VideoState, addVideos } from "store/videos/videoSlice";
 import { Glob } from "glob";
 import axios from "axios";
 import { GetStaticProps } from "next";
 import { db } from "@utils/db";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 const videoPath = "videos/interactive";
 const publicVideoPath = `public/${videoPath}`;
@@ -20,12 +17,8 @@ const Interactive: NextPageWithLayout<{
     type: string;
   }[];
 }> = ({ paths }) => {
-  const video: VideoState = useSelector<RootState, VideoState>(
-    (state) => state.video
-  );
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [percentage, setPercentage] = useState<number>(0);
   useEffect(() => {
-    console.log(paths);
     const getVideoData = async () => {
       try {
         paths.forEach(async (path) => {
@@ -33,7 +26,6 @@ const Interactive: NextPageWithLayout<{
             .where({ name: `${path.page}_${path.type}` })
             .first();
           if (!id) {
-            console.log("Not found id");
             const res = await axios.get(
               `/videos/interactive/${path.page}/${path.type}`,
               {
@@ -45,26 +37,24 @@ const Interactive: NextPageWithLayout<{
               name: `${path.page}_${path.type}`,
               blob: blob,
             });
-            // const url = URL.createObjectURL(blob);
-            // setVideoUrl(url);
           } else {
             console.log(
               `Already has ${path.page}_${path.type} in database, skipping`
             );
           }
+          setPercentage((p) => p + 1);
         });
       } catch (err: unknown) {
         console.log(err);
       }
     };
     getVideoData();
-    // if (videoRef.current) {
-    //   videoRef.current.load();
-    // }
-  }, []);
+  }, [paths]);
   return (
     <Center>
-      <Button>Next page</Button>
+      <Typography>
+        {Math.round((percentage / (paths.length - 1)) * 100)} %
+      </Typography>
     </Center>
   );
 };
