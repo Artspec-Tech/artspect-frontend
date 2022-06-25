@@ -1,15 +1,30 @@
 import { Center, VStack } from '@components/common';
-import { Typography, TypographyProps } from '@mui/material';
-import fontWeights from '@utils/fontWeights';
+import { Typography } from '@mui/material';
 import React from 'react';
 import { BackgroundVideo } from '../common';
 
 const InteractivePage = () => {
 	return (
-		<BackgroundVideo page="4" videoType="loop" loop muted autoPlay>
+		<BackgroundVideo>
 			<Center>
 				<VStack>
-					<Typography>Hello</Typography>
+					<Typography
+						sx={{
+							width: '50%',
+							textAlign: 'right',
+							position: 'absolute',
+							top: '1.5rem',
+							left: '10rem',
+						}}
+					>
+						หมอกสีเหลืองแสดงถึงความสุข สงบ พอใจ และสนุกสนาน
+					</Typography>
+					<Typography>
+						หมอกสีม่วงน่าประหลาดใจ ตื่นเต้น และสับสน
+					</Typography>
+					<Typography>
+						หมอกสีฟ้า ดูเศร้าซึม เหงาๆ และสิ้นหวัง
+					</Typography>
 				</VStack>
 			</Center>
 		</BackgroundVideo>
