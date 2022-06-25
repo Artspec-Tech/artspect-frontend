@@ -5,7 +5,7 @@ import BackgroundVideo from "../common/BackgroundVideo";
 
 const InteractivePage = () => {
   return (
-    <BackgroundVideo page="14" loop={false}>
+    <BackgroundVideo loop={false}>
       <Center>
         <VStack>
           <Typography
@@ -13,7 +13,7 @@ const InteractivePage = () => {
               fontSize: 18,
               textAlign: "center",
               textShadow: "0px 1px 1px rgba(0, 0, 0, 0.3)",
-			  marginBottom: 2,
+              marginBottom: 2,
             }}
           >
             &quot;ฉันอยากจะพาเธอไปยังที่แห่งหนึ่ง
