@@ -53,7 +53,7 @@ const Interactive: NextPageWithLayout<{
   return (
     <Center>
       <Typography>
-        {Math.round((percentage / (paths.length - 1)) * 100)} %
+        {Math.min(Math.round((percentage / (paths.length - 1)) * 100), 100)} %
       </Typography>
     </Center>
   );
