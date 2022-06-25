@@ -20,10 +20,10 @@ const InteractivePage = () => {
   return (
     <BackgroundVideo page="16" >
         <VStack justifyContent={"start"}>
-          <PageTypography marginTop={5} marginBottom={2}>"ยินดีต้อนรับสู่ (museum of emotions) นะ</PageTypography>
+          <PageTypography marginTop={5} marginBottom={2}>&quot;ยินดีต้อนรับสู่ (museum of emotions) นะ</PageTypography>
           <PageTypography>ที่นี่น่ะ</PageTypography>
           <PageTypography marginBottom={3}>ทุกคนมีหมอกของตัวเองมาด้วยกันทั้งนั้น</PageTypography>
-          <PageTypography>แล้วก็มีหลายสีเต็มไปหมดเลย"</PageTypography>
+          <PageTypography>แล้วก็มีหลายสีเต็มไปหมดเลย&quot;</PageTypography>
         </VStack>
     </BackgroundVideo>
   );

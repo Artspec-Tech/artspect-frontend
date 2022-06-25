@@ -16,7 +16,7 @@ const InteractivePage = () => {
 			  marginBottom: 2,
             }}
           >
-            “ฉันอยากจะพาเธอไปยังที่แห่งหนึ่ง
+            &quot;ฉันอยากจะพาเธอไปยังที่แห่งหนึ่ง
           </Typography>
           <Typography
             sx={{
@@ -25,7 +25,7 @@ const InteractivePage = () => {
               textShadow: "0px 1px 1px rgba(0, 0, 0, 0.3)",
             }}
           >
-            ตามฉันมานะ”
+            ตามฉันมานะ&quot;
           </Typography>
         </VStack>
       </Center>

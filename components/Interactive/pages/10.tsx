@@ -21,13 +21,13 @@ const InteractivePage = () => {
     <BackgroundVideo page="9">
       <Center>
         <VStack>
-          <PageTypography marginTop={10}>"ไม่เป็นไรนะ คนเก่ง</PageTypography>
+          <PageTypography marginTop={10}>&quot;ไม่เป็นไรนะ คนเก่ง</PageTypography>
           <PageTypography marginBottom={5}>
             ไม่ว่าเธอจะเห็นฉันเป็นสีอะไร
           </PageTypography>
           <PageTypography marginBottom={5}>จะหนาแค่ไหน</PageTypography>
           <PageTypography marginBottom={5}>หรือเพราะอะไร</PageTypography>
-          <PageTypography>การมีฉันอยู่มันเป็นเรื่องปกตินะ"</PageTypography>
+          <PageTypography>การมีฉันอยู่มันเป็นเรื่องปกตินะ&quot;</PageTypography>
         </VStack>
       </Center>
     </BackgroundVideo>
