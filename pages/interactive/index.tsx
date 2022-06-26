@@ -1,4 +1,4 @@
-import { Center } from "@components/common";
+import { Center, VStack } from "@components/common";
 import InteractiveLayout from "@components/Layout/Interactive";
 import React, { ReactElement, useEffect, useState } from "react";
 import { NextPageWithLayout } from "types";
@@ -6,7 +6,7 @@ import { Glob } from "glob";
 import axios from "axios";
 import { GetStaticProps } from "next";
 import { db } from "@utils/db";
-import { Button, Typography } from "@mui/material";
+import { Box, LinearProgress, Typography } from "@mui/material";
 
 const videoPath = "videos/interactive";
 const publicVideoPath = `public/${videoPath}`;
@@ -21,29 +21,28 @@ const Interactive: NextPageWithLayout<{
   useEffect(() => {
     const getVideoData = async () => {
       try {
-        paths.forEach(async (path) => {
-          const id = await db.videos
-            .where({ name: `${path.page}_${path.type}` })
-            .first();
-          if (!id) {
-            const res = await axios.get(
-              `/videos/interactive/${path.page}/${path.type}`,
-              {
-                responseType: "blob",
-              }
-            );
-            const blob = new Blob([res.data], { type: "video/mp4" });
-            await db.videos.add({
-              name: `${path.page}_${path.type}`,
-              blob: blob,
-            });
-          } else {
-            console.log(
-              `Already has ${path.page}_${path.type} in database, skipping`
-            );
-          }
-          setPercentage((p) => p + 1);
-        });
+        await Promise.all(
+          paths.map(async (path) => {
+            const id = await db.videos
+              .where({ name: `${path.page}_${path.type}` })
+              .first();
+            if (!id) {
+              const res = await axios.get(
+                `/videos/interactive/${path.page}/${path.type}`,
+                {
+                  responseType: "blob",
+                }
+              );
+              const blob = new Blob([res.data], { type: "video/mp4" });
+              await db.videos.add({
+                name: `${path.page}_${path.type}`,
+                blob: blob,
+              });
+            }
+            console.log(path);
+            setPercentage((p) => p + 1);
+          })
+        );
       } catch (err: unknown) {
         console.log(err);
       }
@@ -52,9 +51,27 @@ const Interactive: NextPageWithLayout<{
   }, [paths]);
   return (
     <Center>
-      <Typography>
-        {Math.min(Math.round((percentage / (paths.length - 1)) * 100), 100)} %
-      </Typography>
+      <VStack width="100%" gap="1.5rem">
+        <Typography>
+          {Math.min(Math.round((percentage / (paths.length - 1)) * 100), 100)} %
+        </Typography>
+        <Box width="60%">
+          <LinearProgress
+            variant="determinate"
+            value={Math.min(
+              Math.round((percentage / (paths.length - 1)) * 100),
+              100
+            )}
+            sx={{
+              height: "10px",
+              borderRadius: "5px",
+              "& .MuiLinearProgress-bar": {
+                background: "linear-gradient(197deg, #db6982, #3663a7)",
+              },
+            }}
+          />
+        </Box>
+      </VStack>
     </Center>
   );
 };
