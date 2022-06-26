@@ -16,7 +16,7 @@ export const fetchInteractiveVideos = async ({
     });
     await db.videos.add({
       name: `${page}_${videoType}.mp4`,
-      blob: res.data,
+      arrayBuffer: res.data as ArrayBuffer,
     });
   } catch {
     console.log(`cannot retrieve /videos/interactive/${page}/${videoType}.mp4`);
