@@ -2,15 +2,15 @@ import Dexie, { Table } from "dexie";
 
 export interface Video {
   name: string;
-  blob: Blob;
+  arrayBuffer: ArrayBuffer;
 }
 
 export class VideoDexie extends Dexie {
   public videos!: Table<Video>;
   constructor() {
     super("VideoDexie");
-    this.version(3).stores({
-      videos: "++id, name, blob",
+    this.version(4).stores({
+      videos: "++id, name, arrayBuffer",
     });
   }
 }
