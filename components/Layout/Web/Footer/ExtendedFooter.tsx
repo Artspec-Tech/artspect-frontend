@@ -1,9 +1,9 @@
-import { Center, HStack, VStack } from "@components/common";
+import {Center, HStack, VStack} from "@components/common";
 import fontWeights from "@utils/fontWeights";
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import Link from "next/link";
-import { navigations } from "../Header/navigationList";
+import {navigations} from "../Header/navigationList";
 
 const ExtendedFooter = () => {
   return (

@@ -21,7 +21,12 @@ const BgImage = ({height, src, children, ...props}: Props) => {
         display: "flex",
         justifyContent: "center",
         position: "relative",
-        height: props.sx!.height,
+        height: {
+          xs: "110vw",
+          sm: "300px",
+          lg: "400px",
+          xl: "450px",
+        },
         width: "100%",
         backgroundImage: `url(${src.default.src})`,
         backgroundSize: "cover",
