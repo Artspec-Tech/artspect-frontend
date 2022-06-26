@@ -1,14 +1,14 @@
-import { Center } from "@components/common";
+import {Center} from "@components/common";
 import InteractiveLayout from "@components/Layout/Interactive";
-import React, { ReactElement, useEffect, useRef } from "react";
-import { NextPageWithLayout } from "types";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "store";
-import { VideoState } from "store/videos/videoSlice";
-import { Glob } from "glob";
+import React, {ReactElement, useEffect, useRef} from "react";
+import {NextPageWithLayout} from "types";
+import {useSelector, useDispatch} from "react-redux";
+import {RootState} from "store";
+import {VideoState} from "store/videos/videoSlice";
+import {Glob} from "glob";
 import axios from "axios";
-import { GetStaticProps } from "next";
-import { addVideos } from "store/videos/videoSlice";
+import {GetStaticProps} from "next";
+import {addVideos} from "store/videos/videoSlice";
 
 const videoPath = "videos/interactive";
 const publicVideoPath = `public/${videoPath}`;
@@ -18,7 +18,7 @@ const Interactive: NextPageWithLayout<{
     page: string;
     type: string;
   }[];
-}> = ({ paths }) => {
+}> = ({paths}) => {
   const video: VideoState = useSelector<RootState, VideoState>(
     (state) => state.video
   );
@@ -43,12 +43,14 @@ const Interactive: NextPageWithLayout<{
               videoType: path.type,
             })
           );
-          const blob = new Blob([res.data], { type: "video/mp4" });
+          const blob = new Blob([res.data], {type: "video/mp4"});
+          console.log(blob);
+
           const url = URL.createObjectURL(blob);
           setVideoUrl(url);
         });
       } catch (err: unknown) {
-        console.log(err);
+        console.error(err);
       }
     };
     getVideoData();
@@ -68,7 +70,7 @@ const Interactive: NextPageWithLayout<{
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const glob = new Glob(`${publicVideoPath}/**/*.mp4`, { sync: true });
+  const glob = new Glob(`${publicVideoPath}/**/*.mp4`, {sync: true});
   const paths = glob.found.map((file) => {
     const fileParts = file.replace(`${publicVideoPath}/`, "").split("/");
     return {
