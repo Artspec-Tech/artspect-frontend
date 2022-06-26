@@ -7,6 +7,8 @@ import axios from "axios";
 import { GetStaticProps } from "next";
 import { db } from "@utils/db";
 import { Box, LinearProgress, Typography } from "@mui/material";
+import { isSafari, CustomView } from "react-device-detect";
+import Unsupported from "@components/Interactive/common/Unsupported";
 
 const videoPath = "videos/interactive";
 const publicVideoPath = `public/${videoPath}`;
@@ -21,28 +23,32 @@ const Interactive: NextPageWithLayout<{
   useEffect(() => {
     const getVideoData = async () => {
       try {
-        await Promise.all(
-          paths.map(async (path) => {
-            const id = await db.videos
-              .where({ name: `${path.page}_${path.type}` })
-              .first();
-            if (!id) {
-              const res = await axios.get(
-                `/videos/interactive/${path.page}/${path.type}`,
-                {
-                  responseType: "blob",
-                }
-              );
-              const blob = new Blob([res.data], { type: "video/mp4" });
-              await db.videos.add({
-                name: `${path.page}_${path.type}`,
-                blob: blob,
-              });
-            }
-            console.log(path);
-            setPercentage((p) => p + 1);
-          })
-        );
+        if (!isSafari) {
+          await Promise.all(
+            paths.map(async (path) => {
+              const id = await db.videos
+                .where({ name: `${path.page}_${path.type}` })
+                .first();
+              if (!id) {
+                const res = await axios.get(
+                  `/videos/interactive/${path.page}/${path.type}`,
+                  {
+                    responseType: "blob",
+                  }
+                );
+                const blob = new Blob([res.data], { type: "video/mp4" });
+                await db.videos.add({
+                  name: `${path.page}_${path.type}`,
+                  blob: blob,
+                });
+              }
+              console.log(path);
+              setPercentage((p) => p + 1);
+            })
+          );
+        } else {
+          console.log("Browser is safari, skipping video download");
+        }
       } catch (err: unknown) {
         console.log(err);
       }
@@ -51,27 +57,31 @@ const Interactive: NextPageWithLayout<{
   }, [paths]);
   return (
     <Center>
-      <VStack width="100%" gap="1.5rem">
-        <Typography>
-          {Math.min(Math.round((percentage / (paths.length - 1)) * 100), 100)} %
-        </Typography>
-        <Box width="60%">
-          <LinearProgress
-            variant="determinate"
-            value={Math.min(
-              Math.round((percentage / (paths.length - 1)) * 100),
-              100
-            )}
-            sx={{
-              height: "10px",
-              borderRadius: "5px",
-              "& .MuiLinearProgress-bar": {
-                background: "linear-gradient(197deg, #db6982, #3663a7)",
-              },
-            }}
-          />
-        </Box>
-      </VStack>
+      {!isSafari && (
+        <VStack width="100%" gap="1.5rem">
+          <Typography>
+            {Math.min(Math.round((percentage / (paths.length - 1)) * 100), 100)}{" "}
+            %
+          </Typography>
+          <Box width="60%">
+            <LinearProgress
+              variant="determinate"
+              value={Math.min(
+                Math.round((percentage / (paths.length - 1)) * 100),
+                100
+              )}
+              sx={{
+                height: "10px",
+                borderRadius: "5px",
+                "& .MuiLinearProgress-bar": {
+                  background: "linear-gradient(197deg, #db6982, #3663a7)",
+                },
+              }}
+            />
+          </Box>
+        </VStack>
+      )}
+      {isSafari && <Unsupported />}
     </Center>
   );
 };

@@ -8,7 +8,6 @@ import React, {
   MediaHTMLAttributes,
   RefObject,
   useEffect,
-  useRef,
   useState,
 } from "react";
 

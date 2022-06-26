@@ -3,8 +3,10 @@ import InteractiveLayout from "@components/Layout/Interactive";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React, { ReactElement } from "react";
 import { NextPageWithLayout } from "types";
+import { isSafari } from "react-device-detect";
 import fs from "fs";
 import dynamic from "next/dynamic";
+import Unsupported from "@components/Interactive/common/Unsupported";
 
 const Interactive: NextPageWithLayout<{ page: number }> = ({ page = 0 }) => {
   const InteractivePage = dynamic(
@@ -13,7 +15,7 @@ const Interactive: NextPageWithLayout<{ page: number }> = ({ page = 0 }) => {
       loading: () => <Center>Loading...</Center>,
     }
   );
-  return <InteractivePage />;
+  return !isSafari ? <InteractivePage /> : <Unsupported />;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
