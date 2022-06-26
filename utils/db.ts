@@ -9,7 +9,7 @@ export class VideoDexie extends Dexie {
   public videos!: Table<Video>;
   constructor() {
     super("VideoDexie");
-    this.version(1).stores({
+    this.version(3).stores({
       videos: "++id, name, blob",
     });
   }
