@@ -1,4 +1,5 @@
 import { VStack } from "@components/common";
+import { arrayBufferToBlob } from "@utils/binaryOperations";
 import { db, Video } from "@utils/db";
 import { fetchInteractiveVideos } from "@utils/fetchInteractiveVideos";
 import { getOrElse } from "@utils/nullOperations";
@@ -50,7 +51,10 @@ const BackgroundVideo = ({
         const video = (await db.videos
           .where({ name: page_path })
           .first()) as Video;
-        setUrl(URL.createObjectURL(video.blob));
+        const blob = arrayBufferToBlob(video.arrayBuffer, "video/mp4");
+        const videoUrl = URL.createObjectURL(blob);
+        console.log(videoUrl);
+        setUrl(videoUrl);
       }
     };
     getVideo();
