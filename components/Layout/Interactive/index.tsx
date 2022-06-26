@@ -1,7 +1,8 @@
 import { Box, ThemeProvider } from "@mui/material";
 import { NextPage } from "next";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { createTheme } from "@mui/material/styles";
+import useWindowDimensions from "hooks/useWindowDimensions";
 const interactiveTheme = createTheme({
   typography: {
     fontFamily: "Prompt",
@@ -23,11 +24,17 @@ type Props = {
 };
 
 const InteractiveLayout: NextPage = ({ children }: Props) => {
+  const [height, setHeight] = useState<string>("100vh");
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setHeight(`${window.innerHeight}px`);
+    });
+  }, []);
   return (
     <ThemeProvider theme={interactiveTheme}>
       <Box
         width="min(100%, 480px)"
-        height="100vh"
+        height={height}
         margin="auto"
         position="relative"
       >
