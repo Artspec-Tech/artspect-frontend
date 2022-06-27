@@ -1,14 +1,14 @@
-import { Center } from "@components/common";
+import {Center, VStack} from "@components/common";
 import InteractiveLayout from "@components/Layout/Interactive";
-import React, { ReactElement, useEffect, useRef } from "react";
-import { NextPageWithLayout } from "types";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "store";
-import { VideoState } from "store/videos/videoSlice";
-import { Glob } from "glob";
+import React, {ReactElement, useEffect, useState} from "react";
+import {NextPageWithLayout} from "types";
+import {Glob} from "glob";
 import axios from "axios";
-import { GetStaticProps } from "next";
-import { addVideos } from "store/videos/videoSlice";
+import {GetStaticProps} from "next";
+import {db} from "@utils/db";
+import {Box, LinearProgress, Typography} from "@mui/material";
+// import { isSafari, CustomView } from "react-device-detect";
+import Unsupported from "@components/Interactive/common/Unsupported";
 
 const videoPath = "videos/interactive";
 const publicVideoPath = `public/${videoPath}`;
@@ -18,57 +18,67 @@ const Interactive: NextPageWithLayout<{
     page: string;
     type: string;
   }[];
-}> = ({ paths }) => {
-  const video: VideoState = useSelector<RootState, VideoState>(
-    (state) => state.video
-  );
-  const dispatch = useDispatch();
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoUrl, setVideoUrl] = React.useState<string | null>();
+}> = ({paths}) => {
+  const [percentage, setPercentage] = useState<number>(0);
   useEffect(() => {
-    console.log(paths);
     const getVideoData = async () => {
       try {
-        paths.forEach(async (path) => {
-          const res = await axios.get(
-            `/videos/interactive/${path.page}/${path.type}`,
-            {
-              responseType: "blob",
+        await Promise.all(
+          paths.map(async (path) => {
+            const id = await db.videos
+              .where({name: `${path.page}_${path.type}`})
+              .first();
+            if (!id) {
+              const res = await axios.get(
+                `/videos/interactive/${path.page}/${path.type}`,
+                {
+                  responseType: "arraybuffer",
+                }
+              );
+              await db.videos.add({
+                name: `${path.page}_${path.type}`,
+                arrayBuffer: res.data as ArrayBuffer,
+              });
             }
-          );
-          dispatch(
-            addVideos({
-              axiosResponse: res,
-              page: path.page,
-              videoType: path.type,
-            })
-          );
-          const blob = new Blob([res.data], { type: "video/mp4" });
-          const url = URL.createObjectURL(blob);
-          setVideoUrl(url);
-        });
+            console.log(path);
+            setPercentage((p) => p + 1);
+          })
+        );
       } catch (err: unknown) {
-        console.log(err);
+        console.error(err);
       }
     };
     getVideoData();
-    if (videoRef.current) {
-      videoRef.current.load();
-    }
-  }, []);
+  }, [paths]);
   return (
     <Center>
-      {videoUrl && (
-        <video autoPlay loop muted>
-          <source src={videoUrl} type="video/mp4" />
-        </video>
-      )}
+      <VStack width="100%" gap="1.5rem">
+        <Typography>
+          {Math.min(Math.round((percentage / (paths.length - 1)) * 100), 100)} %
+        </Typography>
+        <Box width="60%">
+          <LinearProgress
+            variant="determinate"
+            value={Math.min(
+              Math.round((percentage / (paths.length - 1)) * 100),
+              100
+            )}
+            sx={{
+              height: "10px",
+              borderRadius: "5px",
+              "& .MuiLinearProgress-bar": {
+                background: "linear-gradient(197deg, #db6982, #3663a7)",
+              },
+            }}
+          />
+        </Box>
+      </VStack>
     </Center>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const glob = new Glob(`${publicVideoPath}/**/*.mp4`, { sync: true });
+  const glob = new Glob(`${publicVideoPath}/**/*.mp4`, {sync: true});
   const paths = glob.found.map((file) => {
     const fileParts = file.replace(`${publicVideoPath}/`, "").split("/");
     return {
