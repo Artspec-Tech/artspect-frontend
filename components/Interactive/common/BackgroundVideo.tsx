@@ -1,8 +1,16 @@
 import { VStack } from "@components/common";
+import { arrayBufferToBlob } from "@utils/binaryOperations";
+import { db, Video } from "@utils/db";
+import { fetchInteractiveVideos } from "@utils/fetchInteractiveVideos";
 import { getOrElse } from "@utils/nullOperations";
 import { useNextPage } from "hooks/useNextPage";
 import { useRouter } from "next/router";
-import React, { MediaHTMLAttributes, RefObject } from "react";
+import React, {
+  MediaHTMLAttributes,
+  RefObject,
+  useEffect,
+  useState,
+} from "react";
 
 type Props = {
   page?: string;
@@ -17,7 +25,6 @@ const BackgroundVideo = ({
   page,
   src,
   videoType = "loop",
-  videoRef,
   handleEnded = () => 0,
   children,
   loop = true,
@@ -28,6 +35,30 @@ const BackgroundVideo = ({
 }: Props) => {
   const { query } = useRouter();
   const nextPage = useNextPage();
+  const page_path = `${getOrElse(query.page, page)}_${videoType}.mp4`;
+  const [url, setUrl] = useState<string>();
+  useEffect(() => {
+    const getVideo = async () => {
+      if (!src) {
+        const count = await db.videos.where({ name: page_path }).count();
+        if (count === 0) {
+          console.log("video not found, downloading");
+          await fetchInteractiveVideos({
+            page: getOrElse(query.page as string, page as string),
+            videoType,
+          });
+        }
+        const video = (await db.videos
+          .where({ name: page_path })
+          .first()) as Video;
+        const blob = arrayBufferToBlob(video.arrayBuffer, "video/mp4");
+        const videoUrl = URL.createObjectURL(blob);
+        console.log(videoUrl);
+        setUrl(videoUrl);
+      }
+    };
+    getVideo();
+  }, [page_path]);
   return (
     <VStack onClick={nextVideoOnClick ? nextPage : undefined}>
       <video
@@ -39,23 +70,13 @@ const BackgroundVideo = ({
           zIndex: -1,
           objectFit: "cover",
         }}
-        ref={videoRef}
         loop={loop}
         autoPlay={autoPlay}
         muted={muted}
+        src={getOrElse(src, url)}
+        typeof={"video/mp4"}
         {...props}
-      >
-        <source
-          src={getOrElse(
-            src,
-            `/videos/interactive/${getOrElse(
-              page,
-              query.page
-            )}/${videoType}.mp4`
-          )}
-          type="video/mp4"
-        />
-      </video>
+      />
       {children}
     </VStack>
   );
