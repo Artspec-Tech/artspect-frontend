@@ -1,14 +1,12 @@
-import {Center, VStack} from "@components/common";
+import { Center, VStack } from "@components/common";
 import InteractiveLayout from "@components/Layout/Interactive";
-import React, {ReactElement, useEffect, useState} from "react";
-import {NextPageWithLayout} from "types";
-import {Glob} from "glob";
+import React, { ReactElement, useEffect, useState } from "react";
+import { NextPageWithLayout } from "types";
+import { Glob } from "glob";
 import axios from "axios";
-import {GetStaticProps} from "next";
-import {db} from "@utils/db";
-import {Box, LinearProgress, Typography} from "@mui/material";
-// import { isSafari, CustomView } from "react-device-detect";
-import Unsupported from "@components/Interactive/common/Unsupported";
+import { GetStaticProps } from "next";
+import { db } from "@utils/db";
+import { Box, LinearProgress, Typography } from "@mui/material";
 
 const videoPath = "videos/interactive";
 const publicVideoPath = `public/${videoPath}`;
@@ -18,7 +16,7 @@ const Interactive: NextPageWithLayout<{
     page: string;
     type: string;
   }[];
-}> = ({paths}) => {
+}> = ({ paths }) => {
   const [percentage, setPercentage] = useState<number>(0);
   useEffect(() => {
     const getVideoData = async () => {
@@ -26,7 +24,7 @@ const Interactive: NextPageWithLayout<{
         await Promise.all(
           paths.map(async (path) => {
             const id = await db.videos
-              .where({name: `${path.page}_${path.type}`})
+              .where({ name: `${path.page}_${path.type}` })
               .first();
             if (!id) {
               const res = await axios.get(
@@ -78,7 +76,7 @@ const Interactive: NextPageWithLayout<{
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const glob = new Glob(`${publicVideoPath}/**/*.mp4`, {sync: true});
+  const glob = new Glob(`${publicVideoPath}/**/*.mp4`, { sync: true });
   const paths = glob.found.map((file) => {
     const fileParts = file.replace(`${publicVideoPath}/`, "").split("/");
     return {
