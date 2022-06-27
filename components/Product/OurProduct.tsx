@@ -1,5 +1,5 @@
-import { VStack } from "@components/common";
-import { Typography } from "@mui/material";
+import {VStack} from "@components/common";
+import {Typography} from "@mui/material";
 import fontWeights from "@utils/fontWeights";
 import React from "react";
 
