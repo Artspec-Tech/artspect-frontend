@@ -9,13 +9,9 @@ import {
 	choicesPage6,
 	choicesPage6ToColor,
 	choicesPage7,
+	getUserChoice,
 } from '../choices/choices';
 import { motion } from 'framer-motion';
-
-function getUserChoice(page: number) {
-	const userChoice = window.localStorage.getItem(`userChoicePage${page}`);
-	return Number(userChoice);
-}
 
 const InteractivePage = () => {
 	const [value, setValue] = React.useState('Controlled');

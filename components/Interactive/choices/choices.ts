@@ -27,3 +27,8 @@ export const choicesPage7 = [
 	'ตรงหัวใจของฉัน',
 	'ปลายมือและเท้า',
 ];
+
+export function getUserChoice(page: number) {
+	const userChoice = window.localStorage.getItem(`userChoicePage${page}`);
+	return Number(userChoice);
+}
