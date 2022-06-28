@@ -28,6 +28,13 @@ export const choicesPage7 = [
 	'ปลายมือและเท้า',
 ];
 
+export const choicesPage31 = [
+	'ภาพวาดหลากหลาย',
+	'รูปปั้นจากหลายอารมณ์',
+	'กลุ่มคนเต้นพร้อมเสียงเพลง',
+	'บทกวีที่สวยงาม',
+];
+
 export function getUserChoice(page: number) {
 	const userChoice = window.localStorage.getItem(`userChoicePage${page}`);
 	return Number(userChoice);
