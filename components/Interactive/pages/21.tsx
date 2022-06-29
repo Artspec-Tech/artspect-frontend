@@ -5,7 +5,7 @@ import BackgroundVideo from '../common/BackgroundVideo';
 
 const InteractivePage = () => {
 	return (
-		<BackgroundVideo loop={false}>
+		<BackgroundVideo>
 			<VStack gap={3}>
 				<Typography
 					paddingX={10}
