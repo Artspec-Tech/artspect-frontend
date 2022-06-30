@@ -1,10 +1,10 @@
-import { VStack } from "@components/common";
-import { arrayBufferToBlob } from "@utils/binaryOperations";
-import { db, Video } from "@utils/db";
-import { fetchInteractiveVideos } from "@utils/fetchInteractiveVideos";
-import { getOrElse } from "@utils/nullOperations";
-import { useNextPage } from "hooks/useNextPage";
-import { useRouter } from "next/router";
+import {VStack} from "@components/common";
+import {arrayBufferToBlob} from "@utils/binaryOperations";
+import {db, Video} from "@utils/db";
+import {fetchInteractiveVideos} from "@utils/fetchInteractiveVideos";
+import {getOrElse} from "@utils/nullOperations";
+import {useNextPage} from "hooks/useNextPage";
+import {useRouter} from "next/router";
 import React, {
   MediaHTMLAttributes,
   RefObject,
@@ -33,14 +33,14 @@ const BackgroundVideo = ({
   nextVideoOnClick = true,
   ...props
 }: Props) => {
-  const { query } = useRouter();
+  const {query} = useRouter();
   const nextPage = useNextPage();
   const page_path = `${getOrElse(query.page, page)}_${videoType}.mp4`;
   const [url, setUrl] = useState<string>();
   useEffect(() => {
     const getVideo = async () => {
       if (!src) {
-        const count = await db.videos.where({ name: page_path }).count();
+        const count = await db.videos.where({name: page_path}).count();
         if (count === 0) {
           console.log("video not found, downloading");
           await fetchInteractiveVideos({
@@ -49,8 +49,9 @@ const BackgroundVideo = ({
           });
         }
         const video = (await db.videos
-          .where({ name: page_path })
+          .where({name: page_path})
           .first()) as Video;
+
         const blob = arrayBufferToBlob(video.arrayBuffer, "video/mp4");
         const videoUrl = URL.createObjectURL(blob);
         console.log(videoUrl);

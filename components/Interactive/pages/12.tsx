@@ -1,8 +1,8 @@
-import { Center, VStack } from "@components/common";
-import { Typography, TypographyProps } from "@mui/material";
+import {Center, VStack} from "@components/common";
+import {Typography, TypographyProps} from "@mui/material";
 import React from "react";
 import BackgroundVideo from "../common/BackgroundVideo";
-const PageTypography = ({ children, ...props }: TypographyProps) => {
+const PageTypography = ({children, ...props}: TypographyProps) => {
   return (
     <Typography
       sx={{
