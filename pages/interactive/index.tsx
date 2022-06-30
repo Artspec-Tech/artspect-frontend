@@ -7,6 +7,8 @@ import axios from "axios";
 import { GetStaticProps } from "next";
 import { db } from "@utils/db";
 import { Box, LinearProgress, Typography } from "@mui/material";
+import { useNextPage } from "hooks/useNextPage";
+import { useRouter } from "next/router";
 
 const videoPath = "videos/interactive";
 const publicVideoPath = `public/${videoPath}`;
@@ -18,6 +20,7 @@ const Interactive: NextPageWithLayout<{
   }[];
 }> = ({ paths }) => {
   const [percentage, setPercentage] = useState<number>(0);
+  const router = useRouter();
   useEffect(() => {
     const getVideoData = async () => {
       try {
@@ -42,6 +45,7 @@ const Interactive: NextPageWithLayout<{
             setPercentage((p) => p + 1);
           })
         );
+        router.push("/interactive/0");
       } catch (err: unknown) {
         console.error(err);
       }
