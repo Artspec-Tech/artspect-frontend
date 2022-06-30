@@ -1,34 +1,37 @@
-import { Center, VStack } from '@components/common';
+import { Center } from '@components/common';
 import { Typography, TypographyProps } from '@mui/material';
-import fontWeights from '@utils/fontWeights';
 import React from 'react';
 import { BackgroundVideo } from '../common';
-
-const PageTypography = ({ children, ...props }: TypographyProps) => {
-	return (
-		<Typography
-			fontWeight={fontWeights.semiBold}
-			fontSize={25}
-			sx={{
-				textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25);',
-			}}
-			{...props}
-		>
-			{children}
-		</Typography>
-	);
-};
+import { motion } from 'framer-motion';
 
 const InteractivePage = () => {
 	return (
-		<BackgroundVideo page="3" videoType="loop" loop muted autoPlay>
+		<BackgroundVideo>
 			<Center>
-				<VStack>
-					<PageTypography>หมอกแห่งอารมณ์เหล่านั้น</PageTypography>
-					<PageTypography>ดูมีสีสันปะปน</PageTypography>
-					<PageTypography>แล้วสีไหนที่ปกคลุมฉัน</PageTypography>
-					<PageTypography>อย่กันบ้างนะ?</PageTypography>
-				</VStack>
+				<Typography
+					component={motion.h1}
+					paddingX={10}
+					sx={{
+						fontSize: 20,
+						fontWeight: 'bold',
+						textAlign: 'center',
+						textShadow: '0px 1px 1px rgba(0, 0, 0, 0.3)',
+					}}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{
+						delay: 1,
+						duration: 4,
+					}}
+				>
+					หมอกแห่งอารมณ์เหล่านั้น
+					<br />
+					ดูมีสีสันปะปน
+					<br />
+					แล้วสีไหนที่ปกคลุมฉัน
+					<br />
+					อยู่กันบ้างนะ?
+				</Typography>
 			</Center>
 		</BackgroundVideo>
 	);

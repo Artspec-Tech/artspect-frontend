@@ -1,7 +1,7 @@
 import React from "react";
-import { BgImage } from "components/common";
-import { FooterBackground } from "../../../../utils/images";
-import { Box } from "@mui/material";
+import {BgImage} from "components/common";
+import {FooterBackground} from "../../../../utils/images";
+import {Box} from "@mui/material";
 
 const TwoImage = () => {
   return (

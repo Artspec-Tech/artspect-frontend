@@ -1,7 +1,7 @@
-import { Box, BoxProps, useMediaQuery, useTheme } from "@mui/material";
-import Image from "next/image";
+import {Box, BoxProps, useMediaQuery, useTheme} from "@mui/material";
+import {SystemCssProperties} from "@mui/system";
 import React from "react";
-import { VStack } from ".";
+import {VStack} from ".";
 import HStack from "./HStack";
 
 type Props = BoxProps & {
@@ -10,32 +10,32 @@ type Props = BoxProps & {
   width?: string | number;
 };
 
-const BgImage = ({ height, src, children, ...props }: Props) => {
+const BgImage = ({height, src, children, ...props}: Props) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Box
-      style={{
+      sx={{
         alignItems: "center",
         display: "flex",
         justifyContent: "center",
         position: "relative",
-        height: height,
+        height: {
+          xs: "110vw",
+          sm: "300px",
+          lg: "400px",
+          xl: "450px",
+        },
         width: "100%",
+        backgroundImage: `url(${src.default.src})`,
+        backgroundSize: "cover",
       }}
-      {...props}
     >
-      <Image
-        alt={"imgalt"}
-        src={src}
-        layout="fill"
-        objectFit="cover"
-        quality={80}
-      />
       {children &&
         (isMobile ? (
           <VStack
-            justifyContent={"space-around"}
+            justifyContent={"space-evenly"}
             style={{
               zIndex: 10,
             }}
@@ -44,7 +44,7 @@ const BgImage = ({ height, src, children, ...props }: Props) => {
           </VStack>
         ) : (
           <HStack
-            justifyContent={"space-around"}
+            justifyContent={"space-evenly"}
             style={{
               zIndex: 10,
             }}
