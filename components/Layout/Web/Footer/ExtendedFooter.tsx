@@ -63,8 +63,8 @@ const ExtendedFooter = () => {
             marginBottom="12px"
             color="#F3C766"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id
-            egestas diam. Curabitur hendrerit est eu rhoncus
+            Artspect is a place where we guide you through the journey of
+            self-exploration using art as a tool.
           </Typography>
           <Typography
             fontSize={[6, 8, 12]}
