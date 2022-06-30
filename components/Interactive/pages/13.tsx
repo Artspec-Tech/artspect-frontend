@@ -7,7 +7,10 @@ const InteractivePage = () => {
 	return (
 		<BackgroundVideo page="13" videoType="loop" loop muted autoPlay>
 			<Center>
-				<VStack>
+				<VStack 
+					justifyContent="start"
+					marginTop="5rem"
+				>
 					<Typography
 						fontSize={20}
 						paddingBottom="1rem"
