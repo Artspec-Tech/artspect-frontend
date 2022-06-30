@@ -19,6 +19,7 @@ const InteractivePage = () => {
 			<VStack width={'100%'} gap="2rem">
 				<Typography
 					fontSize={20}
+					fontWeight="bold"
 					width="80%"
 					textAlign={'center'}
 					component={motion.h3}

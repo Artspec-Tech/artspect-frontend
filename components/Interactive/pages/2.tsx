@@ -19,6 +19,7 @@ const InteractivePage = () => {
 			<VStack gap={3.5}>
 				<Typography
 					component={motion.h3}
+					fontWeight="bold"
 					variant="h3"
 					align="center"
 					width={'60%'}
