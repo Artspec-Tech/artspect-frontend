@@ -5,7 +5,7 @@ import { BackgroundVideo } from '../common';
 
 const InteractivePage = () => {
 	return (
-		<BackgroundVideo page="3" videoType="loop" loop muted autoPlay>
+		<BackgroundVideo page="17" videoType="loop" loop muted autoPlay>
 			<Center>
 				<VStack>
 					<Typography fontSize={20} paddingBottom='1rem'>
