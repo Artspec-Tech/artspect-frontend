@@ -1,5 +1,11 @@
-export * as FooterBackground from "../public/images/footer-background.png";
-export * as VanGoghImage from "../public/images/van-gogh.jpeg";
-export * as MathioleImage from "../public/images/mathiole.jpeg";
-export * as WinnicottImage from "../public/images/winnicott.jpeg";
-export * as AristotleImage from "../public/images/aristotle.jpeg";
+export * as FooterBackground from '../public/images/footer-background.png';
+export * as VanGoghImage from '../public/images/van-gogh.jpeg';
+export * as MathioleImage from '../public/images/mathiole.jpeg';
+export * as WinnicottImage from '../public/images/winnicott.jpeg';
+export * as AristotleImage from '../public/images/aristotle.jpeg';
+export * as BluePaperImage from '../public/images/interactive/Bule-paper.png';
+export * as GreenSpongeImage from '../public/images/interactive/Green-Sponge.png';
+export * as OrangeBrushImage from '../public/images/interactive/Orange-Brush.png';
+export * as PurpleSpongeImage from '../public/images/interactive/Purple-Sponge.png';
+export * as RedVinylImage from '../public/images/interactive/Red-vinyl.png';
+export * as YellowBrushImage from '../public/images/interactive/Yellow-Brush.png';
