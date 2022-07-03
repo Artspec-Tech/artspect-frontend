@@ -9,25 +9,26 @@ export default function HorizontalTimeline() {
   return (
     <Box
       sx={{
-        display: 'flex',
+        display: "flex",
         height: ["2.375rem", "3.375rem", "4.375rem", "5.375rem"],
-        marginTop: ["8.5rem", "10.5rem", "12.5rem", "14.5rem"],
-        marginBottom: "3.125rem",
+        marginTop: ["1.5rem", "2.5rem", "3.5rem"],
+        marginBottom: ["2rem", "3rem", "4rem"],
       }}
     >
       {timelineEvents.map((event, i) => (
-      <Box key={i}
+        <Box
+          key={i}
           sx={{
-            display: 'flex',
-            alignItems: "flex-start"
+            display: "flex",
+            alignItems: "flex-start",
           }}
         >
           <Box
             sx={{
-              display: 'flex',
+              display: "flex",
               ...(i % 2 === 0 && {
-                alignSelf: 'flex-end'
-              })
+                alignSelf: "flex-end",
+              }),
             }}
           >
             <VStack>
@@ -37,7 +38,7 @@ export default function HorizontalTimeline() {
                     fontWeight="bold"
                     sx={{
                       textAlign: "center",
-                      maxWidth: ['13rem','13rem','18rem','22rem'],
+                      maxWidth: ["13rem", "13rem", "18rem", "22rem"],
                       fontSize: [8, 13, 18, 22],
                     }}
                   >
@@ -53,12 +54,12 @@ export default function HorizontalTimeline() {
                   </Typography>
                 </Box>
               )}
-              
+
               <Box
                 sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
                 <CircleIcon
@@ -66,23 +67,24 @@ export default function HorizontalTimeline() {
                     width: ["2.375rem", "3.375rem", "4.375rem", "5.375rem"],
                     height: ["2.375rem", "3.375rem", "4.375rem", "5.375rem"],
                     color: event.dotColor,
-                    zIndex: 2
+                    zIndex: 2,
                   }}
                 />
-                {isWithinInterval(endOfToday(), { start: event.dateStart, end: event.dateEnd }) && (
+                {isWithinInterval(endOfToday(), {
+                  start: event.dateStart,
+                  end: event.dateEnd,
+                }) && (
                   <CircleIcon
                     sx={{
-                      position: 'absolute',
-                      width: ['3rem','4rem','5rem','6rem'],
-                      height: ['3rem','4rem','5rem','6rem'],
-                      color: '#DA6745',
-                      zIndex: 1
+                      position: "absolute",
+                      width: ["3rem", "4rem", "5rem", "6rem"],
+                      height: ["3rem", "4rem", "5rem", "6rem"],
+                      color: "#DA6745",
+                      zIndex: 1,
                     }}
                   />
                 )}
-                
               </Box>
-              
 
               {i % 2 === 1 && (
                 <Box>
@@ -90,7 +92,7 @@ export default function HorizontalTimeline() {
                     fontWeight="bold"
                     sx={{
                       textAlign: "center",
-                      maxWidth: ['13rem','13rem','18rem','22rem'],
+                      maxWidth: ["13rem", "13rem", "18rem", "22rem"],
                       fontSize: [8, 13, 18, 22],
                     }}
                   >
@@ -106,20 +108,19 @@ export default function HorizontalTimeline() {
                   </Typography>
                 </Box>
               )}
-
             </VStack>
           </Box>
           {i !== timelineEvents.length - 1 && (
             <Divider
               sx={{
-                display: 'flex',
+                display: "flex",
                 alignSelf: "center",
                 borderBottom: "dashed",
                 borderBottomWidth: [3, 4, 5],
                 width: ["1rem", "2.5rem", "3.75rem"],
                 color: "#C6BDBD",
                 marginLeft: event.leftMargin,
-                marginRight: event.rightMargin
+                marginRight: event.rightMargin,
               }}
             />
           )}

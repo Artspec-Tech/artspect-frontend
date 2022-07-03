@@ -1,11 +1,11 @@
-import { VStack } from "@components/common";
+import {VStack} from "@components/common";
 import Description from "@components/Description";
 import Timeline from "@components/Timeline";
 import Product from "@components/Product";
 import Showcase from "@components/Showcase";
 import WebLayout from "@components/Layout/Web";
-import { NextPageWithLayout } from "types";
-import { ReactElement } from "react";
+import {NextPageWithLayout} from "types";
+import {ReactElement} from "react";
 
 const Home: NextPageWithLayout = () => {
   return (

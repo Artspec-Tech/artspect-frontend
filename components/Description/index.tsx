@@ -14,11 +14,11 @@ const Description = () => {
     >
       <DescriptionContent
         subTopic="VALUE"
-        text="Artspect aims to guide you through the journey of self-exploration using art as a tool. We want to remind people to take a brief pause in their busy schedules, listen to their bodies and emotions, reflect on them, and identify how they are feeling right now. We welcome and invite everyone to join us on this journey."
+        text="Artspect มุ่งหวังที่จะแนะนำคุณตลอดการเดินทางในการสำรวจตนเองโดยใช้ศิลปะเป็นเครื่องมือ พวกเราหวังให้ผู้คนได้หยุดพักช่วงสั้นๆ ในตารางงานที่ยุ่งเพื่อสำรวจดูจิตใจของตนเอง ทั้งด้านร่างกายและอารมณ์ ไตร่ตรองดู และเข้าใจว่าตอนนี้กำลังรู้สึกอย่างไร เรายินดีต้อนรับและเชิญทุกคนเข้าร่วมกับเราในการเดินทางครั้งนี้"
       />
       <DescriptionContent
         subTopic="PURPOSE"
-        text="We encourage everyone to create their art through which the emotions are expressed. Then we will host an exhibition to showcase everyones work. Through this process, we hope to empower poeple to be more expressive of their emotions and inspire people to continue practicing self-expression as their habits."
+        text="พวกเราสนับสนุนให้ทุกคนร่วมกันรังสรรค์งานศิลปะผ่านความรู้สึก โดยเราจะทำการเปิดนิทรรศการสำหรับการจัดแสดงผลงานศิลปะที่มาจากทุกคน และระหว่างการเดินทางครั้งนี้ พวกเราหวังว่าจะเป็นส่วนหนึ่งที่ช่วยสนับสนุนให้ทุกคนกล้าที่จะแสดงออกทางอารมณ์ของตนเองมากขึ้นและหวังว่าพวกเราจะเป็นหนึ่งในแรงบันดาลใจให้ผู้คนได้ฝึกฝนแสดงอารมณ์อย่างต่อเนื่องจนกลายเป็นความเคยชินอีกด้วย"
       />
     </VStack>
   );
