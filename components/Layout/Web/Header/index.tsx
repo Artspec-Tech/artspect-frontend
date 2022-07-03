@@ -8,8 +8,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AuthenticatedHeader from "./AuthHeader/AuthenticatedHeader";
 import UnauthenticatedHeader from "./AuthHeader/UnauthenticatedHeader";
 import MobileDrawer from "./MobileDrawer";
+import Image from "next/image";
+import { LogoIcon } from "@utils/icons";
 
 const Header = () => {
+  const showHeader = false;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isAuthenticated = true;
@@ -37,17 +40,20 @@ const Header = () => {
       justifyContent={"space-between"}
       alignItems={"center"}
     >
-      <Typography fontWeight={fontWeights.semiBold} fontSize={20}>
-        Artspect
-      </Typography>
-      <HStack width="auto" gap={0.5}>
-        {AuthHeader}
-        <Divider orientation="vertical" style={{ borderColor: "black" }} />
-        <IconButton color="primary" size="small" onClick={toggleDrawer(true)}>
-          <MenuIcon />
-        </IconButton>
-        <MobileDrawer isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
-      </HStack>
+      <Image src={LogoIcon} alt="logo" height="70px" width="70px" />
+      {showHeader && (
+        <HStack width="auto" gap={0.5}>
+          {AuthHeader}
+          <Divider orientation="vertical" style={{ borderColor: "black" }} />
+          <IconButton color="primary" size="small" onClick={toggleDrawer(true)}>
+            <MenuIcon />
+          </IconButton>
+          <MobileDrawer
+            isDrawerOpen={isDrawerOpen}
+            toggleDrawer={toggleDrawer}
+          />
+        </HStack>
+      )}
     </HStack>
   ) : (
     <HStack
@@ -65,11 +71,13 @@ const Header = () => {
       <Typography variant="h4" fontWeight={fontWeights.semiBold}>
         Artspect
       </Typography>
-      <HStack width="auto" gap={3}>
-        <Navigation />
-        <Divider orientation="vertical" style={{ borderColor: "black" }} />
-        {AuthHeader}
-      </HStack>
+      {showHeader && (
+        <HStack width="auto" gap={3}>
+          <Navigation />
+          <Divider orientation="vertical" style={{ borderColor: "black" }} />
+          {AuthHeader}
+        </HStack>
+      )}
     </HStack>
   );
 };

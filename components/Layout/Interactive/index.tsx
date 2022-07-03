@@ -2,7 +2,7 @@ import { Box, ThemeProvider } from "@mui/material";
 import { NextPage } from "next";
 import React, { ReactNode, useEffect, useState } from "react";
 import { createTheme } from "@mui/material/styles";
-import useWindowDimensions from "hooks/useWindowDimensions";
+import Head from "next/head";
 const interactiveTheme = createTheme({
   typography: {
     fontFamily: "Prompt",
@@ -32,6 +32,10 @@ const InteractiveLayout: NextPage = ({ children }: Props) => {
   }, []);
   return (
     <ThemeProvider theme={interactiveTheme}>
+      <Head>
+        <title>Interactive</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Box
         width="min(100%, 480px)"
         height={height}

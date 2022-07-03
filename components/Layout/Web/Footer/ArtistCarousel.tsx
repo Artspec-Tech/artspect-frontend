@@ -47,7 +47,7 @@ const ArtistCarousel = () => {
                 }}
               >
                 <Image
-                  src={VanGoghImage}
+                  src={artist.img}
                   alt="Van gogh"
                   layout="fill"
                   objectFit="cover"
