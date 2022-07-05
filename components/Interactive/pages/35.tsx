@@ -9,11 +9,11 @@ const InteractivePage = () => {
 			<Center>
 				<VStack>
 					<Typography fontSize={20} paddingBottom='1rem' fontWeight={"semibold"}>
-            “เราไปก่อนนะ”
-          </Typography>
-          <Typography fontSize={20}>
-            เสียงนี้ดังขึ้นจากกลุ่มหมอกที่ค่อยๆจางหายไป
-          </Typography>
+            			“เราไปก่อนนะ”
+          			</Typography>
+					<Typography fontSize={20}>
+						เสียงนี้ดังขึ้นจากกลุ่มหมอกที่ค่อยๆจางหายไป
+					</Typography>
 				</VStack>
 			</Center>
 		</BackgroundVideo>

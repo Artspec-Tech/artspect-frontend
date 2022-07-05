@@ -8,9 +8,9 @@ const InteractivePage = () => {
 		<BackgroundVideo page="36" videoType="loop" loop muted autoPlay>
 			<Center>
 				<VStack>
-          <Typography textAlign="center" fontSize={20}>
-            ณ ตอนที่คุณคิดว่าเหลือแค่คุณในที่แห่งนี้<br />ทันใดนั้น ก็มีสิ่งของปรากฎอยู่ตรงหน้าคุณ
-          </Typography>
+          			<Typography textAlign="center" fontSize={20}>
+            			ณ ตอนที่คุณคิดว่าเหลือแค่คุณในที่แห่งนี้<br />ทันใดนั้น ก็มีสิ่งของปรากฎอยู่ตรงหน้าคุณ
+          			</Typography>
 				</VStack>
 			</Center>
 		</BackgroundVideo>
