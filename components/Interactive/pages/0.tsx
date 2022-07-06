@@ -1,5 +1,5 @@
 import React from "react";
-import { BackgroundVideo } from "../common";
+import {BackgroundVideo} from "../common";
 
 const InteractivePage = () => {
   const [status, setStatus] = React.useState<"initial" | "loop">("initial");

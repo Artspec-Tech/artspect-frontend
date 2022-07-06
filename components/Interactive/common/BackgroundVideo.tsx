@@ -37,6 +37,7 @@ const BackgroundVideo = ({
   const nextPage = useNextPage();
   const page_path = `${getOrElse(query.page, page)}_${videoType}.mp4`;
   const [url, setUrl] = useState<string>();
+
   useEffect(() => {
     const getVideo = async () => {
       if (!src) {
