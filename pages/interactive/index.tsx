@@ -5,10 +5,12 @@ import React, {ReactElement, useEffect, useState} from "react";
 import {NextPageWithLayout} from "types";
 import {Glob} from "glob";
 import axios from "axios";
+import BackgroundVideo from "../../components/Interactive/common/BackgroundVideo";
+import {Box, LinearProgress, Button} from "@mui/material";
 import {GetStaticProps} from "next";
 import {db, Video} from "@utils/db";
-import BackgroundVideo from "../../components/Interactive/common/BackgroundVideo";
-import {Box, LinearProgress, Typography, Button} from "@mui/material";
+
+import {useRouter} from "next/router";
 
 const videoPath = "videos/interactive";
 const publicVideoPath = `public/${videoPath}`;
@@ -32,6 +34,7 @@ const Interactive: NextPageWithLayout<{
     setStatus("loop");
   }
 
+  const router = useRouter();
   useEffect(() => {
     const getVideoData = async () => {
       try {
@@ -98,6 +101,7 @@ const Interactive: NextPageWithLayout<{
             setPercentage((p) => p + 1);
           })
         );
+        router.push("/interactive/0");
       } catch (err: unknown) {
         console.error(err);
       }
