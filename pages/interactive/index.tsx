@@ -26,13 +26,10 @@ const Interactive: NextPageWithLayout<{
       try {
         await Promise.all(
           paths.map(async (path) => {
-            console.log("Hello");
             const id = await db.videos
               .where({ name: `${path.page}_${path.type}` })
               .first();
-            console.log("Hello");
-            if (!id && path.type.includes("compressed_")) {
-              console.log(path);
+            if (!id) {
               const res = await axios.get(
                 `/videos/interactive/${path.page}/${path.type}`,
                 {
@@ -40,11 +37,11 @@ const Interactive: NextPageWithLayout<{
                 }
               );
               await db.videos.add({
-                name: `${path.page}_${path.type.replace("compressed_", "")}`,
+                name: `${path.page}_${path.type}`,
                 arrayBuffer: res.data as ArrayBuffer,
               });
             }
-
+            console.log(path);
             setPercentage((p) => p + 1);
           })
         );

@@ -35,10 +35,30 @@ const BackgroundVideo = ({
 }: Props) => {
   const { query } = useRouter();
   const nextPage = useNextPage();
-  const page_path = `/videos/interactive/${getOrElse(
-    query.page,
-    page
-  )}/${videoType}.mp4`;
+  const page_path = `${getOrElse(query.page, page)}_${videoType}.mp4`;
+  const [url, setUrl] = useState<string>();
+  useEffect(() => {
+    const getVideo = async () => {
+      if (!src) {
+        const count = await db.videos.where({ name: page_path }).count();
+        if (count === 0) {
+          console.log("video not found, downloading");
+          await fetchInteractiveVideos({
+            page: getOrElse(query.page as string, page as string),
+            videoType,
+          });
+        }
+        const video = (await db.videos
+          .where({ name: page_path })
+          .first()) as Video;
+        const blob = arrayBufferToBlob(video.arrayBuffer, "video/mp4");
+        const videoUrl = URL.createObjectURL(blob);
+        console.log(videoUrl);
+        setUrl(videoUrl);
+      }
+    };
+    getVideo();
+  }, [page_path]);
   return (
     <VStack onClick={nextVideoOnClick ? nextPage : undefined}>
       <video
@@ -53,7 +73,7 @@ const BackgroundVideo = ({
         loop={loop}
         autoPlay={autoPlay}
         muted={muted}
-        src={page_path}
+        src={getOrElse(src, url)}
         typeof={"video/mp4"}
         {...props}
       />

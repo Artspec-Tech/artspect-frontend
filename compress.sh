@@ -4,12 +4,7 @@ for file in */*; do
     IFS='/' read -r -a array <<< "$file"
     file_path="${array[0]}/${array[1]}"
     compressed_file_path="${array[0]}/compressed_${array[1]}"
-    if [[ ! -f "$compressed_file_path" ]]; then
-        echo "Compressing $file_path to $compressed_file_path"
-        ffmpeg -i "$file_path" -vcodec libx264 -pix_fmt yuv420p -crf 35 -an "$compressed_file_path"
-        rm "$file_path"
-        mv "$compressed_file_path" "$file_path"
-    else
-        echo "Compressed version of $file_path already exists, skipping compression"
-    fi
+    echo "Compressing $file_path to $compressed_file_path"
+    ffmpeg -i "$file_path" -vcodec libx265 -crf 28 -tag:v hvc1 -c:a eac3 -b:a 224k -an "$compressed_file_path"
+    break
 done
