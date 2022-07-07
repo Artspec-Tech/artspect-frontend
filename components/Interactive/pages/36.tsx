@@ -1,20 +1,19 @@
-import { Center, VStack } from '@components/common';
-import { Typography } from '@mui/material';
-import React from 'react';
-import { BackgroundVideo } from '../common';
+import { Center, VStack } from "@components/common";
+import React from "react";
+import { BackgroundVideo, PageTypography } from "../common";
 
 const InteractivePage = () => {
-	return (
-		<BackgroundVideo page="36" videoType="loop" loop muted autoPlay>
-			<Center>
-				<VStack>
-          			<Typography textAlign="center" fontSize={20}>
-            			ณ ตอนที่คุณคิดว่าเหลือแค่คุณในที่แห่งนี้<br />ทันใดนั้น ก็มีสิ่งของปรากฎอยู่ตรงหน้าคุณ
-          			</Typography>
-				</VStack>
-			</Center>
-		</BackgroundVideo>
-	);
+  return (
+    <BackgroundVideo>
+      <Center marginBottom={"15rem"}>
+        <PageTypography>
+          ณ ตอนที่คุณคิดว่าเหลือแค่คุณในที่แห่งนี้
+          <br />
+          ทันใดนั้น ก็มีสิ่งของปรากฎอยู่ตรงหน้าคุณ
+        </PageTypography>
+      </Center>
+    </BackgroundVideo>
+  );
 };
 
 export default InteractivePage;

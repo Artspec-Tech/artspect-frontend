@@ -6,9 +6,11 @@ import PageTypography from "../common/PageTypography";
 const InteractivePage = () => {
   return (
     <BackgroundVideo loop={false}>
-      <Center>
+      <Center marginBottom={"40rem"}>
         <PageTypography delay={10} duration={5}>
-          เช้าวันนึงที่แสนจะธรรมดา ฉันตื่นลืมตาขึ้นมาบนเตียง...
+          เช้าวันนึงที่แสนจะธรรมดา
+          <br />
+          ฉันตื่นลืมตาขึ้นมาบนเตียง...
         </PageTypography>
       </Center>
     </BackgroundVideo>

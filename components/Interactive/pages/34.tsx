@@ -1,46 +1,39 @@
-import { VStack } from '@components/common';
-import { Typography, Box } from '@mui/material';
-import React from 'react';
-import { ChoiceButton, BackgroundVideo } from '../common';
+import { VStack } from "@components/common";
+import { useNextPage } from "hooks/useNextPage";
+import React from "react";
+import { choicePage34 } from "../choices/choices";
+import { ChoiceButton, BackgroundVideo, PageTypography } from "../common";
 
 const InteractivePage = () => {
-	return (
-		<BackgroundVideo page="34" videoType="loop" loop muted autoPlay>
-			<VStack 
-				justifyContent={"start"}
-				paddingTop="4rem"
-				gap={4}
-      		>
-				<Typography
-					align='center'
-					fontSize={20}
-				>
-					เวลาของหมอกใกล้หมดลงแล้ว<br />ถึงเวลาที่คุณต้องบอกลามันแล้วหล่ะ
-				</Typography>
-        		<Typography
-					align='center'
-					fontSize={20}
-				>
-					คุณจะบอกลาเพื่อนคนนี้ของคุณอย่างไร?
-				</Typography>
-			</VStack>
-			<VStack
-				justifyContent={"end"}
-				paddingBottom="4rem"
-				gap={2}
-			>
-				<ChoiceButton idx={0}>
-          			บอกลาด้วยรอยยิ้ม
-				</ChoiceButton>
-				<ChoiceButton idx={1}>
-          			พูดขอบคุณที่คอยอยู่เคียงข้าง
-				</ChoiceButton>
-				<ChoiceButton idx={2}>
-          			โอบกอดด้วยความผูกพัน
-				</ChoiceButton>
-			</VStack>
-		</BackgroundVideo>
-	);
+  const nextPage = useNextPage();
+  return (
+    <BackgroundVideo nextVideoOnClick={false}>
+      <VStack justifyContent="space-between" py="7rem" width="100%">
+        <VStack height="auto" gap={4}>
+          <PageTypography>
+            เวลาของหมอกใกล้หมดลงแล้ว
+            <br />
+            ถึงเวลาที่คุณต้องบอกลามันแล้วหล่ะ
+          </PageTypography>
+          <PageTypography delay={3}>
+            คุณจะบอกลาเพื่อนคนนี้ของคุณอย่างไร?
+          </PageTypography>
+        </VStack>
+        <VStack height="auto" width="100%" gap={2}>
+          {choicePage34.map((choice, index) => (
+            <ChoiceButton
+              key={index}
+              idx={index}
+              delay={5}
+              onClick={() => nextPage()}
+            >
+              {choice}
+            </ChoiceButton>
+          ))}
+        </VStack>
+      </VStack>
+    </BackgroundVideo>
+  );
 };
 
 export default InteractivePage;

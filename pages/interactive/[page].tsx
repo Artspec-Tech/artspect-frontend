@@ -6,14 +6,14 @@ import { NextPageWithLayout } from "types";
 import fs from "fs";
 import dynamic from "next/dynamic";
 
-const Interactive: NextPageWithLayout<{ page: number }> = ({ page = 0 }) => {
-  const InteractivePage = dynamic(
-    () => import(`components/Interactive/pages/${page}`),
-    {
-      loading: () => <Center>Loading...</Center>,
-    }
-  );
-  return <InteractivePage />;
+const Interactive: NextPageWithLayout<{ page: string }> = ({ page = "0" }) => {
+  if (page !== "intro") {
+    const InteractivePage = dynamic(
+      () => import(`components/Interactive/pages/${page}`)
+    );
+    return <InteractivePage />;
+  }
+  return <Center />;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   return {
     props: {
-      page: parseInt(params?.page as string),
+      page: params?.page,
     },
   };
 };
