@@ -18,7 +18,7 @@ const Interactive: NextPageWithLayout<{ page: number }> = ({ page = 0 }) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const files = fs.readdirSync("components/Interactive/pages");
-  if (files.indexOf(`${params?.page as string}.tsx`) === -1) {
+  if (!files.includes(`${params?.page}.tsx`)) {
     return {
       redirect: {
         destination: "/interactive/0",
