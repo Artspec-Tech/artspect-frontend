@@ -1,10 +1,10 @@
-type Maybe<T> = T | void;
+type Maybe<T> = T | undefined;
 
 export const isDefined = <T>(x: Maybe<T>): x is T => {
   return x !== undefined && x !== null;
 };
 
-export const isUndefined = <T>(x: Maybe<T>): x is void => {
+export const isUndefined = <T>(x: Maybe<T>): x is undefined => {
   return x === undefined || x === null;
 };
 
