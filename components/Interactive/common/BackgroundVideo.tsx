@@ -1,16 +1,12 @@
 import { VStack } from "@components/common";
+import { StackProps } from "@mui/material";
 import { arrayBufferToBlob } from "@utils/binaryOperations";
 import { db, Video } from "@utils/db";
 import { fetchInteractiveVideos } from "@utils/fetchInteractiveVideos";
 import { getOrElse } from "@utils/nullOperations";
 import { useNextPage } from "hooks/useNextPage";
 import { useRouter } from "next/router";
-import React, {
-  MediaHTMLAttributes,
-  RefObject,
-  useEffect,
-  useState,
-} from "react";
+import React, { MediaHTMLAttributes } from "react";
 
 type Props = {
   page?: string;
@@ -18,8 +14,8 @@ type Props = {
   videoType?: string;
   nextVideoOnClick?: boolean;
   handleEnded?: () => void;
-  videoRef?: RefObject<any>;
-} & MediaHTMLAttributes<any>;
+} & MediaHTMLAttributes<any> &
+  StackProps;
 
 const BackgroundVideo = ({
   page,
@@ -31,16 +27,21 @@ const BackgroundVideo = ({
   autoPlay = true,
   muted = true,
   nextVideoOnClick = true,
+  ref,
   ...props
 }: Props) => {
   const { query } = useRouter();
   const nextPage = useNextPage();
   const page_path = `/videos/interactive/${getOrElse(
-    query.page,
-    page
+    page,
+    query.page
   )}/${videoType}.mp4`;
   return (
-    <VStack onClick={nextVideoOnClick ? nextPage : undefined}>
+    <VStack
+      onClick={nextVideoOnClick ? nextPage : undefined}
+      ref={ref}
+      {...props}
+    >
       <video
         onEnded={() => handleEnded()}
         style={{
@@ -55,7 +56,6 @@ const BackgroundVideo = ({
         muted={muted}
         src={page_path}
         typeof={"video/mp4"}
-        {...props}
       />
       {children}
     </VStack>
