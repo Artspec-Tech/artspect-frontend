@@ -1,20 +1,15 @@
 import { Center } from "@components/common";
 import InteractiveLayout from "@components/Layout/Interactive";
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { NextPageWithLayout } from "types";
-import { GetStaticProps } from "next";
+import { useRouter } from "next/router";
 
 const Interactive: NextPageWithLayout = () => {
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/interactive/0");
+  }, []);
   return <Center />;
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    redirect: {
-      destination: "/interactive/0",
-      permanent: true,
-    },
-  };
 };
 
 Interactive.getLayout = (page: ReactElement) => (
