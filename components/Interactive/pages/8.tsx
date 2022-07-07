@@ -1,5 +1,4 @@
 import { VStack } from '@components/common';
-import { Typography } from '@mui/material';
 import React from 'react';
 import { BackgroundVideo } from '../common';
 import Box from '@mui/material/Box';
@@ -9,13 +8,10 @@ import {
 	choicesPage6,
 	choicesPage6ToColor,
 	choicesPage7,
+	getUserChoice,
 } from '../choices/choices';
 import { motion } from 'framer-motion';
-
-function getUserChoice(page: number) {
-	const userChoice = window.localStorage.getItem(`userChoicePage${page}`);
-	return Number(userChoice);
-}
+import PageTypography from '../common/PageTypography';
 
 const InteractivePage = () => {
 	const [value, setValue] = React.useState('Controlled');
@@ -37,18 +33,12 @@ const InteractivePage = () => {
 			nextVideoOnClick={isEnter}
 		>
 			<VStack gap={3.5}>
-				<Typography
+				<PageTypography
 					component={motion.div}
 					variant="h3"
 					align="center"
-					width={'60%'}
+					width={'93%'}
 					sx={{ fontSize: 16, fontWeight: 300 }}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{
-						delay: 1,
-						duration: 3,
-					}}
 				>
 					ฉันคิดว่าที่หมอกแห่งอารมณ์
 					<Box display="inline" fontWeight="bold">{` (${
@@ -65,7 +55,8 @@ const InteractivePage = () => {
 						fontWeight="bold"
 					>{` (${choicesPage7[userChoicePage7]}) `}</Box>
 					คงเป็นเพราะว่า ………
-				</Typography>
+				</PageTypography>
+
 				<Box
 					component={motion.form}
 					sx={{

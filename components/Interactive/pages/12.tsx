@@ -1,8 +1,9 @@
-import {Center, VStack} from "@components/common";
-import {Typography, TypographyProps} from "@mui/material";
+import { Center, VStack } from "@components/common";
+import { Typography, TypographyProps } from "@mui/material";
 import React from "react";
 import BackgroundVideo from "../common/BackgroundVideo";
-const PageTypography = ({children, ...props}: TypographyProps) => {
+
+const PageTypography = ({ children, ...props }: TypographyProps) => {
   return (
     <Typography
       sx={{
@@ -16,18 +17,20 @@ const PageTypography = ({children, ...props}: TypographyProps) => {
     </Typography>
   );
 };
+
 const InteractivePage = () => {
   return (
     <BackgroundVideo>
-      <VStack justifyContent={"start"}>
-        <PageTypography marginTop={5} marginBottom={2}>
+      <VStack gap={3} height={"auto"} mb={"30rem"}>
+        <PageTypography>
           &quot;ยินดีต้อนรับสู่ (museum of emotions) นะ
         </PageTypography>
-        <PageTypography>ที่นี่น่ะ</PageTypography>
-        <PageTypography marginBottom={3}>
+        <PageTypography delay={3}>
           ทุกคนมีหมอกของตัวเองมาด้วยกันทั้งนั้น
         </PageTypography>
-        <PageTypography>แล้วก็มีหลายสีเต็มไปหมดเลย&quot;</PageTypography>
+        <PageTypography delay={5}>
+          แล้วก็มีหลายสีเต็มไปหมดเลย&quot;
+        </PageTypography>
       </VStack>
     </BackgroundVideo>
   );
