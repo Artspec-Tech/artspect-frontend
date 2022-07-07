@@ -74,10 +74,8 @@ const ExtendedFooter = () => {
               lineHeight: { sx: "12px", sm: "24px" },
             }}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eius
-            distinctio blanditiis cumque doloribus vero delectus fugiat minima,
-            veniam nam modi eveniet cupiditate. Quia voluptas cupiditate
-            corrupti iste dolor officia.
+            Artspect คือ
+            พื้นที่ที่ช่วยส่งเสริมให้คุณได้สำรวจภายในตนเองโดยใช้ศิลปะเป็นเครื่องมือ
           </Typography>
         </Grid>
         <Grid item sx={{ gridArea: 2, backgroundColor: "#191323" }}>
@@ -97,7 +95,7 @@ const ExtendedFooter = () => {
               paddingTop: "8px",
             }}
           >
-            Phone: +66 96-930-53xx
+            Instagram: @artspect_official
           </Typography>
           <Typography
             fontSize={[6, 8, 12]}
@@ -107,7 +105,7 @@ const ExtendedFooter = () => {
               paddingTop: "8px",
             }}
           >
-            Email: xxxxxx@gmail.com
+            Facebook: Artspect.official
           </Typography>
           {isMobile ? (
             <Box
