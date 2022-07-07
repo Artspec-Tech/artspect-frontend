@@ -1,5 +1,5 @@
 import axios from "axios";
-import { db } from "./db";
+import {db} from "./db";
 
 type Props = {
   page: string;
@@ -14,6 +14,7 @@ export const fetchInteractiveVideos = async ({
     const res = await axios.get(`/videos/interactive/${page}/${videoType}`, {
       responseType: "blob",
     });
+
     await db.videos.add({
       name: `${page}_${videoType}.mp4`,
       arrayBuffer: res.data as ArrayBuffer,
