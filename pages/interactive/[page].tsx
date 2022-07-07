@@ -8,10 +8,7 @@ import dynamic from "next/dynamic";
 
 const Interactive: NextPageWithLayout<{ page: number }> = ({ page = 0 }) => {
   const InteractivePage = dynamic(
-    () => import(`components/Interactive/pages/${page}`),
-    {
-      loading: () => <Center>Loading...</Center>,
-    }
+    () => import(`components/Interactive/pages/${page}`)
   );
   return <InteractivePage />;
 };
