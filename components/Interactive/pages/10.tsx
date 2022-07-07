@@ -1,37 +1,24 @@
-import { Center, VStack } from "@components/common";
-import { Typography, TypographyProps } from "@mui/material";
-import React from "react";
-import BackgroundVideo from "../common/BackgroundVideo";
-const PageTypography = ({ children, ...props }: TypographyProps) => {
-  return (
-    <Typography
-      sx={{
-        fontSize: 20,
-        textAlign: "center",
-        textShadow: "0px 1px 1px rgba(0, 0, 0, 0.3)",
-      }}
-      {...props}
-    >
-      {children}
-    </Typography>
-  );
-};
+import { VStack } from '@components/common';
+import React from 'react';
+import BackgroundVideo from '../common/BackgroundVideo';
+import PageTypography from '../common/PageTypography';
+
 const InteractivePage = () => {
-  return (
-    <BackgroundVideo page="9">
-      <Center>
-        <VStack>
-          <PageTypography marginTop={10}>&quot;ไม่เป็นไรนะ คนเก่ง</PageTypography>
-          <PageTypography marginBottom={5}>
-            ไม่ว่าเธอจะเห็นฉันเป็นสีอะไร
-          </PageTypography>
-          <PageTypography marginBottom={5}>จะหนาแค่ไหน</PageTypography>
-          <PageTypography marginBottom={5}>หรือเพราะอะไร</PageTypography>
-          <PageTypography>การมีฉันอยู่มันเป็นเรื่องปกตินะ&quot;</PageTypography>
-        </VStack>
-      </Center>
-    </BackgroundVideo>
-  );
+	return (
+		<BackgroundVideo>
+			<VStack gap={3}>
+				<PageTypography>&quot;ไม่เป็นไรนะ คนเก่ง</PageTypography>
+				<PageTypography delay={3}>
+					ไม่ว่าเธอจะเห็นฉันเป็นสีอะไร
+				</PageTypography>
+				<PageTypography delay={5}>จะหนาแค่ไหน</PageTypography>
+				<PageTypography delay={7}>หรือเพราะอะไร</PageTypography>
+				<PageTypography delay={9}>
+					การมีฉันอยู่มันเป็นเรื่องปกตินะ&quot;
+				</PageTypography>
+			</VStack>
+		</BackgroundVideo>
+	);
 };
 
 export default InteractivePage;

@@ -1,19 +1,20 @@
 import React from "react";
+import { useRouter } from "next/router";
 import { BackgroundVideo } from "../common";
 
 const InteractivePage = () => {
   const [status, setStatus] = React.useState<"initial" | "loop">("initial");
 
-  function handleEnded() {
-    console.log("ended");
-    setStatus("loop");
-  }
+  const router = useRouter();
 
   return (
     <BackgroundVideo
       videoType={status}
-      handleEnded={handleEnded}
+      handleEnded={() => setStatus("loop")}
       loop={status === "loop"}
+      onClick={() => {
+        status === "loop" && router.push("/interactive/intro");
+      }}
       nextVideoOnClick={status === "loop"}
     />
   );
