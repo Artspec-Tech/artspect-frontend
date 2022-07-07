@@ -2,21 +2,7 @@ import { Center, VStack } from "@components/common";
 import { Typography, TypographyProps } from "@mui/material";
 import React from "react";
 import BackgroundVideo from "../common/BackgroundVideo";
-
-const PageTypography = ({ children, ...props }: TypographyProps) => {
-  return (
-    <Typography
-      sx={{
-        fontSize: 18,
-        textAlign: "center",
-        textShadow: "0px 1px 1px rgba(0, 0, 0, 0.3)",
-      }}
-      {...props}
-    >
-      {children}
-    </Typography>
-  );
-};
+import PageTypography from "../common/PageTypography";
 
 const InteractivePage = () => {
   return (
