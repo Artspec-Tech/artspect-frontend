@@ -5,7 +5,7 @@ import PageTypography from '../common/PageTypography';
 
 const InteractivePage = () => {
 	return (
-		<BackgroundVideo loop={false}>
+		<BackgroundVideo page={'29'} loop={false}>
 			<VStack>
 				<PageTypography>ว่างเปล่า?</PageTypography>
 

@@ -10,8 +10,8 @@ const PageTypography = ({
 		<Typography
 			component={motion.h3}
 			paddingX={10}
+			fontSize={20}
 			sx={{
-				fontSize: 20,
 				fontWeight: 'bold',
 				textAlign: 'center',
 				textShadow: '0px 1px 1px rgba(0, 0, 0, 0.3)',

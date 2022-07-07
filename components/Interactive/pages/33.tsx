@@ -5,7 +5,7 @@ import PageTypography from '../common/PageTypography';
 
 const InteractivePage = () => {
 	return (
-		<BackgroundVideo>
+		<BackgroundVideo page={'29'} loop={false}>
 			<VStack gap={6}>
 				<PageTypography>
 					ภายในห้องโล่งนี้ มีเพียงแค่ตัวคุณ

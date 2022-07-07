@@ -15,7 +15,7 @@ const InteractivePage = () => {
 	}
 
 	return (
-		<BackgroundVideo nextVideoOnClick={false}>
+		<BackgroundVideo page={'29'} nextVideoOnClick={false}>
 			<VStack width={'100%'} gap="2rem">
 				<Typography
 					fontSize={20}
