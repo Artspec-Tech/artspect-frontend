@@ -15,7 +15,7 @@ const PageTypography = ({
   fontWeight = 500,
   fontSize,
   children,
-}: Props) => {
+}: Props & any) => {
   return (
     <Typography
       component={motion.h3}
