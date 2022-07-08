@@ -40,7 +40,7 @@ const BackgroundVideo = ({
 		page_path = `/videos/interactive/safari/${getOrElse(
 			page,
 			query.page
-		)}/${videoType}.mp4`;
+		)}/${videoType}.mov`;
 	} else {
 		console.log('chromium');
 		page_path = `/videos/interactive/chromium/${getOrElse(
