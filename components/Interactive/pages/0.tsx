@@ -10,7 +10,8 @@ const InteractivePage = () => {
 	const [status, setStatus] = React.useState<'initial' | 'loop'>('initial');
 
 	const router = useRouter();
-	if (Bowser.safari) {
+
+	if (Bowser.safari && Bowser.ios) {
 		return (
 			<Center>
 				<Typography>
