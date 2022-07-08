@@ -2,8 +2,8 @@ import { Center, VStack } from '@components/common';
 import { Typography, TypographyProps } from '@mui/material';
 import React from 'react';
 import BackgroundVideo from '../common/BackgroundVideo';
-import { motion } from 'framer-motion';
-const PageTypography = ({ children, ...props }: TypographyProps) => {
+import { motion, MotionProps } from 'framer-motion';
+const PageTypography = ({ children, ...props }: TypographyProps & any) => {
 	return (
 		<Typography
 			component={motion.h3}
