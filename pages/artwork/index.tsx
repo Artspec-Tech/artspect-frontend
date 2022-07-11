@@ -87,6 +87,8 @@ const Artwork: NextPageWithLayout = () => {
               border: 5,
               borderColor: "#BBC7DD",
               borderRadius: 1,
+              maxWidth:"25rem",
+              minHeight: "8rem"
             }}
           >
             <Typography fontWeight="bold" fontSize="20px">
@@ -106,7 +108,7 @@ const Artwork: NextPageWithLayout = () => {
             sx={{
               display: "flex",
               flexDirection: "flex-row",
-              alignItems: "flex-end",
+              alignItems: "center",
               paddingBottom: "2.5rem",
             }}
           >
@@ -118,7 +120,6 @@ const Artwork: NextPageWithLayout = () => {
                 sm: "15px",
                 lg: "20px",
               }}
-              marginBottom="0.3rem"
             >
               เลือกหนึ่งหัวข้อและความเชี่ยวชาญเพียงอย่างเดียว
             </Typography>
@@ -130,9 +131,9 @@ const Artwork: NextPageWithLayout = () => {
               justifyContent: "space-between",
             }}
           >
-            <Image src={LiteratureImage} alt="Literature" />
-            <Image src={VisualImage} alt="Visual Arts" />
-            <Image src={PerformanceImage} alt="Performance Arts" />
+            <Box paddingRight={"1rem"}><Image src={LiteratureImage} alt="Literature" /></Box>
+            <Box paddingRight="1rem"><Image src={VisualImage} alt="Visual Arts" /></Box>
+            <Box><Image src={PerformanceImage} alt="Performance Arts" /></Box>
           </Box>
         </Grid>
         <Grid item sm={5}>
