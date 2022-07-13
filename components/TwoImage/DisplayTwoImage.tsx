@@ -2,6 +2,8 @@ import React from "react";
 import {BgImage} from "components/common";
 import {FooterBackground} from "../../utils/images";
 import {Box} from "@mui/material";
+import { WorkshopsImage, MomentImage } from "@utils/images";
+import Image from "next/image";
 
 const TwoImage = () => {
   return (
@@ -18,26 +20,30 @@ const TwoImage = () => {
     >
       <Box
         sx={{
+          position: "relative",
           width: {
             xs: "80vw",
             sm: "35vw",
             xl: "650px",
           },
-          aspectRatio: "16/9",
-          backgroundColor: "#C4C4C4",
+          aspectRatio: "16/9"
         }}
-      />
+      >
+        <Image src={MomentImage} layout="fill" objectFit="contain" alt="Welcome to Artspect" />
+      </Box>
       <Box
         sx={{
+          position: "relative",
           width: {
             xs: "80vw",
             sm: "35vw",
             xl: "650px",
           },
-          aspectRatio: "16/9",
-          backgroundColor: "#C4C4C4",
+          aspectRatio: "16/9"
         }}
-      />
+      >
+        <Image src={WorkshopsImage} layout="fill" objectFit="contain" alt="Welcome to Artspect" />
+      </Box>
     </BgImage>
   );
 };

@@ -3,6 +3,8 @@ import React from "react";
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Link from "next/link";
 import { navigations } from "../Header/navigationList";
+import { WelcomeImage } from "@utils/images";
+import Image from "next/image";
 
 const ExtendedFooter = () => {
   const theme = useTheme();
@@ -162,10 +164,13 @@ const ExtendedFooter = () => {
           display="grid"
           width="100%"
           sx={{
-            gridArea: "image",
-            backgroundColor: "#C4C4C4",
+            gridArea: "image"
           }}
-        />
+        >
+          <Box position={"relative"}>
+            <Image src={WelcomeImage} layout="fill" objectFit="contain" alt="Welcome to Artspect" />
+          </Box>
+        </Grid>
       </Grid>
     </Box>
   );
