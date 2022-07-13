@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HStack } from '@components/common';
-import { IconButton, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { IconButton, Link, Typography, useMediaQuery, useTheme } from '@mui/material';
 import fontWeights from '@utils/fontWeights';
 import Navigation from './Navigation';
 import Divider from '@components/common/Divider';
@@ -40,7 +40,9 @@ const Header = () => {
 			justifyContent={'space-between'}
 			alignItems={'center'}
 		>
-			<Image src={LogoIcon} alt="logo" height="70px" width="70px" />
+			<Link href="/home" underline="none">
+				<Image src={LogoIcon} alt="logo" height="70px" width="70px" />	
+			</Link>
 			{showHeader && (
 				<HStack width="auto" gap={0.5}>
 					{AuthHeader}
@@ -75,9 +77,11 @@ const Header = () => {
 				},
 			}}
 		>
-			<Typography variant="h4" fontWeight={fontWeights.semiBold}>
-				Artspect
-			</Typography>
+			<Link href="/home" underline="none">
+				<Typography variant="h4" fontWeight={fontWeights.semiBold}>
+					Artspect
+				</Typography>
+			</Link>
 			{showHeader && (
 				<HStack width="auto" gap={3}>
 					<Navigation />
