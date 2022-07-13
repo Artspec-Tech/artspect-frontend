@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const Home: NextPageWithLayout = () => {
   const router = useRouter();
   useEffect(() => {
-    router.push("/interactive/0");
+    router.push("/home");
   }, []);
   return <Center />;
 };
