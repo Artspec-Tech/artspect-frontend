@@ -29,7 +29,7 @@ const TwoImage = () => {
           aspectRatio: "16/9"
         }}
       >
-        <Image src={MomentImage} layout="fill" objectFit="contain" alt="Welcome to Artspect" />
+        <Image src={WorkshopsImage} layout="fill" objectFit="contain" alt="Welcome to Artspect" />
       </Box>
       <Box
         sx={{
@@ -42,7 +42,7 @@ const TwoImage = () => {
           aspectRatio: "16/9"
         }}
       >
-        <Image src={WorkshopsImage} layout="fill" objectFit="contain" alt="Welcome to Artspect" />
+        <Image src={MomentImage} layout="fill" objectFit="contain" alt="Welcome to Artspect" />
       </Box>
     </BgImage>
   );

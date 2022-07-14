@@ -11,6 +11,6 @@ export * as DetailPicture from '../public/images/detail-picture.svg';
 export * as DetailPhoto from '../public/images/detail-photo.svg';
 export * as DetailPainting from '../public/images/detail-painting.svg';
 export * as Detail3d from '../public/images/detail-3d.svg';
-export * as WelcomeImage from '../public/images/welcome-to-artspect.jpg';
-export * as WorkshopsImage from '../public/images/workshops.jpg';
+export * as WelcomeImage from '../public/images/welcome-to-artspect.png';
+export * as WorkshopsImage from '../public/images/workshops.png';
 export * as MomentImage from '../public/images/in-the-moment.jpg';
