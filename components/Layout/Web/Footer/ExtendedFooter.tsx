@@ -111,14 +111,16 @@ const ExtendedFooter = () => {
           </Typography>
           {isMobile ? (
             <Box
+              position="relative"
               width="100%"
               height="50px"
               marginTop="12px"
               sx={{
-                gridArea: "image",
-                backgroundColor: "#C4C4C4",
+                gridArea: "image"
               }}
-            ></Box>
+            >
+              <Image src={WelcomeImage} layout="fill" objectFit="contain" alt="Welcome to Artspect" />
+            </Box>
           ) : (
             <Box display="none"></Box>
           )}
