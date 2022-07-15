@@ -14,3 +14,5 @@ export * as Detail3d from '../public/images/detail-3d.svg';
 export * as WelcomeImage from '../public/images/welcome-to-artspect.png';
 export * as WorkshopsImage from '../public/images/workshops.png';
 export * as MomentImage from '../public/images/in-the-moment.jpg';
+export * as LoginImage from '../public/images/login-bg.jpeg';
+export * as GoogleIconImage from '../public/images/google.png';
