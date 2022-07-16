@@ -1,23 +1,29 @@
-import "../styles/globals.css";
-import theme from "../styles/theme";
-import { ThemeProvider } from "@mui/material";
-import { Provider } from "react-redux";
+import '../styles/globals.css';
+import theme from '../styles/theme';
+import { ThemeProvider } from '@mui/material';
+import { Provider } from 'react-redux';
+import { SessionProvider } from 'next-auth/react';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { AppPropsWithLayout } from "types";
-import { ReactElement } from "react";
-import store from "store";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { AppPropsWithLayout } from 'types';
+import { ReactElement } from 'react';
+import store from 'store';
 
-function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page: ReactElement) => page);
-  return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
-    </Provider>
-  );
+function MyApp({
+	Component,
+	pageProps: { session, ...pageProps },
+}: AppPropsWithLayout) {
+	const getLayout = Component.getLayout ?? ((page: ReactElement) => page);
+	return (
+		<SessionProvider session={session}>
+			<Provider store={store}>
+				<ThemeProvider theme={theme}>
+					{getLayout(<Component {...pageProps} />)}
+				</ThemeProvider>
+			</Provider>
+		</SessionProvider>
+	);
 }
 
 export default MyApp;
