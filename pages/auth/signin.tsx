@@ -1,5 +1,5 @@
 import React from 'react';
-import { VStack } from '@components/common';
+import { Center, VStack } from '@components/common';
 import { LoginImage, GoogleIconImage } from '@utils/images';
 import Image from 'next/image';
 import { useSession, signIn, signOut } from 'next-auth/react';
@@ -22,14 +22,56 @@ function Signin() {
 	const handleOAuthSignIn = (provider: string) => () => signIn(provider);
 
 	if (status === 'loading') {
-		return <Typography>Checking Authentication</Typography>;
+		return (
+			<Center height={'100vh'}>
+				<Typography
+					variant="h1"
+					align="center"
+					sx={{
+						fontSize: '1rem',
+						fontFamily: 'Montserrat',
+						fontWeight: 700,
+						color: '#525252',
+					}}
+				>
+					Checking Authentication
+				</Typography>
+			</Center>
+		);
 	}
 
 	if (session) {
 		setTimeout(() => {
 			push('/home');
-		}, 5000);
-		return <Typography>You are already signed in</Typography>;
+		}, 3000);
+		return (
+			<VStack height={'100vh'} gap={'1rem'}>
+				<Typography
+					variant="h1"
+					align="center"
+					sx={{
+						fontSize: '1rem',
+						fontFamily: 'Montserrat',
+						fontWeight: 700,
+						color: '#525252',
+					}}
+				>
+					You are already signed in
+				</Typography>
+				<Typography
+					variant="h1"
+					align="center"
+					sx={{
+						fontSize: '0.5rem',
+						fontFamily: 'Montserrat',
+						fontWeight: 700,
+						color: '#525252',
+					}}
+				>
+					Going back to Home Page ...
+				</Typography>
+			</VStack>
+		);
 	}
 	return (
 		<Box

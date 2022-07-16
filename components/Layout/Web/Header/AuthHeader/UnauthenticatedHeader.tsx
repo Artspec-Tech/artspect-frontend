@@ -8,7 +8,6 @@ import { VStack } from '@components/common';
 
 const UnauthenticatedHeader = () => {
 	const router = useRouter();
-	const handleSignIn = () => router.push('/auth/signin');
 
 	return (
 		<Link
