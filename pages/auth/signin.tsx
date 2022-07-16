@@ -2,6 +2,7 @@ import React from 'react';
 import { VStack } from '@components/common';
 import { LoginImage, GoogleIconImage } from '@utils/images';
 import Image from 'next/image';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 import {
 	Box,
@@ -10,10 +11,26 @@ import {
 	useMediaQuery,
 	useTheme,
 } from '@mui/material';
+import { useRouter } from 'next/router';
 
 function Signin() {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+	const { push } = useRouter();
+	const { data: session, status } = useSession();
+
+	const handleOAuthSignIn = (provider: string) => () => signIn(provider);
+
+	if (status === 'loading') {
+		return <Typography>Checking Authentication</Typography>;
+	}
+
+	if (session) {
+		setTimeout(() => {
+			push('/home');
+		}, 5000);
+		return <Typography>You are already signed in</Typography>;
+	}
 	return (
 		<Box
 			sx={{
@@ -50,7 +67,12 @@ function Signin() {
 				>
 					Login to your Account
 				</Typography>
-				<Button variant="outlined" fullWidth sx={{ color: '#828282' }}>
+				<Button
+					variant="outlined"
+					fullWidth
+					sx={{ color: '#828282' }}
+					onClick={handleOAuthSignIn('google')}
+				>
 					<Box
 						height={'2rem'}
 						overflow="hidden"
