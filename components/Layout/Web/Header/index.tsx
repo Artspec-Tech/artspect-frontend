@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
+import { useSession } from 'next-auth/react';
+
 import { HStack } from '@components/common';
-import { IconButton, Link, Typography, useMediaQuery, useTheme } from '@mui/material';
+import {
+	IconButton,
+	Link,
+	Typography,
+	useMediaQuery,
+	useTheme,
+} from '@mui/material';
 import fontWeights from '@utils/fontWeights';
 import Navigation from './Navigation';
 import Divider from '@components/common/Divider';
@@ -12,10 +20,11 @@ import Image from 'next/image';
 import { LogoIcon } from '@utils/icons';
 
 const Header = () => {
+	const { data: session, status } = useSession();
+
 	const showHeader = true;
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-	const isAuthenticated = true;
 	const [isDrawerOpen, setDrawerOpen] = useState(false);
 	const toggleDrawer =
 		(toggle: boolean) => (e: React.KeyboardEvent | React.MouseEvent) => {
@@ -29,11 +38,12 @@ const Header = () => {
 			}
 			setDrawerOpen(toggle);
 		};
-	const AuthHeader: JSX.Element = isAuthenticated ? (
-		<AuthenticatedHeader />
-	) : (
-		<UnauthenticatedHeader />
-	);
+	const AuthHeader: JSX.Element =
+		status === 'authenticated' ? (
+			<AuthenticatedHeader />
+		) : (
+			<UnauthenticatedHeader />
+		);
 	return isMobile ? (
 		<HStack
 			padding={'2rem 1rem'}
@@ -41,7 +51,7 @@ const Header = () => {
 			alignItems={'center'}
 		>
 			<Link href="/home" underline="none">
-				<Image src={LogoIcon} alt="logo" height="70px" width="70px" />	
+				<Image src={LogoIcon} alt="logo" height="70px" width="70px" />
 			</Link>
 			{showHeader && (
 				<HStack width="auto" gap={0.5}>
