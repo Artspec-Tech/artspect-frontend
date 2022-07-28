@@ -21,3 +21,4 @@ export * as LoginImage from '../public/images/login-bg.jpeg';
 export * as GoogleIconImage from '../public/images/google.png';
 export * as VotingTextImage from '../public/images/voting-text.png';
 export * as GradientLineImage from '../public/images/gradient-line.png';
+export * as FooterVotingImage from '../public/images/footer-voting.png';

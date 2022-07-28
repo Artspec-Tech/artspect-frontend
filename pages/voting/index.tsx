@@ -7,9 +7,11 @@ import { VotingTextImage, GradientLineImage } from '@utils/images';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 
-const Voting: NextPageWithLayout = () => {
-	const { data: session } = useSession();
+import Voting from '@components/Voting';
 
+const VotingPage: NextPageWithLayout = () => {
+	const { data: session } = useSession();
+	return <Voting />;
 	return (
 		<VStack
 			sx={{
@@ -96,19 +98,21 @@ const Voting: NextPageWithLayout = () => {
 				</Typography>
 			</Box>
 			<Typography
+				textAlign="center"
 				fontSize={{
-					xs: '17px',
-					sm: '18px',
+					xs: '8px',
+					sm: '14px',
 					md: '20px',
 				}}
 				fontWeight="bold"
 			>
 				Click on your favorite artwork and submit your vote!
 			</Typography>
+			<Voting />
 		</VStack>
 	);
 };
 
-Voting.getLayout = (page: ReactElement) => <WebLayout>{page}</WebLayout>;
+// VotingPage.getLayout = (page: ReactElement) => <WebLayout>{page}</WebLayout>;
 
-export default Voting;
+export default VotingPage;
