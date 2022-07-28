@@ -12,6 +12,7 @@ function ArtworkDetail() {
 				display: 'flex',
 				flexDirection: 'column',
 				justifyContent: 'flex-end',
+				alignItems: 'center',
 			}}
 			width="100vw"
 			height="100vh"
