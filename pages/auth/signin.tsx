@@ -16,7 +16,7 @@ import { useRouter } from 'next/router';
 function Signin() {
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-	const { push } = useRouter();
+	const router = useRouter();
 	const { data: session, status } = useSession();
 
 	const handleOAuthSignIn = (provider: string) => () => signIn(provider);
@@ -39,10 +39,11 @@ function Signin() {
 			</Center>
 		);
 	}
-
 	if (session) {
+		const url = router.query.callbackUrl?.toString();
+
 		setTimeout(() => {
-			push('/home');
+			url ? router.push(url) : router.push('/home');
 		}, 3000);
 		return (
 			<VStack height={'100vh'} gap={'1rem'}>
@@ -68,7 +69,7 @@ function Signin() {
 						color: '#525252',
 					}}
 				>
-					Going back to Home Page ...
+					Going back ...
 				</Typography>
 			</VStack>
 		);
