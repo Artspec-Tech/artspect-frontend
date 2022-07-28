@@ -1,3 +1,6 @@
+import { LiteratureImage } from '@utils/images';
+import { Gradient } from '@mui/icons-material';
+import { VotingTextImage } from '@utils/images';
 export * as FooterBackground from '../public/images/footer-background.png';
 export * as VanGoghImage from '../public/images/van-gogh.jpeg';
 export * as MathioleImage from '../public/images/mathiole.jpeg';
@@ -16,3 +19,5 @@ export * as WorkshopsImage from '../public/images/workshops.png';
 export * as MomentImage from '../public/images/in-the-moment.jpg';
 export * as LoginImage from '../public/images/login-bg.jpeg';
 export * as GoogleIconImage from '../public/images/google.png';
+export * as VotingTextImage from '../public/images/voting-text.png';
+export * as GradientLineImage from '../public/images/gradient-line.png';
