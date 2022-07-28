@@ -8,14 +8,19 @@ import Image from 'next/image';
 function ArtworkDetail() {
 	return (
 		<Box
+			position="absolute"
 			sx={{
 				display: 'flex',
 				flexDirection: 'column',
 				justifyContent: 'flex-end',
 				alignItems: 'center',
+				transform: 'translate(-50%, -50%)',
 			}}
+			left="50%"
+			top="50%"
 			width="100vw"
 			height="100vh"
+			zIndex={-1}
 		>
 			<VStack
 				sx={{
