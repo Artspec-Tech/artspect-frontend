@@ -123,17 +123,49 @@ const Artwork: NextPageWithLayout = () => {
 						}}
 					>
 						<Typography fontWeight="bold" fontSize="20px">
-							Showcase your artwork!
+							Showcase your visual artwork!
 						</Typography>
 						<Button
 							variant="contained"
 							href="https://docs.google.com/forms/d/e/1FAIpQLSfBipAD8tFkD_QMNoV7K0p7omYkTZQr_B5zbLxFg1-Tnr_HwQ/viewform"
 							sx={{
+								fontSize: '16px',
 								borderRadius: 10,
 								backgroundColor: '#FF0000',
+								mb: '0.5rem',
 							}}
 						>
-							SUBMIT NOW
+							SUBMIT HERE
+						</Button>
+					</Box>
+					<Box
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							justifyContent: 'space-around',
+							alignItems: 'center',
+							border: 5,
+							borderColor: '#BBC7DD',
+							borderRadius: 1,
+							maxWidth: '25rem',
+							minHeight: '6rem',
+							mt: '1rem',
+							padding: '0.5rem',
+						}}
+					>
+						<Typography fontWeight="bold" fontSize="14px">
+							Showcase your literature/performance artwork!
+						</Typography>
+						<Button
+							variant="contained"
+							href="https://forms.gle/yekZ3GQVHSMytDFk8"
+							sx={{
+								fontSize: '12px',
+								borderRadius: 10,
+								backgroundColor: '#898CE3',
+							}}
+						>
+							SUBMIT HERE
 						</Button>
 					</Box>
 				</Grid>
