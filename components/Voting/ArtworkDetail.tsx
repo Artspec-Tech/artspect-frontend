@@ -1,11 +1,25 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, BoxProps } from '@mui/material';
 import Footer from './Footer';
 import { VStack } from '@components/common';
 import { VanGoghImage } from '@utils/images';
 import Image from 'next/image';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
-function ArtworkDetail() {
+type Props = {
+	imageSrc: string;
+	imageTitle: string;
+	imageDesc: string;
+	handleClose: () => void;
+};
+
+function ArtworkDetail({
+	imageSrc,
+	imageTitle,
+	imageDesc,
+	handleClose,
+}: Props) {
 	return (
 		<Box
 			position="absolute"
@@ -18,10 +32,25 @@ function ArtworkDetail() {
 			}}
 			left="50%"
 			top="50%"
-			width="100vw"
-			height="100vh"
+			width="90vw"
+			height="90vh"
 			zIndex={-1}
 		>
+			<IconButton
+				sx={{
+					position: 'absolute',
+					top: 0,
+					left: 0,
+					transform: 'translate(-50%, -50%)',
+					backgroundColor: '#FF0000',
+					color: '#D9D9D9',
+					width: '2rem',
+					height: '2rem',
+				}}
+				onClick={handleClose}
+			>
+				<CloseIcon />
+			</IconButton>
 			<VStack
 				sx={{
 					backgroundColor: '#353535',
@@ -32,6 +61,7 @@ function ArtworkDetail() {
 						xl: '5rem',
 					},
 				}}
+				borderRadius="1rem 1rem 0rem 0rem"
 			>
 				<Box
 					width="90%"
@@ -70,6 +100,7 @@ function ArtworkDetail() {
 						}}
 					>
 						ART NAME
+						{imageTitle}
 					</Typography>
 					<Typography
 						variant="h3"
