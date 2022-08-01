@@ -1,10 +1,17 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+import React from 'react';
+
 import { Center } from '@components/common';
-import { Box } from '@mui/material';
+import { Box, Modal } from '@mui/material';
 import Slider from 'react-slick';
+import ArtworkDetail from './ArtworkDetail';
+import ArtworkModal from './ArtworkModal';
 
 function ArtworkCarousel() {
+	const [open, setOpen] = React.useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
 	const settings = {
 		dots: true,
 		centerMode: true,
@@ -52,11 +59,26 @@ function ArtworkCarousel() {
 			height="auto"
 		>
 			<Slider {...settings}>
+				{/* <ArtworkModal
+					imageInfo={{
+						imageSrc: 'a',
+						imageTitle: 'a',
+						imageDesc: 'a',
+					}}
+				/> */}
+				<ArtworkModal
+					imageInfo={{
+						imageSrc: 'b',
+						imageTitle: 'b',
+						imageDesc: 'b',
+					}}
+				/>
 				<Box>
 					<Center
 						style={{
 							marginTop: 20,
 						}}
+						onClick={handleOpen}
 					>
 						<img
 							src="https://i.stack.imgur.com/5z01U.png"
@@ -67,21 +89,14 @@ function ArtworkCarousel() {
 							}}
 						/>
 					</Center>
-				</Box>
-				<Box>
-					<Center
-						style={{
-							marginTop: 20,
-						}}
-					>
-						<img
-							src="http://placekitten.com/g/400/200"
-							style={{
-								width: '10rem',
-								height: '10rem',
-							}}
+					<Modal open={open} onClose={handleClose}>
+						<ArtworkDetail
+							handleClose={handleClose}
+							imageSrc={'a'}
+							imageTitle={'a'}
+							imageDesc={'a'}
 						/>
-					</Center>
+					</Modal>
 				</Box>
 				<Box>
 					<Center
